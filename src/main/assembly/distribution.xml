@@ -1,0 +1,58 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 http://maven.apache.org/xsd/assembly-2.2.0.xsd">
+  <id>dist</id>
+  <formats>
+    <format>dir</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <baseDirectory>LotroCompanion-${project.version}</baseDirectory>
+
+  <fileSets>
+    <!-- Runtime locations.properties -->
+    <fileSet>
+      <directory>${project.basedir}/src/main/assembly</directory>
+      <outputDirectory>.</outputDirectory>
+      <includes>
+        <include>locations.properties</include>
+        <include>run.bat</include>
+        <include>run.sh</include>
+      </includes>
+    </fileSet>
+
+    <!-- Config files -->
+    <fileSet>
+      <directory>${project.basedir}/data</directory>
+      <outputDirectory>data</outputDirectory>
+    </fileSet>
+
+    <!-- Lore data from lotro-data -->
+    <fileSet>
+      <directory>${project.basedir}/../lotro-data/lore</directory>
+      <outputDirectory>data/lore</outputDirectory>
+    </fileSet>
+
+    <!-- Items DB -->
+    <fileSet>
+      <directory>${project.basedir}/../lotro-items-db</directory>
+      <outputDirectory>items</outputDirectory>
+      <includes>
+        <include>items.xml</include>
+      </includes>
+    </fileSet>
+
+    <!-- Icons from lotro-icons -->
+    <fileSet>
+      <directory>${project.basedir}/../lotro-icons</directory>
+      <outputDirectory>icons</outputDirectory>
+    </fileSet>
+  </fileSets>
+
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>lib</outputDirectory>
+      <useProjectArtifact>true</useProjectArtifact>
+      <scope>runtime</scope>
+    </dependencySet>
+  </dependencySets>
+</assembly>
