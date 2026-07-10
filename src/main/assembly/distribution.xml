@@ -9,14 +9,22 @@
   <baseDirectory>LotroCompanion-${project.version}</baseDirectory>
 
   <fileSets>
-    <!-- Runtime locations.properties -->
+    <!-- Run scripts -->
     <fileSet>
       <directory>${project.basedir}/src/main/assembly</directory>
       <outputDirectory>.</outputDirectory>
       <includes>
-        <include>locations.properties</include>
         <include>run.bat</include>
         <include>run.sh</include>
+      </includes>
+    </fileSet>
+
+    <!-- Override locations.properties in classpath (patches/ takes priority over jar) -->
+    <fileSet>
+      <directory>${project.basedir}/src/main/assembly</directory>
+      <outputDirectory>lib/patches</outputDirectory>
+      <includes>
+        <include>locations.properties</include>
       </includes>
     </fileSet>
 
@@ -35,16 +43,22 @@
     <!-- Items DB -->
     <fileSet>
       <directory>${project.basedir}/../lotro-items-db</directory>
-      <outputDirectory>items</outputDirectory>
+      <outputDirectory>data/lore</outputDirectory>
       <includes>
         <include>items.xml</include>
       </includes>
     </fileSet>
 
-    <!-- Icons from lotro-icons -->
+    <!-- Icons as classpath resources (for getResource("/classes/*.png")) -->
     <fileSet>
       <directory>${project.basedir}/../lotro-icons</directory>
       <outputDirectory>icons</outputDirectory>
+      <excludes>
+        <exclude>.classpath</exclude>
+        <exclude>.project</exclude>
+        <exclude>.gitignore</exclude>
+        <exclude>pom.xml</exclude>
+      </excludes>
     </fileSet>
   </fileSets>
 
