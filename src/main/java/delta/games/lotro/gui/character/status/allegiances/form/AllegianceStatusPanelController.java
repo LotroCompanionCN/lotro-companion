@@ -17,6 +17,7 @@ import delta.games.lotro.character.status.allegiances.AllegianceStatus;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.utils.IconAndLinkPanelController;
 import delta.games.lotro.gui.utils.SharedPanels;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.allegiances.AllegianceDescription;
 import delta.games.lotro.utils.html.HtmlUtils;
 
@@ -66,7 +67,7 @@ public class AllegianceStatusPanelController
     JPanel summaryPanel=buildAllegianceSummaryPanel();
     // Rewards panel
     JPanel rewardsPanel=_rewards.getPanel();
-    rewardsPanel.setBorder(GuiFactory.buildTitledBorder("Rewards")); // I18n
+    rewardsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("character.status.allegiances.border.rewards")));
     // Status summary panel
     JPanel statusSummaryPanel=_statusSummary.getPanel();
 

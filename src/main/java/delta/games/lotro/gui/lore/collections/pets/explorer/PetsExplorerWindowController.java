@@ -58,7 +58,7 @@ public class PetsExplorerWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Pets explorer"); // 18n
+    frame.setTitle(Labels.getLabel("pets.explorer.title"));
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(825,700);
     return frame;
@@ -83,8 +83,8 @@ public class PetsExplorerWindowController extends DefaultWindowController
     // Table
     initPetsTable();
     _panelController=new GenericTablePanelController<CosmeticPetDescription>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Pets"); // I18n
-    _panelController.getCountsDisplay().setText("Pet(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("pets.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("pets.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new PetFilterController(_filter,_panelController);

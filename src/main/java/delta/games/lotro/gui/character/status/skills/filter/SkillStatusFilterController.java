@@ -22,6 +22,7 @@ import delta.games.lotro.character.status.skills.filters.KnownSkillFilter;
 import delta.games.lotro.character.status.skills.filters.SkillStatusFilter;
 import delta.games.lotro.common.filters.NamedFilter;
 import delta.games.lotro.gui.utils.SharedUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a skill status filter edition panel.
@@ -117,7 +118,7 @@ public class SkillStatusFilterController
     JPanel linePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Label filter
     {
-      linePanel.add(GuiFactory.buildLabel("Name filter:")); // I18n
+      linePanel.add(GuiFactory.buildLabel(Labels.getLabel("skills.filter.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(10);
       linePanel.add(_contains);
@@ -139,7 +140,7 @@ public class SkillStatusFilterController
     }
     // Known
     {
-      JLabel label=GuiFactory.buildLabel("Known:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("skills.filter.known"));
       linePanel.add(label);
       _known=buildKnownCombobox();
       linePanel.add(_known.getComboBox());

@@ -11,6 +11,7 @@ import javax.swing.event.HyperlinkListener;
 import delta.common.ui.swing.navigator.NavigatorWindowController;
 import delta.common.ui.swing.navigator.PageIdentifier;
 import delta.games.lotro.gui.common.navigation.ReferenceConstants;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.Achievable;
 import delta.games.lotro.lore.quests.QuestDescription;
 import delta.games.lotro.lore.xrefs.Reference;
@@ -122,7 +123,7 @@ public class BillingGroupReferencesDisplayController
     List<Reference<Achievable,BillingGroupRole>> achievableReferences=getReferences(references,Achievable.class);
     if (!achievableReferences.isEmpty())
     {
-      sb.append("<h1>Quests and deeds</h1>"); // 18n
+      sb.append(Labels.getLabel("billingGroup.references.questsAndDeeds"));
       for(Reference<Achievable,BillingGroupRole> achievableReference : achievableReferences)
       {
         buildHtmlForAchievableReference(sb,achievableReference.getSource());
@@ -132,9 +133,9 @@ public class BillingGroupReferencesDisplayController
 
   private void buildHtmlForAchievableReference(StringBuilder sb, Achievable achievable)
   {
-    sb.append("<p>Reward for "); // 18n
+    sb.append(Labels.getLabel("billingGroup.references.rewardFor"));
     boolean isQuest=(achievable instanceof QuestDescription);
-    String type=isQuest?"quest ":"deed "; // 18n
+    String type=isQuest?Labels.getLabel("billingGroup.references.quest"):Labels.getLabel("billingGroup.references.deed");
     sb.append(type);
     sb.append("<b>");
     PageIdentifier to=ReferenceConstants.getAchievableReference(achievable);

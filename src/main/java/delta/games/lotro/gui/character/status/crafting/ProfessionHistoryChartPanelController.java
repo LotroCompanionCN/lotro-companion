@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.status.crafting.ProfessionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.CraftingLevel;
 
 /**
@@ -56,11 +57,11 @@ public class ProfessionHistoryChartPanelController
     // Mastery label
     CraftingLevel mastery=_stats.getMasteryLevel();
     String masteryStr=mastery.getCraftTier().getLabel()+" ("+mastery.getTier()+")";
-    _masteryLabel=GuiFactory.buildLabel("Mastery: "+masteryStr); // I18n
+    _masteryLabel=GuiFactory.buildLabel(Labels.getLabel("crafting.chart.mastery.label",new Object[]{masteryStr}));
     // Proficiency label
     CraftingLevel proficiency=_stats.getProficiencyLevel();
     String proficiencyStr=proficiency.getCraftTier().getLabel()+" ("+proficiency.getTier()+")";
-    _proficiencyLabel=GuiFactory.buildLabel("Proficiency: "+proficiencyStr); // I18n
+    _proficiencyLabel=GuiFactory.buildLabel(Labels.getLabel("crafting.chart.proficiency.label",new Object[]{proficiencyStr}));
     // History chart
     _history=new CraftingHistoryChartController(_stats,false);
     JPanel historyPanel=_history.getPanel();

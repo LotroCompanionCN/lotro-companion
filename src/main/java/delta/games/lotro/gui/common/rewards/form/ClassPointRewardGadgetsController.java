@@ -8,6 +8,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.area.AreaController;
 import delta.common.ui.swing.icons.IconsManager;
 import delta.common.ui.swing.labels.LabelWithHalo;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the UI gadgets of a class points reward.
@@ -24,10 +25,14 @@ public class ClassPointRewardGadgetsController extends RewardGadgetsController
   {
     super(parent);
     // Label
-    String text="Class Point"; // I18n
+    String text;
     if (count>1)
     {
-      text=String.valueOf(count)+" Class Points"; // I18n
+      text=Labels.getLabel("common.rewards.classPointsFormat",new Object[]{String.valueOf(count)});
+    }
+    else
+    {
+      text=Labels.getLabel("common.rewards.classPoint");
     }
     Color color=Color.WHITE;
     _label=new LabelWithHalo();

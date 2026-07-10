@@ -17,6 +17,7 @@ import delta.games.lotro.gui.maps.DatRadarImageProvider;
 import delta.games.lotro.gui.maps.MarkerSelectionListener;
 import delta.games.lotro.gui.maps.RadarMapLayer;
 import delta.games.lotro.gui.maps.basemap.DatBasemapImageProvider;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.maps.ParchmentMap;
 import delta.games.lotro.lore.maps.ParchmentMapsManager;
 import delta.games.lotro.maps.data.MapsManager;
@@ -78,11 +79,11 @@ public class MapWindowController extends DefaultWindowController implements Navi
     // Satellite map
     DataFacade facade=DatInterface.getInstance().getFacade();
     RadarImageProvider provider=new DatRadarImageProvider(facade);
-    _radarLayer=new RadarMapLayer(RadarMapLayer.SATELLITE_MAP,1,provider);
+    _radarLayer=new RadarMapLayer(Labels.getLabel("maps.radar.satelliteMap"),1,provider);
     canvas.addLayer(_radarLayer);
     // Height map
     RadarImageProvider heightMapProvider=new DatHeightMapImageProvider(facade);
-    _heightMapLayer=new RadarMapLayer(RadarMapLayer.HEIGHT_MAP,1,heightMapProvider);
+    _heightMapLayer=new RadarMapLayer(Labels.getLabel("maps.radar.heightMap"),1,heightMapProvider);
     _heightMapLayer.setVisible(false);
     canvas.addLayer(_heightMapLayer);
 

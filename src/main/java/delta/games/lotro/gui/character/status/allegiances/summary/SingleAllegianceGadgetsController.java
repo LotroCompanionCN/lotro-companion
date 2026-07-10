@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.status.allegiances.AllegianceStatus;
 import delta.games.lotro.gui.LotroIconsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.allegiances.AllegianceDescription;
 
 /**
@@ -43,7 +44,7 @@ public class SingleAllegianceGadgetsController
     // State
     _state=GuiFactory.buildLabel("?");
     // Button
-    _button=GuiFactory.buildButton("Details..."); // I18n
+    _button=GuiFactory.buildButton(Labels.getLabel("character.status.allegiances.button.details"));
     // Init
     setAllegiance(status.getAllegiance());
     setAllegianceStatus(status);
@@ -133,22 +134,22 @@ public class SingleAllegianceGadgetsController
   {
     if (status==null)
     {
-      return "Unknown"; // I18n
+      return Labels.getLabel("character.status.allegiances.state.unknown");
     }
     boolean started=status.isStarted();
     if (!started)
     {
-      return "Not Started"; // I18n
+      return Labels.getLabel("character.status.allegiances.state.notStarted");
     }
     Integer level=status.getCurrentLevel();
     if (level==null)
     {
-      return "Not Started"; // I18n
+      return Labels.getLabel("character.status.allegiances.state.notStarted");
     }
     int maxLevel=status.getPoints2LevelCurve().getMaxLevel();
     if (level.intValue()>=maxLevel)
     {
-      return "Finished"; // I18n
+      return Labels.getLabel("character.status.allegiances.state.finished");
     }
     return level+" / "+maxLevel;
   }

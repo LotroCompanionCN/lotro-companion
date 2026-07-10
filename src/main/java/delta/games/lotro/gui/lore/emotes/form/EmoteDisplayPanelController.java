@@ -19,6 +19,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.navigator.NavigablePanelController;
 import delta.common.ui.swing.navigator.NavigatorWindowController;
 import delta.games.lotro.gui.LotroIconsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.emotes.EmoteDescription;
 
 /**
@@ -53,7 +54,7 @@ public class EmoteDisplayPanelController implements NavigablePanelController
   @Override
   public String getTitle()
   {
-    return "Emote: "+_emote.getName(); // I18n
+    return Labels.getLabel("lore.emotes.display.title",new Object[]{_emote.getName()});
   }
 
   @Override
@@ -92,7 +93,7 @@ public class EmoteDisplayPanelController implements NavigablePanelController
     {
       panel=GuiFactory.buildPanel(new BorderLayout());
       panel.add(references,BorderLayout.CENTER);
-      panel.setBorder(GuiFactory.buildTitledBorder("References")); // I18n
+      panel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("lore.emotes.display.references")));
     }
     return panel;
   }
@@ -122,7 +123,7 @@ public class EmoteDisplayPanelController implements NavigablePanelController
       panel.add(panelLine,c);
       c.gridy++;
       // Auto?
-      panelLine.add(GuiFactory.buildLabel("Auto: ")); // I18n
+      panelLine.add(GuiFactory.buildLabel(Labels.getLabel("lore.emotes.display.auto")));
       _auto=GuiFactory.buildLabel("");
       panelLine.add(_auto);
     }
@@ -130,7 +131,7 @@ public class EmoteDisplayPanelController implements NavigablePanelController
     // Description
     _details=buildDescriptionPane();
     JScrollPane detailsPane=GuiFactory.buildScrollPane(_details);
-    detailsPane.setBorder(GuiFactory.buildTitledBorder("Description")); // I18n
+    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("lore.emotes.display.description")));
     c.fill=GridBagConstraints.BOTH;
     c.weightx=1.0;
     c.weighty=1.0;
@@ -180,7 +181,7 @@ public class EmoteDisplayPanelController implements NavigablePanelController
     _icon.setIcon(icon);
     // Auto
     boolean auto=_emote.isAuto();
-    _auto.setText(auto?"Yes":"No"); // I18n
+    _auto.setText(auto?Labels.getLabel("shared.yes"):Labels.getLabel("shared.no"));
     // Details
     _details.setText(buildHtml());
     _details.setCaretPosition(0);

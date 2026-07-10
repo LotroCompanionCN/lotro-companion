@@ -17,6 +17,7 @@ import delta.games.lotro.gui.maps.MapUtils;
 import delta.games.lotro.gui.maps.MarkerSelectionListener;
 import delta.games.lotro.gui.maps.RadarMapLayer;
 import delta.games.lotro.gui.maps.basemap.DatBasemapImageProvider;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.maps.MapDescription;
 import delta.games.lotro.lore.maps.ParchmentMap;
@@ -154,7 +155,7 @@ public class HouseMapPanelController extends AbstractAreaController
 
     // Satellite map
     RadarImageProvider provider=new DatRadarImageProvider(facade);
-    RadarMapLayer radarLayer=new RadarMapLayer(RadarMapLayer.SATELLITE_MAP,1,provider);
+    RadarMapLayer radarLayer=new RadarMapLayer(Labels.getLabel("maps.radar.satelliteMap"),1,provider);
     canvas.addLayer(radarLayer);
     radarLayer.setRegion(region);
 

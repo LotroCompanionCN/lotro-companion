@@ -128,7 +128,7 @@ public class EmoteFilterController implements ActionListener
 
     // Emote attributes
     JPanel emotePanel=buildEmotePanel();
-    Border border=GuiFactory.buildTitledBorder("Emote"); // I18n
+    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("lore.emotes.filter.emote.border"));
     emotePanel.setBorder(border);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(emotePanel,c);
@@ -150,7 +150,7 @@ public class EmoteFilterController implements ActionListener
     JPanel line1Panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Label filter
     {
-      line1Panel.add(GuiFactory.buildLabel("Command filter:")); // I18n
+      line1Panel.add(GuiFactory.buildLabel(Labels.getLabel("lore.emotes.filter.commandFilter")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(20);
       line1Panel.add(_contains);
@@ -174,7 +174,7 @@ public class EmoteFilterController implements ActionListener
     State autoState=_config.getAutoState();
     if (autoState!=State.HIDDEN)
     {
-      JLabel label=GuiFactory.buildLabel("Auto:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("lore.emotes.filter.auto"));
       line1Panel.add(label);
       _auto=buildAutoCombobox();
       line1Panel.add(_auto.getComboBox());
@@ -191,7 +191,9 @@ public class EmoteFilterController implements ActionListener
 
   private ComboBoxController<Boolean> buildAutoCombobox()
   {
-    ComboBoxController<Boolean> combo=SharedUiUtils.build3StatesBooleanCombobox("","Auto","Earned"); // I18n
+    ComboBoxController<Boolean> combo=SharedUiUtils.build3StatesBooleanCombobox("",
+        Labels.getLabel("lore.emotes.filter.auto.auto"),
+        Labels.getLabel("lore.emotes.filter.auto.earned"));
     ItemSelectionListener<Boolean> listener=new ItemSelectionListener<Boolean>()
     {
       @Override

@@ -20,6 +20,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.effects.EffectInstance;
 import delta.games.lotro.gui.character.status.effects.EffectInstanceEditionPanelController.MODE;
 import delta.games.lotro.gui.common.effects.table.EffectInstancesTableBuilder;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "character effects" edition panel.
@@ -82,7 +83,7 @@ public class CharacterEffectsEditionPanelController extends AbstractPanelControl
     JTable table=_effectsTable.getTable();
     JScrollPane scroll=GuiFactory.buildScrollPane(table);
     ret.add(scroll,BorderLayout.CENTER);
-    ret.setBorder(GuiFactory.buildTitledBorder("Effects")); // I18n
+    ret.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("effects.edition.panel.border")));
     return ret;
   }
 

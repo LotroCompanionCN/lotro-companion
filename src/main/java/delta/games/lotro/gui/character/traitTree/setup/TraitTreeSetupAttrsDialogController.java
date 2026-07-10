@@ -14,6 +14,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.classes.traitTree.setup.TraitTreeSetup;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the dialog to edit the attributes of a trait tree setup.
@@ -39,7 +40,7 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Edit trait tree setup..."); // I18n
+    dialog.setTitle(Labels.getLabel("character.traitTree.setup.edition.title"));
     dialog.setResizable(false);
     return dialog;
   }
@@ -48,7 +49,7 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
   protected JPanel buildFormPanel()
   {
     JPanel dataPanel=buildAttributesPanel();
-    TitledBorder pathsBorder=GuiFactory.buildTitledBorder("Trait tree template"); // I18n
+    TitledBorder pathsBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.traitTree.setup.template.border"));
     dataPanel.setBorder(pathsBorder);
     return dataPanel;
   }
@@ -65,9 +66,9 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
 
     Insets insets=new Insets(5,5,5,5);
     GridBagConstraints gbc=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,insets,0,0);
-    panel.add(GuiFactory.buildLabel("Name:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("character.traitTree.setup.field.name")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Description:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("character.traitTree.setup.field.description")),gbc);
     gbc.gridx=1; gbc.gridy=0;
     gbc.weightx=1.0; gbc.fill=GridBagConstraints.HORIZONTAL;
     panel.add(_setupName,gbc);
@@ -103,14 +104,14 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
     String name=_setupName.getText();
     if ((name==null) || (name.trim().isEmpty()))
     {
-      errorMsg="Invalid name!"; // I18n
+      errorMsg=Labels.getLabel("character.traitTree.setup.invalidName");
     }
     return errorMsg;
   }
 
   private void showErrorMessage(String errorMsg)
   {
-    String title="Trait tree setup edition"; // I18n
+    String title=Labels.getLabel("character.traitTree.setup.edition.error.title");
     JDialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }

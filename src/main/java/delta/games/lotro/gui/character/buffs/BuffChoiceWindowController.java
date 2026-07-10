@@ -11,6 +11,7 @@ import delta.games.lotro.character.stats.buffs.Buff;
 import delta.games.lotro.character.stats.buffs.BuffFilter;
 import delta.games.lotro.utils.gui.chooser.ObjectChoiceWindowController;
 import delta.games.lotro.utils.gui.filter.ObjectFilterPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "buff choice" dialog.
@@ -34,7 +35,7 @@ public class BuffChoiceWindowController
     chooser.setFilter(filter,filterUiController);
     JDialog dialog=chooser.getDialog();
     // - title
-    dialog.setTitle("Choose buff: "); // I18n
+    dialog.setTitle(Labels.getLabel("character.buffs.choose.title"));
     // - dimension
     dialog.setSize(500,500);
     dialog.setMinimumSize(new Dimension(500,400));

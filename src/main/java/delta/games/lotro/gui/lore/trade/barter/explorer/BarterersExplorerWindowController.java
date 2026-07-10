@@ -82,8 +82,8 @@ public class BarterersExplorerWindowController extends DefaultWindowController
     // Table
     initBarterersTable();
     _panelController=new GenericTablePanelController<BarterNpc>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Barterers"); // I18n
-    _panelController.getCountsDisplay().setText("Barterer(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("lore.trade.barterers.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("lore.trade.barterers.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new BartererFilterController(_filter,_panelController);

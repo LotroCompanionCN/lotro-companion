@@ -19,6 +19,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.common.ui.swing.windows.WindowsManager;
 import delta.games.lotro.kinship.Kinship;
 import delta.games.lotro.kinship.KinshipsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.kinship.events.KinshipEvent;
 import delta.games.lotro.kinship.events.KinshipEventType;
 import delta.games.lotro.kinship.io.xml.KinshipsIO;
@@ -156,7 +157,7 @@ public class KinshipsManagementController implements ActionListener,GenericEvent
     {
       String name=kinship.getName();
       // Check deletion
-      int result=GuiFactory.showQuestionDialog(_parentController.getWindow(),"Do you really want to delete kinship " + name + "?","Delete?",JOptionPane.YES_NO_OPTION); // I18n
+      int result=GuiFactory.showQuestionDialog(_parentController.getWindow(),Labels.getLabel("kinship.management.deleteQuestion",new Object[]{name}),Labels.getLabel("kinship.management.delete.title"),JOptionPane.YES_NO_OPTION);
       if (result==JOptionPane.OK_OPTION)
       {
         String id=KinshipWindowController.getIdentifier(name);

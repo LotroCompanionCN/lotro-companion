@@ -1,5 +1,6 @@
 package delta.games.lotro.gui.maps;
 
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.maps.MapDescription;
 import delta.games.lotro.maps.data.MapsManager;
 import delta.games.lotro.maps.data.basemaps.GeoreferencedBasemap;
@@ -33,7 +34,7 @@ public class MapUtils
     }
     if (title==null)
     {
-      title="Landscape"; // I18n
+      title=Labels.getLabel("maps.landscape");
     }
     return title;
   }

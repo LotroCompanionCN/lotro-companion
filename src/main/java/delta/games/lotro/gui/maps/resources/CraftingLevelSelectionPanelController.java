@@ -19,6 +19,7 @@ import delta.common.ui.swing.combobox.ComboBoxItem;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.games.lotro.common.comparators.NamedComparator;
 import delta.games.lotro.gui.common.crafting.CraftingUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.CraftingLevel;
 import delta.games.lotro.lore.crafting.Profession;
 import delta.games.lotro.lore.maps.resources.ResourcesMapDescriptor;
@@ -82,7 +83,7 @@ public class CraftingLevelSelectionPanelController
     List<Profession> professions=getSupportedProfessions();
     // Profession
     {
-      JLabel label=GuiFactory.buildLabel("Profession:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("maps.resources.profession"));
       line2Panel.add(label);
       _profession=CraftingUiUtils.buildProfessionCombo(professions,false);
       ItemSelectionListener<Profession> professionListener=new ItemSelectionListener<Profession>()
@@ -100,7 +101,7 @@ public class CraftingLevelSelectionPanelController
     // Tier
     List<CraftingLevel> tiers=getSupportedLevels(professions.get(0));
     {
-      JLabel label=GuiFactory.buildLabel("Tier:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("maps.resources.tier"));
       line2Panel.add(label);
       _tier=CraftingUiUtils.buildTierCombo(tiers,false);
       ItemSelectionListener<Integer> typeListener=new ItemSelectionListener<Integer>()

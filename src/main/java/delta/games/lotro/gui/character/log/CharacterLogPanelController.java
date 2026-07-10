@@ -49,7 +49,7 @@ public class CharacterLogPanelController
   private JPanel build()
   {
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
-    TitledBorder logFrameBorder=GuiFactory.buildTitledBorder("Log"); // I18n
+    TitledBorder logFrameBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.log.panel.border"));
     panel.setBorder(logFrameBorder);
 
     // Table

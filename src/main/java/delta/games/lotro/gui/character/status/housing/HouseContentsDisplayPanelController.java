@@ -77,8 +77,8 @@ public class HouseContentsDisplayPanelController extends AbstractPanelController
     TypedProperties prefs=GlobalPreferences.getGlobalProperties("HouseContents");
     _tableController=new HouseItemsTableController(parent,prefs,items,_filter);
     _panelController=new GenericTablePanelController<HousingItem>(parent,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Items"); // I18n
-    _panelController.getCountsDisplay().setText("Item(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("character.status.housing.border.items"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("character.status.housing.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new HousingItemFilterController(_filter,items,_panelController);

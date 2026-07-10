@@ -12,6 +12,7 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 
 import delta.common.ui.swing.GuiFactory;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.tasks.deeds.TaskDeed;
 import delta.games.lotro.lore.tasks.deeds.TaskDeedsBuilder;
 import delta.games.lotro.lore.tasks.deeds.TaskDeedsManager;
@@ -61,11 +62,11 @@ public class TaskDeedsStatusPanelController
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     // Achieved deed
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,2,5),0,0);
-    JPanel achievedPanel=buildLabeledBar("Achieved deed:",_achievedDeed,_global); // I18n
+    JPanel achievedPanel=buildLabeledBar(Labels.getLabel("tasks.status.taskDeeds.achieved"),_achievedDeed,_global);
     panel.add(achievedPanel,c);
     // Deed in progress
     c=new GridBagConstraints(0,1,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,5,5),0,0);
-    _deedInProgressPanel=buildLabeledBar("Next deed:",_deedInProgressLabel,_deedInProgressProgress); // I18n
+    _deedInProgressPanel=buildLabeledBar(Labels.getLabel("tasks.status.taskDeeds.next"),_deedInProgressLabel,_deedInProgressProgress);
     panel.add(_deedInProgressPanel,c);
     return panel;
   }

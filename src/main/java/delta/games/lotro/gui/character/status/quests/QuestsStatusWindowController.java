@@ -42,6 +42,7 @@ import delta.games.lotro.gui.character.status.quests.form.QuestStatusDialogContr
 import delta.games.lotro.gui.character.status.quests.table.QuestStatusTableController;
 import delta.games.lotro.gui.lore.quests.filter.QuestFilterController;
 import delta.games.lotro.gui.main.GlobalPreferences;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.AchievablesUtils;
 import delta.games.lotro.lore.quests.QuestDescription;
 import delta.games.lotro.utils.ContextPropertyNames;
@@ -97,7 +98,7 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
-    dialog.setTitle("Quests status"); // I18n
+    dialog.setTitle(Labels.getLabel("character.status.quests.window.title"));
     dialog.pack();
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -127,18 +128,18 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
     Blacklist blacklist=BlackListIO.load(_toon,true);
     initTable(blacklist);
     _panelController=new GenericTablePanelController<AchievableStatus>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Status of quests"); // I18n
-    _panelController.getCountsDisplay().setText("Quest(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("character.status.quests.border.status"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("character.status.quests.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Quest filter
     _filterController=new QuestFilterController(this,_filter.getQuestFilter(),this,false);
     JPanel questFilterPanel=_filterController.getPanel();
-    TitledBorder questFilterBorder=GuiFactory.buildTitledBorder("Quest Filter"); // I18n
+    TitledBorder questFilterBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.status.quests.border.questFilter"));
     questFilterPanel.setBorder(questFilterBorder);
     // Status filter
     _statusFilterController=new AchievableStatusFilterController(_filter,this);
     JPanel statusFilterPanel=_statusFilterController.getPanel();
-    TitledBorder statusFilterBorder=GuiFactory.buildTitledBorder("Status Filter"); // I18n
+    TitledBorder statusFilterBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.status.quests.border.statusFilter"));
     statusFilterPanel.setBorder(statusFilterBorder);
     // Blacklist
     _filter.setBlacklist(blacklist);
@@ -168,7 +169,7 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
     JPanel ret=GuiFactory.buildPanel(new FlowLayout());
     // Stats button
     {
-      JButton statsButton=GuiFactory.buildButton("Stats"); // I18n
+      JButton statsButton=GuiFactory.buildButton(Labels.getLabel("character.status.quests.button.stats"));
       ActionListener alStats=new ActionListener()
       {
         @Override

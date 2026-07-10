@@ -143,19 +143,19 @@ public class SkirmishEntryFilterController implements ActionListener
     // First line: skirmish combo and levels
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     JComboBox<?> skirmishCombo=_skirmish.getComboBox();
-    TitledBorder border=GuiFactory.buildTitledBorder("Skirmish"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("skirmish.statistics.filter.skirmish.border"));
     skirmishCombo.setBorder(border);
     skirmishCombo.setOpaque(false);
     panel.add(skirmishCombo,c);
     c=new GridBagConstraints(1,0,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     JPanel levelsPanel=_levels.getPanel();
-    levelsPanel.setBorder(GuiFactory.buildTitledBorder("Level")); // I18n
+    levelsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("skirmish.statistics.filter.level.border")));
     panel.add(levelsPanel,c);
 
     // Second line: group sizes
     c=new GridBagConstraints(0,1,2,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     JPanel sizesPanel=_sizes.getPanel();
-    sizesPanel.setBorder(GuiFactory.buildTitledBorder("Group size")); // I18n
+    sizesPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("skirmish.statistics.filter.groupSize.border")));
     panel.add(sizesPanel,c);
 
     return panel;

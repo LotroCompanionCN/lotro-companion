@@ -118,9 +118,9 @@ public class TitleStatusFilterController implements ActionListener
   private MultiCheckboxController<TitleState> buildStateMultiCheckbox()
   {
     final MultiCheckboxController<TitleState> multiCheckbox=new MultiCheckboxController<TitleState>();
-    multiCheckbox.addItem(TitleState.ACQUIRED,"Acquired"); // I18n
-    multiCheckbox.addItem(TitleState.SUPERSEDED,"Superseded"); // I18n
-    multiCheckbox.addItem(TitleState.UNDEFINED,"Not acquired"); // I18n
+    multiCheckbox.addItem(TitleState.ACQUIRED,Labels.getLabel("titles.status.filter.state.acquired"));
+    multiCheckbox.addItem(TitleState.SUPERSEDED,Labels.getLabel("titles.status.filter.state.superseded"));
+    multiCheckbox.addItem(TitleState.UNDEFINED,Labels.getLabel("titles.status.filter.state.notAcquired"));
     Set<TitleState> selectedStates=new HashSet<TitleState>();
     selectedStates.add(TitleState.ACQUIRED);
     selectedStates.add(TitleState.SUPERSEDED);

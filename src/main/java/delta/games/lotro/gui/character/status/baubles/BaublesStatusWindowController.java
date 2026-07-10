@@ -13,6 +13,7 @@ import delta.games.lotro.character.skills.SkillDescription;
 import delta.games.lotro.character.status.skills.SkillsStatusManager;
 import delta.games.lotro.character.status.skills.io.SkillsStatusIo;
 import delta.games.lotro.gui.character.status.skills.SkillsStatusPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.baubles.BaublesManager;
 
 /**
@@ -48,7 +49,7 @@ public class BaublesStatusWindowController extends DefaultDisplayDialogControlle
   protected JDialog build()
   {
     JDialog window=super.build();
-    window.setTitle("Baubles Status"); // I18n
+    window.setTitle(Labels.getLabel("baubles.status.window.title"));
     window.pack();
     window.setSize(window.getWidth(),INITIAL_HEIGHT);
     window.setMinimumSize(new Dimension(window.getWidth(),MIN_HEIGHT));

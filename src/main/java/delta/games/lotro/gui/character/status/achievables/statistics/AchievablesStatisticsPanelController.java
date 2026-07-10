@@ -9,6 +9,7 @@ import javax.swing.JTabbedPane;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.achievables.AchievablesStatusManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.character.status.achievables.statistics.GlobalAchievablesStatistics;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 import delta.games.lotro.lore.quests.Achievable;
@@ -55,13 +56,13 @@ public class AchievablesStatisticsPanelController
     panel.add(pane,BorderLayout.CENTER);
     // Acquired
     JPanel acquiredPanel=_acquired.getPanel();
-    pane.add("Acquired",acquiredPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.acquired"),acquiredPanel);
     // To Get
     JPanel toGetPanel=_toGet.getPanel();
-    pane.add("To Get",toGetPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.toGet"),toGetPanel);
     // Total
     JPanel totalPanel=_total.getPanel();
-    pane.add("Total",totalPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.total"),totalPanel);
     return panel;
   }
 

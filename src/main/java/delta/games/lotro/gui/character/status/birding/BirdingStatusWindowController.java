@@ -10,6 +10,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.status.collections.birds.BirdsStatusManager;
 import delta.games.lotro.character.status.collections.birds.io.BirdsStatusIo;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "birding status" window.
@@ -43,7 +44,7 @@ public class BirdingStatusWindowController extends DefaultDisplayDialogControlle
   protected JDialog build()
   {
     JDialog window=super.build();
-    window.setTitle("Birds Status"); // I18n
+    window.setTitle(Labels.getLabel("birding.status.window.title"));
     window.pack();
     window.setSize(window.getWidth(),INITIAL_HEIGHT);
     window.setMinimumSize(new Dimension(window.getWidth(),MIN_HEIGHT));

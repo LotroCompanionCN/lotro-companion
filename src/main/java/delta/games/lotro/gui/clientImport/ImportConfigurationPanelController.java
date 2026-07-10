@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.checkbox.CheckboxController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.common.ui.swing.misc.Disposable;
 import delta.games.lotro.memory.extraction.ExtractableElement;
 import delta.games.lotro.memory.extraction.session.ImportConfiguration;
@@ -85,7 +86,7 @@ public class ImportConfigurationPanelController implements Disposable
 
   private JPanel buildButtonsPanel()
   {
-    JButton checkAll=GuiFactory.buildButton("Check all"); // I18n
+    JButton checkAll=GuiFactory.buildButton(Labels.getLabel("clientimport.configuration.checkAll"));
     ActionListener alCheckAll=new ActionListener()
     {
       @Override
@@ -95,7 +96,7 @@ public class ImportConfigurationPanelController implements Disposable
       }
     };
     checkAll.addActionListener(alCheckAll);
-    JButton uncheckAll=GuiFactory.buildButton("Uncheck all"); // I18n
+    JButton uncheckAll=GuiFactory.buildButton(Labels.getLabel("clientimport.configuration.uncheckAll"));
     ActionListener alUncheckAll=new ActionListener()
     {
       @Override

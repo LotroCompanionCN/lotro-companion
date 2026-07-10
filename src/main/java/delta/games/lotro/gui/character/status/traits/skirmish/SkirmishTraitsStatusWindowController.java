@@ -8,6 +8,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.status.traits.skirmish.SkirmishTraitsStatus;
 import delta.games.lotro.character.status.traits.skirmish.io.SkirmishTraitsStatusIo;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a window that shows the status of skirmish traits.
@@ -39,7 +40,7 @@ public class SkirmishTraitsStatusWindowController extends DefaultWindowControlle
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Skirmish traits Status"); // I18n
+    frame.setTitle(Labels.getLabel("traits.skirmish.status.window.title"));
     frame.pack();
     frame.setMinimumSize(frame.getPreferredSize());
     return frame;

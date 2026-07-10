@@ -58,7 +58,7 @@ public class MountsExplorerWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Mounts explorer"); // 18n
+    frame.setTitle(Labels.getLabel("lore.mounts.explorer.title"));
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);
     return frame;
@@ -83,8 +83,8 @@ public class MountsExplorerWindowController extends DefaultWindowController
     // Table
     initMountsTable();
     _panelController=new GenericTablePanelController<MountDescription>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Mounts"); // I18n
-    _panelController.getCountsDisplay().setText("Mount(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("lore.mounts.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("lore.mounts.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new MountFilterController(_filter,_panelController);

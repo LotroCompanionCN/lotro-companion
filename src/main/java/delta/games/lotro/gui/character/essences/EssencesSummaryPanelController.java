@@ -21,6 +21,7 @@ import delta.games.lotro.gui.character.essences.EssencesSummary.EssenceCount;
 import delta.games.lotro.gui.common.stats.StatsPanel;
 import delta.games.lotro.gui.lore.items.ItemUiTools;
 import delta.games.lotro.lore.items.Item;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to show a summary of all the essences of a character.
@@ -59,20 +60,20 @@ public class EssencesSummaryPanelController
     panel.add(_total,c);
     // Counts
     _countsPanel=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder countsBorder=GuiFactory.buildTitledBorder("Essence usage"); // I18n
+    TitledBorder countsBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.essences.summary.border.counts"));
     _countsPanel.setBorder(countsBorder);
     c=new GridBagConstraints(0,1,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(_countsPanel,c);
     // Stats
     // - raw
     _rawStatsPanel=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder rawBorder=GuiFactory.buildTitledBorder("Raw stats"); // I18n
+    TitledBorder rawBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.essences.summary.border.rawStats"));
     _rawStatsPanel.setBorder(rawBorder);
     c=new GridBagConstraints(1,1,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(_rawStatsPanel,c);
     // - cumulated
     _cumulatedStatsPanel=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder cumulatedBorder=GuiFactory.buildTitledBorder("Cumulated stats"); // I18n
+    TitledBorder cumulatedBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.essences.summary.border.cumulatedStats"));
     _cumulatedStatsPanel.setBorder(cumulatedBorder);
     c=new GridBagConstraints(2,1,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(_cumulatedStatsPanel,c);

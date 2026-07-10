@@ -110,7 +110,7 @@ public class PetFilterController implements ActionListener
 
     // Pet attributes
     JPanel petPanel=buildPetPanel();
-    Border border=GuiFactory.buildTitledBorder("Pet"); // 18n
+    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("pets.filter.pet.border"));
     petPanel.setBorder(border);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(petPanel,c);
@@ -133,7 +133,7 @@ public class PetFilterController implements ActionListener
     // Label filter
     {
       JPanel containsPanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
-      containsPanel.add(GuiFactory.buildLabel("Name filter:")); // 18n
+      containsPanel.add(GuiFactory.buildLabel(Labels.getFieldLabel("pets.filter.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(20);
       containsPanel.add(_contains);

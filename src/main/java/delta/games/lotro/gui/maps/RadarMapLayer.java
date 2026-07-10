@@ -29,11 +29,11 @@ public class RadarMapLayer extends BaseRasterLayer
   /**
    * Satellite map.
    */
-  public static final String SATELLITE_MAP="Satellite Map"; // I18n
+  public static final String SATELLITE_MAP="Satellite Map";
   /**
    * Height map.
    */
-  public static final String HEIGHT_MAP="Height Map"; // I18n
+  public static final String HEIGHT_MAP="Height Map";
   private static final boolean USE_GRID=false;
   private int _region;
   private RadarImageCache _cache;

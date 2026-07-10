@@ -10,6 +10,7 @@ import delta.games.lotro.character.status.achievables.statistics.reputation.Achi
 import delta.games.lotro.character.status.achievables.statistics.reputation.AchievablesReputationStats;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 import delta.games.lotro.gui.common.statistics.ReputationTableController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a table that shows the reputations for a single character.
@@ -41,7 +42,7 @@ public class AchievablesReputationTableController extends ReputationTableControl
     super.defineColumns(table);
     // Achievables count column
     {
-      String name=(_mode==AchievableUIMode.DEED)?"Deeds":"Quests"; // I18n
+      String name=Labels.getLabel((_mode==AchievableUIMode.DEED)?"character.status.achievables.statistics.column.deeds":"character.status.achievables.statistics.column.quests");
       CellDataProvider<AchievablesFactionStats,Integer> countCell=new CellDataProvider<AchievablesFactionStats,Integer>()
       {
         @Override
@@ -67,7 +68,7 @@ public class AchievablesReputationTableController extends ReputationTableControl
           return count;
         }
       };
-      DefaultTableColumnController<AchievablesFactionStats,Integer> completionsCountColumn=new DefaultTableColumnController<AchievablesFactionStats,Integer>(COMPLETIONS_COUNT,"Completions",Integer.class,completionsCountCell); // I18n
+      DefaultTableColumnController<AchievablesFactionStats,Integer> completionsCountColumn=new DefaultTableColumnController<AchievablesFactionStats,Integer>(COMPLETIONS_COUNT,Labels.getLabel("character.status.achievables.statistics.column.completions"),Integer.class,completionsCountCell);
       completionsCountColumn.setWidthSpecs(60,60,60);
       table.addColumnController(completionsCountColumn);
     }

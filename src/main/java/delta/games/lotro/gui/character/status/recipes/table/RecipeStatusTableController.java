@@ -19,6 +19,7 @@ import delta.games.lotro.common.blacklist.Blacklist;
 import delta.games.lotro.gui.character.status.achievables.table.AchievableStatusColumnIds;
 import delta.games.lotro.gui.lore.crafting.recipes.RecipeColumnIds;
 import delta.games.lotro.gui.lore.items.chooser.ItemChooser;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a table that shows the status of recipes for a single character.
@@ -77,7 +78,7 @@ public class RecipeStatusTableController
       @Override
       public String getData(RecipeStatus status)
       {
-        return (_blacklist.isBlacklisted(status.getIdentifier()))?"Yes":"No"; // I18n
+        return (_blacklist.isBlacklisted(status.getIdentifier()))?Labels.getLabel("shared.yes"):Labels.getLabel("shared.no");
       }
     };
     DefaultTableColumnController<RecipeStatus,String> countColumn=new DefaultTableColumnController<RecipeStatus,String>(AchievableStatusColumnIds.BLACKLISTED.name(),"Blacklisted",String.class,countCell);

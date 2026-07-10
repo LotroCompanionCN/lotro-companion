@@ -49,7 +49,6 @@ public class CharacterMainButtonsManager implements ActionListener
 
   private void buildButtons()
   {
-    // I18n
     // Levels
     buildCommandButton("Levels",MainCharacterWindowCommands.LEVEL_COMMAND);
     // Quests status

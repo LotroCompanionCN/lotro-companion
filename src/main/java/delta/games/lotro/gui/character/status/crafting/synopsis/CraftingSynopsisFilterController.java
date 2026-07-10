@@ -14,6 +14,7 @@ import delta.games.lotro.lore.crafting.CraftingData;
 import delta.games.lotro.lore.crafting.CraftingSystem;
 import delta.games.lotro.lore.crafting.Profession;
 import delta.games.lotro.lore.crafting.ProfessionFilter;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.Professions;
 
 /**
@@ -91,7 +92,7 @@ public class CraftingSynopsisFilterController
       }
     };
     _professions.addListener(listener);
-    panel.add(GuiFactory.buildLabel("Profession:")); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("crafting.synopsis.filter.profession")));
     panel.add(_professions.getComboBox());
     return panel;
   }

@@ -50,7 +50,7 @@ public class PortraitFramesStatusPanelController extends AbstractPanelController
     _panelController=new PortraitFramesStatusDisplayPanelController(parent,_status,_filter);
     JPanel displayPanel=_panelController.getPanel();
     JScrollPane scroll=GuiFactory.buildScrollPane(displayPanel);
-    scroll.setBorder(GuiFactory.buildTitledBorder("Portrait frames")); // I18n
+    scroll.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("portraitFrames.status.panel.border")));
     // Filter
     _filterController=new PortraitFramesStatusFilterController(_filter,_panelController);
     JPanel filterPanel=_filterController.getPanel();

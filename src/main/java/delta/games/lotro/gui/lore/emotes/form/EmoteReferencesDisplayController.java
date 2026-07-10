@@ -11,6 +11,7 @@ import javax.swing.event.HyperlinkListener;
 import delta.common.ui.swing.navigator.NavigatorWindowController;
 import delta.common.ui.swing.navigator.PageIdentifier;
 import delta.games.lotro.gui.common.navigation.ReferenceConstants;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.quests.Achievable;
 import delta.games.lotro.lore.quests.QuestDescription;
@@ -124,7 +125,7 @@ public class EmoteReferencesDisplayController
     List<Reference<Achievable,EmoteRole>> achievableReferences=getReferences(references,Achievable.class);
     if (!achievableReferences.isEmpty())
     {
-      sb.append("<h1>Quests and deeds</h1>"); // I18n
+      sb.append(Labels.getLabel("lore.emotes.references.questsAndDeedsHeader"));
       for(Reference<Achievable,EmoteRole> achievableReference : achievableReferences)
       {
         buildHtmlForAchievableReference(sb,achievableReference.getSource());
@@ -134,9 +135,9 @@ public class EmoteReferencesDisplayController
 
   private void buildHtmlForAchievableReference(StringBuilder sb, Achievable achievable)
   {
-    sb.append("<p>Reward for "); // I18n
+    sb.append(Labels.getLabel("lore.emotes.references.rewardFor"));
     boolean isQuest=(achievable instanceof QuestDescription);
-    String type=isQuest?"quest ":"deed "; // I18n
+    String type=isQuest?Labels.getLabel("lore.emotes.references.quest"):Labels.getLabel("lore.emotes.references.deed");
     sb.append(type);
     sb.append("<b>");
     PageIdentifier to=ReferenceConstants.getAchievableReference(achievable);
@@ -159,7 +160,7 @@ public class EmoteReferencesDisplayController
 
   private void buildHtmlForItem(StringBuilder sb, Item item)
   {
-    sb.append("<p>Granted by item "); // I18n
+    sb.append(Labels.getLabel("lore.emotes.references.grantedByItem"));
     sb.append("<b>");
     PageIdentifier to=ReferenceConstants.getItemReference(item.getIdentifier());
     HtmlUtils.printLink(sb,to.getFullAddress(),item.getName());

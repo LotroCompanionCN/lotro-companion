@@ -12,6 +12,7 @@ import delta.games.lotro.character.stats.BasicStatsSet;
 import delta.games.lotro.character.stats.virtues.VirtuesContributionsMgr;
 import delta.games.lotro.character.stats.virtues.VirtuesSet;
 import delta.games.lotro.gui.common.stats.StatsPanel;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to display the stats of virtues.
@@ -60,13 +61,13 @@ public class VirtuesStatsPanelController
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     // - actives
     _activesPanel=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder activesBorder=GuiFactory.buildTitledBorder("Active virtues"); // I18n
+    TitledBorder activesBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.virtues.active.border"));
     _activesPanel.setBorder(activesBorder);
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,1.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     panel.add(_activesPanel,c);
     // - passives
     _passivesPanel=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder passivesBorder=GuiFactory.buildTitledBorder("Passive virtues"); // I18n
+    TitledBorder passivesBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.virtues.passive.border"));
     _passivesPanel.setBorder(passivesBorder);
     c=new GridBagConstraints(0,1,1,1,1.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     panel.add(_passivesPanel,c);

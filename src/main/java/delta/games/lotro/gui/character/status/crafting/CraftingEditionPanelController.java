@@ -18,6 +18,7 @@ import delta.games.lotro.gui.character.status.reputation.form.FactionStatusPanel
 import delta.games.lotro.lore.crafting.CraftingData;
 import delta.games.lotro.lore.crafting.CraftingSystem;
 import delta.games.lotro.lore.crafting.Profession;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.Professions;
 
 /**
@@ -135,7 +136,7 @@ public class CraftingEditionPanelController extends AbstractPanelController
       FactionStatusPanelController panelController=new FactionStatusPanelController(this,guildStatus.getFactionStatus());
       _guildStatus.add(panelController);
       JPanel guildPanel=panelController.getPanel();
-      _tabbedPane.add("Guild: "+guildedProfession.getName(),guildPanel); // I18n
+      _tabbedPane.add(Labels.getLabel("crafting.guild.tab.pattern",new Object[]{guildedProfession.getName()}),guildPanel);
       if (guildedProfession==toShow)
       {
         toSelect=guildPanel;

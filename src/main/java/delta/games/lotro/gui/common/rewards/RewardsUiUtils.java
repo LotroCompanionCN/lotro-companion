@@ -8,6 +8,7 @@ import delta.games.lotro.common.enums.BillingGroup;
 import delta.games.lotro.common.rewards.RewardsExplorer;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils.TitleRenderingFormat;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.items.legendary.relics.Relic;
 import delta.games.lotro.lore.titles.TitleDescription;
@@ -152,7 +153,7 @@ public class RewardsUiUtils
     }
     ComboBoxController<BillingGroup> ctrl=new ComboBoxController<BillingGroup>();
     ctrl.addEmptyItem("");
-    ctrl.addItem(BillingGroup.ANY,"(any)"); // I18n
+    ctrl.addItem(BillingGroup.ANY,Labels.getLabel("common.any"));
     for(BillingGroup billingGroup : billingGroups)
     {
       ctrl.addItem(billingGroup,billingGroup.getLabel());

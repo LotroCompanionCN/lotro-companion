@@ -28,6 +28,7 @@ import delta.games.lotro.gui.common.navigation.ReferenceConstants;
 import delta.games.lotro.gui.lore.items.legendary.relics.RelicsFilterController;
 import delta.games.lotro.gui.main.GlobalPreferences;
 import delta.games.lotro.gui.utils.NavigationUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.legendary.relics.Relic;
 import delta.games.lotro.lore.items.legendary.relics.RelicsManager;
 
@@ -69,7 +70,7 @@ public class RelicsInventoryWindowController extends DefaultDisplayDialogControl
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(600,300));
-    dialog.setTitle("Relics inventory"); // I18n
+    dialog.setTitle(Labels.getLabel("relics.inventory.window.title"));
     dialog.pack();
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -98,8 +99,8 @@ public class RelicsInventoryWindowController extends DefaultDisplayDialogControl
     // Table
     initTable();
     _panelController=new GenericTablePanelController<RelicsInventoryEntry>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Status of relics"); // I18n
-    _panelController.getCountsDisplay().setText("Relic(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("relics.inventory.panel.border"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("relics.inventory.table.counts"));
     JPanel tablePanel=_panelController.getPanel();
     // Build child controllers
     _filterController=new RelicsFilterController(_filter.getRelicFilter(),_relics);
@@ -107,7 +108,7 @@ public class RelicsInventoryWindowController extends DefaultDisplayDialogControl
     // Whole panel
     // - filter
     JPanel filterPanel=_filterController.getPanel();
-    filterPanel.setBorder(GuiFactory.buildTitledBorder("Relic Filter")); // I18n
+    filterPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("relics.inventory.filter.border")));
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(filterPanel,c);
     // - table

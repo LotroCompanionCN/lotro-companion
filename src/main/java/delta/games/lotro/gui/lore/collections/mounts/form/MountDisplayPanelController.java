@@ -18,6 +18,7 @@ import delta.common.utils.text.EndOfLine;
 import delta.games.lotro.common.enums.MountType;
 import delta.games.lotro.common.enums.SkillCharacteristicSubCategory;
 import delta.games.lotro.gui.LotroIconsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.mounts.MountDescription;
 
 /**
@@ -82,22 +83,22 @@ public class MountDisplayPanelController
       panelLine.add(_name);
     }
     // Category
-    _category=buildLabelLine(panel,c,"Category: "); // 18n
+    _category=buildLabelLine(panel,c,Labels.getLabel("lore.mounts.display.category"));
     // Mount type
-    _mountType=buildLabelLine(panel,c,"Mount type: "); // 18n
+    _mountType=buildLabelLine(panel,c,Labels.getLabel("lore.mounts.display.mountType"));
     // Initial name
-    _initialName=buildLabelLine(panel,c,"Initial name: "); // 18n
+    _initialName=buildLabelLine(panel,c,Labels.getLabel("lore.mounts.display.initialName"));
     // Morale
-    _morale=buildLabelLine(panel,c,"Morale: "); // 18n
+    _morale=buildLabelLine(panel,c,Labels.getLabel("lore.mounts.display.morale"));
     // Speed
-    _speed=buildLabelLine(panel,c,"Speed: "); // 18n
+    _speed=buildLabelLine(panel,c,Labels.getLabel("lore.mounts.display.speed"));
     // Tall
-    _size=buildLabelLine(panel,c,"Size: "); // 18n
+    _size=buildLabelLine(panel,c,Labels.getLabel("lore.mounts.display.size"));
 
     // Description
     _details=buildDescriptionPane();
     JScrollPane detailsPane=GuiFactory.buildScrollPane(_details);
-    detailsPane.setBorder(GuiFactory.buildTitledBorder("Description")); // 18n
+    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("lore.mounts.display.description")));
     c.fill=GridBagConstraints.BOTH;
     c.weightx=1.0;
     c.weighty=1.0;
@@ -187,7 +188,7 @@ public class MountDisplayPanelController
     _speed.setText(speedStr);
     // Size
     boolean tall=_mount.isTall();
-    _size.setText(tall?"Tall":"Short"); // 18n
+    _size.setText(tall?Labels.getLabel("lore.mounts.display.tall"):Labels.getLabel("lore.mounts.display.short"));
     // Details
     _details.setText(buildHtml());
     _details.setCaretPosition(0);

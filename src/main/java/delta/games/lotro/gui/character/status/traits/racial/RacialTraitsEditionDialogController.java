@@ -7,6 +7,7 @@ import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.BasicCharacterAttributes;
 import delta.games.lotro.character.status.traits.shared.TraitSlotsStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the racial traits edition dialog.
@@ -33,7 +34,7 @@ public class RacialTraitsEditionDialogController extends DefaultFormDialogContro
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Racial traits edition"); // I18n
+    dialog.setTitle(Labels.getLabel("traits.racial.edition.dialog.title"));
     dialog.setResizable(false);
     dialog.pack();
     return dialog;

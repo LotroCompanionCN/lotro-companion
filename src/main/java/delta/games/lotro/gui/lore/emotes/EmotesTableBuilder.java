@@ -16,6 +16,7 @@ import delta.games.lotro.config.DataFiles;
 import delta.games.lotro.config.LotroCoreConfig;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.utils.UiConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.emotes.EmoteDescription;
 import delta.games.lotro.lore.emotes.io.xml.EmoteXMLParser;
 
@@ -76,7 +77,7 @@ public class EmotesTableBuilder
           return icon;
         }
       };
-      DefaultTableColumnController<EmoteDescription,Icon> iconColumn=new DefaultTableColumnController<EmoteDescription,Icon>(EmoteColumnIds.ICON.name(),"Icon",Icon.class,iconCell); // I18n
+      DefaultTableColumnController<EmoteDescription,Icon> iconColumn=new DefaultTableColumnController<EmoteDescription,Icon>(EmoteColumnIds.ICON.name(),Labels.getLabel("lore.emotes.table.column.icon"),Icon.class,iconCell);
       iconColumn.setWidthSpecs(50,50,50);
       iconColumn.setSortable(false);
       ret.add(iconColumn);
@@ -92,7 +93,7 @@ public class EmotesTableBuilder
           return Integer.valueOf(emote.getIdentifier());
         }
       };
-      DefaultTableColumnController<EmoteDescription,Integer> idColumn=new DefaultTableColumnController<EmoteDescription,Integer>(EmoteColumnIds.ID.name(),"ID",Integer.class,idCell); // I18n
+      DefaultTableColumnController<EmoteDescription,Integer> idColumn=new DefaultTableColumnController<EmoteDescription,Integer>(EmoteColumnIds.ID.name(),Labels.getLabel("lore.emotes.table.column.id"),Integer.class,idCell);
       idColumn.setWidthSpecs(80,80,80);
       ret.add(idColumn);
     }
@@ -106,7 +107,7 @@ public class EmotesTableBuilder
           return emote.getCommand();
         }
       };
-      DefaultTableColumnController<EmoteDescription,String> commandColumn=new DefaultTableColumnController<EmoteDescription,String>(EmoteColumnIds.COMMAND.name(),"Command",String.class,commandCell); // I18n
+      DefaultTableColumnController<EmoteDescription,String> commandColumn=new DefaultTableColumnController<EmoteDescription,String>(EmoteColumnIds.COMMAND.name(),Labels.getLabel("lore.emotes.table.column.command"),String.class,commandCell);
       commandColumn.setWidthSpecs(100,120,200);
       ret.add(commandColumn);
     }
@@ -120,7 +121,7 @@ public class EmotesTableBuilder
           return Boolean.valueOf(emote.isAuto());
         }
       };
-      DefaultTableColumnController<EmoteDescription,Boolean> autoColumn=new DefaultTableColumnController<EmoteDescription,Boolean>(EmoteColumnIds.AUTO.name(),"Auto",Boolean.class,autoCell); // I18n
+      DefaultTableColumnController<EmoteDescription,Boolean> autoColumn=new DefaultTableColumnController<EmoteDescription,Boolean>(EmoteColumnIds.AUTO.name(),Labels.getLabel("lore.emotes.table.column.auto"),Boolean.class,autoCell);
       autoColumn.setWidthSpecs(30,30,30);
       ret.add(autoColumn);
     }
@@ -134,7 +135,7 @@ public class EmotesTableBuilder
           return emote.getDescription();
         }
       };
-      DefaultTableColumnController<EmoteDescription,String> nameColumn=new DefaultTableColumnController<EmoteDescription,String>(EmoteColumnIds.DESCRIPTION.name(),"Description",String.class,nameCell); // I18n
+      DefaultTableColumnController<EmoteDescription,String> nameColumn=new DefaultTableColumnController<EmoteDescription,String>(EmoteColumnIds.DESCRIPTION.name(),Labels.getLabel("lore.emotes.table.column.description"),String.class,nameCell);
       nameColumn.setWidthSpecs(100,-1,200);
       ret.add(nameColumn);
     }

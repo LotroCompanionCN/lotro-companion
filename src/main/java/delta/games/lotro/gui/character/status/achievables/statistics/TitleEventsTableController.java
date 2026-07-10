@@ -10,6 +10,7 @@ import delta.common.ui.swing.tables.CellDataProvider;
 import delta.common.ui.swing.tables.ColumnsUtils;
 import delta.common.ui.swing.tables.DefaultTableColumnController;
 import delta.common.ui.swing.tables.GenericTableController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.common.ui.swing.tables.ListDataProvider;
 import delta.common.ui.swing.tables.TableColumnsManager;
 import delta.games.lotro.character.status.achievables.statistics.AchievablesStatistics;
@@ -56,7 +57,7 @@ public class TitleEventsTableController
           return item.getTitle();
         }
       };
-      DefaultTableColumnController<TitleEvent,String> titleColumn=new DefaultTableColumnController<TitleEvent,String>(TITLE,"Title",String.class,titleCell); // I18n
+      DefaultTableColumnController<TitleEvent,String> titleColumn=new DefaultTableColumnController<TitleEvent,String>(TITLE,Labels.getLabel("character.status.achievables.statistics.column.title"),String.class,titleCell);
       titleColumn.setWidthSpecs(100,300,200);
       table.addColumnController(titleColumn);
     }
@@ -71,7 +72,7 @@ public class TitleEventsTableController
           return (timestamp!=null)?new Date(timestamp.longValue()):null;
         }
       };
-      DefaultTableColumnController<TitleEvent,Date> completionDateColumn=new DefaultTableColumnController<TitleEvent,Date>(DATE,"Date",Date.class,completionDateCell); // I18n
+      DefaultTableColumnController<TitleEvent,Date> completionDateColumn=new DefaultTableColumnController<TitleEvent,Date>(DATE,Labels.getLabel("common.date"),Date.class,completionDateCell);
       ColumnsUtils.configureDateTimeColumn(completionDateColumn);
       table.addColumnController(completionDateColumn);
     }
@@ -85,7 +86,7 @@ public class TitleEventsTableController
           return item.getAchievable().getName();
         }
       };
-      DefaultTableColumnController<TitleEvent,String> achievableColumn=new DefaultTableColumnController<TitleEvent,String>(ACHIEVABLE_NAME,"Source",String.class,achievableCell); // I18n
+      DefaultTableColumnController<TitleEvent,String> achievableColumn=new DefaultTableColumnController<TitleEvent,String>(ACHIEVABLE_NAME,Labels.getLabel("character.status.achievables.statistics.column.source"),String.class,achievableCell);
       achievableColumn.setWidthSpecs(100,300,200);
       table.addColumnController(achievableColumn);
     }

@@ -33,6 +33,7 @@ import delta.games.lotro.character.traits.TraitDescription;
 import delta.games.lotro.gui.character.traitTree.setup.TraitTreeSetupAttrsDialogController;
 import delta.games.lotro.gui.character.traitTree.setup.TraitTreeSetupChooser;
 import delta.games.lotro.utils.gui.HtmlUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for trait tree panel.
@@ -92,7 +93,7 @@ public class TraitTreePanelController
   {
     ComboBoxController<TraitTreeBranch> ret=new ComboBoxController<TraitTreeBranch>();
     List<TraitTreeBranch> branches=_tree.getBranches();
-    ret.addEmptyItem("(none)"); // I18n
+    ret.addEmptyItem(Labels.getLabel("character.traitTree.branch.none"));
     for(TraitTreeBranch branch : branches)
     {
       if (branch.isEnabled())
@@ -286,12 +287,12 @@ public class TraitTreePanelController
     JPanel ret=GuiFactory.buildPanel(new GridBagLayout());
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     // Branch chooser
-    JLabel label=GuiFactory.buildLabel("Main branch:"); // I18n
+    JLabel label=GuiFactory.buildLabel(Labels.getLabel("character.traitTree.summary.mainBranch"));
     ret.add(label,c);
     c.gridx++;
     ret.add(_branchCombo.getComboBox(),c);
     // Points cost
-    JLabel pointsLabel=GuiFactory.buildLabel("Cost: "); // I18n
+    JLabel pointsLabel=GuiFactory.buildLabel(Labels.getLabel("character.traitTree.summary.cost"));
     c.gridx++;
     ret.add(pointsLabel,c);
     _points=GuiFactory.buildLabel("");
@@ -306,7 +307,7 @@ public class TraitTreePanelController
     JPanel ret=GuiFactory.buildPanel(new GridBagLayout());
     // Buttons
     // - load
-    JButton load=GuiFactory.buildButton("Load from template..."); // I18n
+    JButton load=GuiFactory.buildButton(Labels.getLabel("character.traitTree.template.load"));
     ActionListener alLoad=new ActionListener()
     {
       @Override
@@ -320,7 +321,7 @@ public class TraitTreePanelController
     ret.add(load,c);
     c.gridx++;
     // - save
-    JButton save=GuiFactory.buildButton("Save as template..."); // I18n
+    JButton save=GuiFactory.buildButton(Labels.getLabel("character.traitTree.template.save"));
     ActionListener alSave=new ActionListener()
     {
       @Override

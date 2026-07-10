@@ -10,6 +10,7 @@ import delta.common.ui.swing.icons.IconsManager;
 import delta.common.ui.swing.labels.LabelWithHalo;
 import delta.games.lotro.common.rewards.CraftingXpReward;
 import delta.games.lotro.lore.crafting.CraftingLevel;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.Profession;
 
 /**
@@ -31,7 +32,7 @@ public class CraftingXpRewardGadgetsController extends RewardGadgetsController
     int tier=craftingXpReward.getTier();
     CraftingLevel level=profession.getByTier(tier);
     int xpValue=craftingXpReward.getXp();
-    String text=level.getName()+" "+profession.getName()+": "+xpValue+" XP"; // I18n
+    String text=Labels.getLabel("common.rewards.craftingXpFormat",new Object[]{level.getName(),profession.getName(),String.valueOf(xpValue)});
     Color color=Color.WHITE;
     _label=new LabelWithHalo();
     _label.setText(text);

@@ -4,6 +4,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 
 import delta.common.utils.text.EndOfLine;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the client import HOW TO panel.
@@ -52,33 +53,33 @@ public class ClientImportHowToPanelController
 
   private String getHowToText()
   {
-    StringBuilder sb=new StringBuilder(); // I18n
-    sb.append("1) Start your 64-bit LOTRO client for Windows (no more 32-bit support).");
+    StringBuilder sb=new StringBuilder();
+    sb.append(Labels.getLabel("clientimport.howto.step1"));
     sb.append(EndOfLine.UNIX);
-    sb.append("2) Click on the Start Button when:");
+    sb.append(Labels.getLabel("clientimport.howto.step2"));
     sb.append(EndOfLine.UNIX);
-    sb.append("a) the client is in the character choice panel.");
+    sb.append(Labels.getLabel("clientimport.howto.step2a"));
     sb.append(EndOfLine.UNIX);
-    sb.append("  Then it will import summary data, reputation status, virtues status and crafting status.");
+    sb.append(Labels.getLabel("clientimport.howto.step2a.detail"));
     sb.append(EndOfLine.UNIX);
-    sb.append("  Other data elements are not available at this stage.");
+    sb.append(Labels.getLabel("clientimport.howto.step2a.limit"));
     sb.append(EndOfLine.UNIX);
-    sb.append("OR");
+    sb.append(Labels.getLabel("clientimport.howto.or"));
     sb.append(EndOfLine.UNIX);
-    sb.append("b) the selected character has entered world. Then it will be able to import all the selected data elements.");
-    sb.append(EndOfLine.UNIX);
-    sb.append(EndOfLine.UNIX);
-    sb.append("Option a) is fastest to get an overview: select a character then import, select another one, then import...");
-    sb.append(EndOfLine.UNIX);
-    sb.append("Option b) is slower but it will get all the possible data for the chosen character.");
+    sb.append(Labels.getLabel("clientimport.howto.step2b"));
     sb.append(EndOfLine.UNIX);
     sb.append(EndOfLine.UNIX);
-    sb.append("Vaults: data is available only if the vault has been opened just before import. For full import:");
+    sb.append(Labels.getLabel("clientimport.howto.optionA.note"));
     sb.append(EndOfLine.UNIX);
-    sb.append("Go to a storage NPC. Open the shared vault, the own vault and the wardrobe. Then perform import..");
+    sb.append(Labels.getLabel("clientimport.howto.optionB.note"));
     sb.append(EndOfLine.UNIX);
     sb.append(EndOfLine.UNIX);
-    sb.append("Housing: 2 imports are needed for full data. One inside the house and one in the garden.");
+    sb.append(Labels.getLabel("clientimport.howto.vaults"));
+    sb.append(EndOfLine.UNIX);
+    sb.append(Labels.getLabel("clientimport.howto.vaults.detail"));
+    sb.append(EndOfLine.UNIX);
+    sb.append(EndOfLine.UNIX);
+    sb.append(Labels.getLabel("clientimport.howto.housing"));
     sb.append(EndOfLine.UNIX);
     return sb.toString();
   }

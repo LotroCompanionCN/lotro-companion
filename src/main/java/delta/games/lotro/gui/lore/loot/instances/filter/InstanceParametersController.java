@@ -19,6 +19,7 @@ import delta.games.lotro.common.enums.Difficulty;
 import delta.games.lotro.common.enums.GroupSize;
 import delta.games.lotro.gui.utils.SharedUiUtils;
 import delta.games.lotro.gui.utils.enums.EnumUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to edit instance parameters.
@@ -106,7 +107,7 @@ public class InstanceParametersController
     int y=0;
     // Parameters
     JPanel parametersPanel=buildParametersPanel();
-    Border border=GuiFactory.buildTitledBorder("Parameters"); // I18n
+    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("instances.parameters.border"));
     parametersPanel.setBorder(border);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(parametersPanel,c);
@@ -127,19 +128,19 @@ public class InstanceParametersController
     JPanel line1Panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Difficulty
     {
-      line1Panel.add(GuiFactory.buildLabel("Difficulty:")); // I18n
+      line1Panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("instances.parameters.difficulty")));
       _difficulty=buildDifficultyCombo();
       line1Panel.add(_difficulty.getComboBox());
     }
     // Group size
     {
-      line1Panel.add(GuiFactory.buildLabel("Size:")); // I18n
+      line1Panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("instances.parameters.size")));
       _size=buildGroupSizeCombo();
       line1Panel.add(_size.getComboBox());
     }
     // Level
     {
-      line1Panel.add(GuiFactory.buildLabel("Level:")); // I18n
+      line1Panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("instances.parameters.level")));
       _level=buildLevelCombo();
       line1Panel.add(_level.getComboBox());
     }

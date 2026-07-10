@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.status.collections.CollectionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.CollectionDescription;
 
 /**
@@ -41,7 +42,7 @@ public class SingleCollectionStatusGadgetsController
     // Progress
     _state=buildState(status);
     // Button
-    _button=GuiFactory.buildButton("Details..."); // I18n
+    _button=GuiFactory.buildButton(Labels.getLabel("collections.summary.button.details"));
   }
 
   private JProgressBar buildState(CollectionStatus status)

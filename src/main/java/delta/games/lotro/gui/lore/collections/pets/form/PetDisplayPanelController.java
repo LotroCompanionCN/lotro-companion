@@ -18,6 +18,7 @@ import delta.common.utils.text.EndOfLine;
 import delta.games.lotro.common.enums.Species;
 import delta.games.lotro.common.enums.SubSpecies;
 import delta.games.lotro.gui.LotroIconsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.agents.EntityClassification;
 import delta.games.lotro.lore.collections.pets.CosmeticPetDescription;
 
@@ -81,18 +82,18 @@ public class PetDisplayPanelController
       panelLine.add(_name);
     }
     // Initial name
-    _initialName=buildLabelLine(panel,c,"Initial name: "); // 18n
+    _initialName=buildLabelLine(panel,c,Labels.getLabel("pet.display.initialName")+": ");
     // Genus
-    _genus=buildLabelLine(panel,c,"Genus: "); // 18n
+    _genus=buildLabelLine(panel,c,Labels.getLabel("pet.display.genus")+": ");
     // Species
     _species=buildLabelLine(panel,c,"Species: ");
     // Sub-species
-    _subSpecies=buildLabelLine(panel,c,"Sub-species: "); // 18n
+    _subSpecies=buildLabelLine(panel,c,Labels.getLabel("pet.display.subSpecies")+": ");
 
     // Description
     _details=buildDescriptionPane();
     JScrollPane detailsPane=GuiFactory.buildScrollPane(_details);
-    detailsPane.setBorder(GuiFactory.buildTitledBorder("Description")); // 18n
+    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("pet.display.description")));
     c.fill=GridBagConstraints.BOTH;
     c.weightx=1.0;
     c.weighty=1.0;

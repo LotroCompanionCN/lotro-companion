@@ -28,6 +28,7 @@ import delta.games.lotro.character.status.crafting.CraftingStatus;
 import delta.games.lotro.character.status.crafting.CraftingStatusSummaryBuilder;
 import delta.games.lotro.character.status.crafting.summary.CraftingStatusSummary;
 import delta.games.lotro.character.status.hobbies.HobbiesStatusManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.character.status.hobbies.io.HobbiesStatusIo;
 import delta.games.lotro.character.status.summary.AchievementsSummary;
 import delta.games.lotro.character.status.summary.io.AchievementsSummaryIO;
@@ -562,7 +563,7 @@ public class MainCharacterWindowController extends DefaultWindowController imple
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
-    String title="Character: "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.main.window.title",new Object[]{name,serverName});
     frame.setTitle(title);
     frame.pack();
     frame.setResizable(true);

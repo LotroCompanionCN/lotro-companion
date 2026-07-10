@@ -133,7 +133,7 @@ public class SkillsSynopsisPanelController implements GenericEventsListener<Char
   private JPanel buildSynopsisPanel()
   {
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
-    TitledBorder border=GuiFactory.buildTitledBorder("Skills synopsis"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("skills.synopsis.panel.border"));
     panel.setBorder(border);
 
     // Table

@@ -16,6 +16,7 @@ import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.utils.CharacterUtils;
 import delta.games.lotro.character.utils.MultipleToonsStats;
 import delta.games.lotro.gui.character.status.curves.DatedCurvesChartConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.stats.deeds.statistics.curves.DeedCurvesBuilder;
 import delta.games.lotro.utils.charts.MultipleToonsDatedCurvesChartPanelController;
 
@@ -58,8 +59,8 @@ public class DeedCurvesWindowController extends DefaultWindowController
     }
     DeedCurvesBuilder provider=new DeedCurvesBuilder();
     DatedCurvesChartConfiguration configuration=new DatedCurvesChartConfiguration();
-    configuration.setChartTitle("LOTRO points acquisition by deeds"); // I18n
-    configuration.setValueAxisLabel("LOTRO points"); // I18n
+    configuration.setChartTitle(Labels.getLabel("character.status.deeds.curves.chart.title"));
+    configuration.setValueAxisLabel(Labels.getLabel("character.status.deeds.curves.chart.yAxis"));
     configuration .setValueAxisTicks(new double[]{10,100,1000});
     _chartPanelController=new MultipleToonsDatedCurvesChartPanelController<CharacterFile>(this,_stats,provider,configuration);
   }
@@ -76,7 +77,7 @@ public class DeedCurvesWindowController extends DefaultWindowController
   {
     JFrame frame=super.build();
     // Title
-    frame.setTitle("Deed curves"); // I18n
+    frame.setTitle(Labels.getLabel("character.status.deeds.curves.window.title"));
     frame.pack();
     frame.setMinimumSize(new Dimension(500,380));
     frame.setSize(new Dimension(700,500));

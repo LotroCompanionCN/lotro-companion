@@ -188,19 +188,19 @@ public class ToonsManagementController implements ActionListener,GenericEventsLi
     ToolbarModel model=controller.getModel();
     // New icon
     String newIconPath=getToolbarIconPath("new");
-    ToolbarIconItem newIconItem=new ToolbarIconItem(NEW_TOON_ID,newIconPath,NEW_TOON_ID,"Create a new character...","New"); // I18n
+    ToolbarIconItem newIconItem=new ToolbarIconItem(NEW_TOON_ID,newIconPath,NEW_TOON_ID,Labels.getLabel("toons.management.toolbar.new.tooltip"),Labels.getLabel("toons.management.toolbar.new.altText"));
     model.addToolbarIconItem(newIconItem);
     // Open icon
     String openIconPath=getToolbarIconPath("open");
-    ToolbarIconItem openIconItem=new ToolbarIconItem(OPEN_TOON_ID,openIconPath,OPEN_TOON_ID,"Open the selected character...","Open"); // I18n
+    ToolbarIconItem openIconItem=new ToolbarIconItem(OPEN_TOON_ID,openIconPath,OPEN_TOON_ID,Labels.getLabel("toons.management.toolbar.open.tooltip"),Labels.getLabel("toons.management.toolbar.open.altText"));
     model.addToolbarIconItem(openIconItem);
     // Remove icon
     String deleteIconPath=getToolbarIconPath("delete");
-    ToolbarIconItem deleteIconItem=new ToolbarIconItem(REMOVE_TOON_ID,deleteIconPath,REMOVE_TOON_ID,"Remove the selected character...","Remove"); // I18n
+    ToolbarIconItem deleteIconItem=new ToolbarIconItem(REMOVE_TOON_ID,deleteIconPath,REMOVE_TOON_ID,Labels.getLabel("toons.management.toolbar.remove.tooltip"),Labels.getLabel("toons.management.toolbar.remove.altText"));
     model.addToolbarIconItem(deleteIconItem);
     // Import icon
     String importIconPath=getToolbarIconPath("import");
-    ToolbarIconItem importIconItem=new ToolbarIconItem(IMPORT_TOON_ID,importIconPath,IMPORT_TOON_ID,"Import a character...","Import"); // I18n
+    ToolbarIconItem importIconItem=new ToolbarIconItem(IMPORT_TOON_ID,importIconPath,IMPORT_TOON_ID,Labels.getLabel("toons.management.toolbar.import.tooltip"),Labels.getLabel("toons.management.toolbar.import.altText"));
     model.addToolbarIconItem(importIconItem);
     controller.addActionListener(this);
     return controller;
@@ -281,7 +281,9 @@ public class ToonsManagementController implements ActionListener,GenericEventsLi
       String serverName=file.getServerName();
       String toonName=file.getName();
       // Check deletion
-      int result=GuiFactory.showQuestionDialog(_parentController.getWindow(),"Do you really want to delete " + toonName+"@"+ serverName + "?","Delete?",JOptionPane.YES_NO_OPTION); // I18n
+      String deleteText=Labels.getLabel("toons.management.deleteQuestion",new Object[]{toonName,serverName});
+      String deleteTitle=Labels.getLabel("toons.management.delete.title");
+      int result=GuiFactory.showQuestionDialog(_parentController.getWindow(),deleteText,deleteTitle,JOptionPane.YES_NO_OPTION);
       if (result==JOptionPane.OK_OPTION)
       {
         String id=MainCharacterWindowController.getIdentifier(serverName,toonName);
@@ -298,9 +300,9 @@ public class ToonsManagementController implements ActionListener,GenericEventsLi
 
   private void importToon()
   {
-    FileChooserController ctrl=new FileChooserController("import", "Import character..."); // I18n
+    FileChooserController ctrl=new FileChooserController("import", Labels.getLabel("toons.management.import.filechooser.title"));
     Window window=_parentController.getWindow();
-    File fromFile=ctrl.chooseFile(window,"Import");
+    File fromFile=ctrl.chooseFile(window,Labels.getLabel("toons.management.import.button"));
     if (fromFile!=null)
     {
       CharacterXMLParser parser=new CharacterXMLParser();
@@ -311,16 +313,16 @@ public class ToonsManagementController implements ActionListener,GenericEventsLi
         ok=importData(data);
         if (ok)
         {
-          GuiFactory.showInformationDialog(window,"Import OK!","OK!"); // I18n
+          GuiFactory.showInformationDialog(window,Labels.getLabel("toons.management.import.ok"),Labels.getLabel("toons.management.import.ok.title"));
         }
         else
         {
-          GuiFactory.showErrorDialog(window,"Import failed!","Error!"); // I18n
+          GuiFactory.showErrorDialog(window,Labels.getLabel("toons.management.import.failed"),Labels.getLabel("toons.management.import.error.title"));
         }
       }
       else
       {
-        GuiFactory.showErrorDialog(window,"Import failed (bad XML file)!","Error!"); // I18n
+          GuiFactory.showErrorDialog(window,Labels.getLabel("toons.management.import.failed.badXml"),Labels.getLabel("toons.management.import.error.title"));
       }
     }
   }

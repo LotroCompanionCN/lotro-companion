@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.allegiances.AllegianceStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.allegiances.AllegianceDescription;
 
 /**
@@ -36,7 +37,7 @@ public class AllegianceStatusWindowController extends DefaultDisplayDialogContro
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(800,500));
     String allegianceName=_data.getAllegiance().getName();
-    dialog.setTitle("Allegiance status: "+allegianceName); // I18n
+    dialog.setTitle(Labels.getLabel("character.status.allegiances.window.title",new Object[]{allegianceName}));
     dialog.setSize(new Dimension(800,700));
     dialog.setMaximumSize(new Dimension(1000,700));
     return dialog;

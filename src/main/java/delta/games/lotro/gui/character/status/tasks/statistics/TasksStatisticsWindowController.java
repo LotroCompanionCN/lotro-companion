@@ -15,6 +15,7 @@ import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.status.tasks.TaskStatus;
 import delta.games.lotro.character.status.tasks.TasksStatusManager;
 import delta.games.lotro.character.status.tasks.statistics.TasksStatistics;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "tasks statistics" window.
@@ -62,7 +63,7 @@ public class TasksStatisticsWindowController extends DefaultDialogController
   {
     String name=toon.getName();
     String serverName=toon.getServerName();
-    String title="Statistics for "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("tasks.statistics.window.title",new Object[]{name,serverName});
     return title;
   }
 

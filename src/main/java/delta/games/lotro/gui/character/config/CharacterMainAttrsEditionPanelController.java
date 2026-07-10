@@ -28,6 +28,7 @@ import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.character.summary.CharacterUiUtils;
 import delta.games.lotro.gui.utils.l10n.DateFormat;
 import delta.games.lotro.utils.events.EventsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for character main attributes edition panel.
@@ -112,7 +113,7 @@ public class CharacterMainAttrsEditionPanelController
     // 2nd line
     JPanel secondLinePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEFT));
     // Short description
-    secondLinePanel.add(GuiFactory.buildLabel("Description:")); // I18n
+    secondLinePanel.add(GuiFactory.buildLabel(Labels.getLabel("character.config.mainAttrs.description")));
     _shortDescription=GuiFactory.buildTextField("");
     _shortDescription.setColumns(50);
     secondLinePanel.add(_shortDescription);

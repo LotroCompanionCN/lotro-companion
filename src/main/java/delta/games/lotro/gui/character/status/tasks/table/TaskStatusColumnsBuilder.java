@@ -15,6 +15,7 @@ import delta.games.lotro.gui.character.status.achievables.table.AchievableStatus
 import delta.games.lotro.gui.common.rewards.table.RewardsColumnsBuilder;
 import delta.games.lotro.gui.lore.items.table.ItemsTableBuilder;
 import delta.games.lotro.gui.lore.quests.table.QuestsColumnsBuilder;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.quests.QuestDescription;
 import delta.games.lotro.lore.tasks.Task;
@@ -102,7 +103,7 @@ public class TaskStatusColumnsBuilder
     }
     // Consumed items
     List<DefaultTableColumnController<Item,?>> itemColumns=new ArrayList<DefaultTableColumnController<Item,?>>();
-    itemColumns.add(ItemsTableBuilder.buildNameColumn(CONSUMED_ITEM_NAME_COLUMN,"Consumed item")); // I18n
+    itemColumns.add(ItemsTableBuilder.buildNameColumn(CONSUMED_ITEM_NAME_COLUMN,Labels.getLabel("tasks.status.table.column.consumedItem")));
     itemColumns.add(ItemsTableBuilder.buildIconColumn());
     CellDataProvider<Task,Item> itemProvider=new CellDataProvider<Task,Item>()
     {
@@ -129,7 +130,7 @@ public class TaskStatusColumnsBuilder
           return Integer.valueOf(item.getItemCount());
         }
       };
-      DefaultTableColumnController<Task,Integer> countColumn=new DefaultTableColumnController<Task,Integer>(COUNT_COLUMN,"Items Count",Integer.class,countCell); // I18n
+      DefaultTableColumnController<Task,Integer> countColumn=new DefaultTableColumnController<Task,Integer>(COUNT_COLUMN,Labels.getLabel("tasks.status.table.column.itemsCount"),Integer.class,countCell);
       countColumn.setWidthSpecs(55,55,50);
       ret.add(countColumn);
     }

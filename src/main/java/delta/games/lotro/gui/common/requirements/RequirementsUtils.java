@@ -24,6 +24,7 @@ import delta.games.lotro.lore.quests.QuestDescription;
 import delta.games.lotro.lore.quests.QuestsManager;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.lore.reputation.FactionLevel;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.strings.ContextRendering;
 
 /**
@@ -78,11 +79,11 @@ public class RequirementsUtils
       if (sb.length()>0) sb.append(", ");
       if (minLevel.intValue()==1000)
       {
-        sb.append("level cap"); // I18n
+        sb.append(Labels.getLabel("common.requirements.levelCap"));
       }
       else
       {
-        sb.append("level>=").append(minLevel); // I18n
+        sb.append(Labels.getLabel("common.requirements.levelMinFormat",new Object[]{minLevel}));
       }
     }
     // Maximum level
@@ -90,7 +91,7 @@ public class RequirementsUtils
     if (maxLevel!=null)
     {
       if (sb.length()>0) sb.append(", ");
-      sb.append("level<=").append(maxLevel); // I18n
+      sb.append(Labels.getLabel("common.requirements.levelMaxFormat",new Object[]{maxLevel}));
     }
     // Faction
     FactionRequirement factionReq=requirements.getFactionRequirement();
@@ -124,7 +125,7 @@ public class RequirementsUtils
       if (quest!=null)
       {
         if (sb.length()>0) sb.append(", ");
-        sb.append("quest ").append(quest.getName()).append(' ').append(questReq.getQuestStatus()); // I18n
+        sb.append(Labels.getLabel("common.requirements.questFormat",new Object[]{quest.getName(),questReq.getQuestStatus()}));
       }
       else
       {
@@ -132,7 +133,7 @@ public class RequirementsUtils
         if (deed!=null)
         {
           if (sb.length()>0) sb.append(", ");
-          sb.append("deed ").append(deed.getName()).append(' ').append(questReq.getQuestStatus()); // I18n
+          sb.append(Labels.getLabel("common.requirements.deedFormat",new Object[]{deed.getName(),questReq.getQuestStatus()}));
         }
       }
     }
@@ -184,7 +185,7 @@ public class RequirementsUtils
     {
       if (sb.length()>0) sb.append(", ");
       TraitDescription trait=traitRequirement.getTrait();
-      sb.append("Trait: ").append(trait.getName()); // I18n
+      sb.append(Labels.getLabel("common.requirements.traitFormat",new Object[]{trait.getName()}));
     }
   }
 

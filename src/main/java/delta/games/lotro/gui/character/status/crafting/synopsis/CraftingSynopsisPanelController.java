@@ -128,7 +128,7 @@ public class CraftingSynopsisPanelController implements GenericEventsListener<Ch
   private JPanel buildStatsPanel()
   {
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
-    TitledBorder border=GuiFactory.buildTitledBorder("Crafting synopsis"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("crafting.synopsis.panel.border"));
     panel.setBorder(border);
 
     // Table

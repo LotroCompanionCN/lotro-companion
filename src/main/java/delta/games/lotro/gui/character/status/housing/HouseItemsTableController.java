@@ -31,6 +31,7 @@ import delta.games.lotro.gui.lore.items.chooser.ItemChooser;
 import delta.games.lotro.gui.lore.items.table.ItemColumnIds;
 import delta.games.lotro.gui.lore.items.table.ItemsTableBuilder;
 import delta.games.lotro.gui.utils.tables.renderers.InternalGameIdRenderer;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.utils.ContextPropertyNames;
 
@@ -170,7 +171,7 @@ public class HouseItemsTableController
         return item.getHookID();
       }
     };
-    DefaultTableColumnController<HousingItem,HousingHookID> column=new DefaultTableColumnController<HousingItem,HousingHookID>(HOOK_COLUMN,"Hook",HousingHookID.class,cell); // I18n
+    DefaultTableColumnController<HousingItem,HousingHookID> column=new DefaultTableColumnController<HousingItem,HousingHookID>(HOOK_COLUMN,Labels.getLabel("character.status.housing.table.column.hook"),HousingHookID.class,cell);
     column.setWidthSpecs(100,100,100);
     return column;
   }
@@ -185,7 +186,7 @@ public class HouseItemsTableController
         return item.getPosition();
       }
     };
-    DefaultTableColumnController<HousingItem,Position> column=new DefaultTableColumnController<HousingItem,Position>(POSITION_COLUMN,"Position",Position.class,cell); // I18n
+    DefaultTableColumnController<HousingItem,Position> column=new DefaultTableColumnController<HousingItem,Position>(POSITION_COLUMN,Labels.getLabel("character.status.housing.table.column.position"),Position.class,cell);
     column.setWidthSpecs(100,150,150);
     column.setCellRenderer(new PositionRenderer());
     return column;
@@ -201,7 +202,7 @@ public class HouseItemsTableController
         return Float.valueOf(item.getRotationOffset());
       }
     };
-    DefaultTableColumnController<HousingItem,Float> column=new DefaultTableColumnController<HousingItem,Float>(ROTATION_COLUMN,"Rotation",Float.class,cell); // I18n
+    DefaultTableColumnController<HousingItem,Float> column=new DefaultTableColumnController<HousingItem,Float>(ROTATION_COLUMN,Labels.getLabel("character.status.housing.table.column.rotation"),Float.class,cell);
     ColumnsUtils.configureFloatColumn(column,0,1,50);
     return column;
   }
@@ -216,7 +217,7 @@ public class HouseItemsTableController
         return Float.valueOf(item.getHookRotation());
       }
     };
-    DefaultTableColumnController<HousingItem,Float> column=new DefaultTableColumnController<HousingItem,Float>(HOOK_ROTATION_COLUMN,"Hook rotation",Float.class,cell); // I18n
+    DefaultTableColumnController<HousingItem,Float> column=new DefaultTableColumnController<HousingItem,Float>(HOOK_ROTATION_COLUMN,Labels.getLabel("character.status.housing.table.column.hookRotation"),Float.class,cell);
     ColumnsUtils.configureFloatColumn(column,0,1,50);
     return column;
   }
@@ -231,7 +232,7 @@ public class HouseItemsTableController
         return item.getPositionOffset();
       }
     };
-    DefaultTableColumnController<HousingItem,Vector3D> column=new DefaultTableColumnController<HousingItem,Vector3D>(POSITION_OFFSET_COLUMN,"Offset",Vector3D.class,cell); // I18n
+    DefaultTableColumnController<HousingItem,Vector3D> column=new DefaultTableColumnController<HousingItem,Vector3D>(POSITION_OFFSET_COLUMN,Labels.getLabel("character.status.housing.table.column.offset"),Vector3D.class,cell);
     column.setWidthSpecs(100,200,150);
     column.setCellRenderer(new PositionOffsetRenderer());
     return column;
@@ -253,7 +254,7 @@ public class HouseItemsTableController
         return item.getBoundTo();
       }
     };
-    DefaultTableColumnController<HousingItem,InternalGameId> column=new DefaultTableColumnController<HousingItem,InternalGameId>(BOUND_TO_COLUMN,"Bound to",InternalGameId.class,cell); // I18n
+    DefaultTableColumnController<HousingItem,InternalGameId> column=new DefaultTableColumnController<HousingItem,InternalGameId>(BOUND_TO_COLUMN,Labels.getLabel("character.status.housing.table.column.boundTo"),InternalGameId.class,cell);
     column.setWidthSpecs(150,-1,150);
     column.setCellRenderer(new InternalGameIdRenderer(toon));
     return column;

@@ -15,6 +15,7 @@ import delta.games.lotro.character.status.achievables.statistics.AchievablesStat
 import delta.games.lotro.character.status.achievables.statistics.virtues.VirtueXPStatsFromAchievable;
 import delta.games.lotro.character.status.achievables.statistics.virtues.VirtueXPStatsFromAchievables;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a table that shows the virtue XP points acquired from achievables.
@@ -57,7 +58,7 @@ public class VirtueXPFromAchievablesTableController
           return item.getAchievable().getName();
         }
       };
-      String name=(_mode==AchievableUIMode.DEED)?"Deed":"Quest"; // I18n
+      String name=Labels.getLabel((_mode==AchievableUIMode.DEED)?"character.status.achievables.statistics.column.deed":"character.status.achievables.statistics.column.quest");
       DefaultTableColumnController<VirtueXPStatsFromAchievable,String> nameColumn=new DefaultTableColumnController<VirtueXPStatsFromAchievable,String>(ACHIEVABLE_NAME,name,String.class,nameCell);
       nameColumn.setWidthSpecs(200,-1,200);
       table.addColumnController(nameColumn);
@@ -73,7 +74,7 @@ public class VirtueXPFromAchievablesTableController
           return amount;
         }
       };
-      DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer> amountColumn=new DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer>(POINTS,"Points",Integer.class,amountCell); // I18n
+      DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer> amountColumn=new DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer>(POINTS,Labels.getLabel("character.status.achievables.statistics.column.points"),Integer.class,amountCell);
       amountColumn.setWidthSpecs(60,60,60);
       table.addColumnController(amountColumn);
     }
@@ -89,7 +90,7 @@ public class VirtueXPFromAchievablesTableController
           return count;
         }
       };
-      DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer> completionsColumn=new DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer>(COUNT,"Completions",Integer.class,completionsCell); // I18n
+      DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer> completionsColumn=new DefaultTableColumnController<VirtueXPStatsFromAchievable,Integer>(COUNT,Labels.getLabel("character.status.achievables.statistics.column.completions"),Integer.class,completionsCell);
       completionsColumn.setWidthSpecs(60,60,60);
       table.addColumnController(completionsColumn);
     }

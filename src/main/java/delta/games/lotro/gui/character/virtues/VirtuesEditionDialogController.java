@@ -9,6 +9,7 @@ import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.stats.virtues.VirtuesSet;
 import delta.games.lotro.character.status.virtues.VirtuesStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the virtues edition dialog.
@@ -36,7 +37,7 @@ public class VirtuesEditionDialogController extends DefaultFormDialogController<
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Virtues edition"); // I18n
+    dialog.setTitle(Labels.getLabel("character.virtues.edition.title"));
     dialog.setResizable(true);
     dialog.setMinimumSize(new Dimension(700,650));
     return dialog;

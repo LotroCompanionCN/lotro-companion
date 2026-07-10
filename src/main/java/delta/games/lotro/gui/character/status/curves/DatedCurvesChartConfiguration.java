@@ -1,5 +1,7 @@
 package delta.games.lotro.gui.character.status.curves;
 
+import delta.games.lotro.gui.utils.l10n.Labels;
+
 /**
  * Configuration of a dated curves chart.
  * @author DAM
@@ -19,8 +21,8 @@ public class DatedCurvesChartConfiguration
   public DatedCurvesChartConfiguration()
   {
     _chartTitle="???";
-    _timeAxisLabel="Time"; // I18n
-    _valueAxisLabel="Values"; // I18n
+    _timeAxisLabel=Labels.getLabel("dated.curves.chart.axis.time");
+    _valueAxisLabel=Labels.getLabel("dated.curves.chart.axis.values");
     _valueAxisTicks=null;
     _useSquareMoves=true;
     _renderer=null;

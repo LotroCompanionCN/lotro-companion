@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 import delta.games.lotro.dat.data.DataFacade;
 import delta.games.lotro.gui.maps.basemap.DatBasemapImageProvider;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.geo.GeoBoundingBox;
 import delta.games.lotro.lore.maps.MapDescription;
 import delta.games.lotro.maps.data.GeoBox;
@@ -78,11 +79,11 @@ public class MapPanelConfigurator
     {
       // Satellite map
       RadarImageProvider provider=new DatRadarImageProvider(facade);
-      RadarMapLayer radarLayer=new RadarMapLayer(RadarMapLayer.SATELLITE_MAP,region,provider);
+      RadarMapLayer radarLayer=new RadarMapLayer(Labels.getLabel("maps.radar.satelliteMap"),region,provider);
       canvas.addLayer(radarLayer);
       // Height map
       RadarImageProvider heightMapProvider=new DatHeightMapImageProvider(facade);
-      RadarMapLayer heightMapLayer=new RadarMapLayer(RadarMapLayer.HEIGHT_MAP,region,heightMapProvider);
+      RadarMapLayer heightMapLayer=new RadarMapLayer(Labels.getLabel("maps.radar.heightMap"),region,heightMapProvider);
       heightMapLayer.setVisible(false);
       canvas.addLayer(heightMapLayer);
     }

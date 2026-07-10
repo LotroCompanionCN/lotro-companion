@@ -27,6 +27,7 @@ import delta.games.lotro.gui.common.navigation.ReferenceConstants;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils.TitleRenderingFormat;
 import delta.games.lotro.gui.utils.ItemDisplayGadgets;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.gui.utils.navigation.NavigationHyperLink;
 import delta.games.lotro.lore.hobbies.HobbyDescription;
 import delta.games.lotro.lore.hobbies.HobbyTitleEntry;
@@ -66,7 +67,7 @@ public class HobbyDisplayPanelController extends AbstractNavigablePanelControlle
   @Override
   public String getTitle()
   {
-    return "Hobby: "+_hobby.getName(); // I18n
+    return Labels.getLabel("hobby.display.title",new Object[]{_hobby.getName()});
   }
 
   @Override
@@ -99,13 +100,13 @@ public class HobbyDisplayPanelController extends AbstractNavigablePanelControlle
     // Description
     JEditorPane description=buildDescriptionPane();
     JScrollPane descriptionPane=GuiFactory.buildScrollPane(description);
-    descriptionPane.setBorder(GuiFactory.buildTitledBorder("Description")); // I18n
+    descriptionPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("hobby.display.description")));
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
     panel.add(descriptionPane,c);
     y++;
     // Rewards
     JPanel rewardsPanel=_rewards.getPanel();
-    rewardsPanel.setBorder(GuiFactory.buildTitledBorder("Rewards")); // I18n
+    rewardsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("hobby.display.rewards")));
     c=new GridBagConstraints(0,y,1,1,1.0,1.0,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
     panel.add(rewardsPanel,c);
     return panel;
@@ -145,14 +146,14 @@ public class HobbyDisplayPanelController extends AbstractNavigablePanelControlle
 
     // Items
     JPanel itemsPanel=buildItemsTable();
-    itemsPanel.setBorder(GuiFactory.buildTitledBorder("Items")); // I18n
+    itemsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("hobby.display.items")));
     c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     panel.add(itemsPanel,c);
     y++;
 
     // Titles
     JPanel titlesPanel=buildTitlesTable();
-    titlesPanel.setBorder(GuiFactory.buildTitledBorder("Titles")); // I18n
+    titlesPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("hobby.display.titles")));
     c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     panel.add(titlesPanel,c);
     y++;
@@ -160,7 +161,7 @@ public class HobbyDisplayPanelController extends AbstractNavigablePanelControlle
     // Trainer Info
     JEditorPane trainerInfo=buildTrainerInfoPane();
     JScrollPane trainerInfoPane=GuiFactory.buildScrollPane(trainerInfo);
-    trainerInfoPane.setBorder(GuiFactory.buildTitledBorder("Trainer Info")); // I18n
+    trainerInfoPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("hobby.display.trainerInfo")));
     c=new GridBagConstraints(0,y,1,1,1.0,1.0,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
     panel.add(trainerInfoPane,c);
 
@@ -241,8 +242,8 @@ public class HobbyDisplayPanelController extends AbstractNavigablePanelControlle
     JPanel ret=GuiFactory.buildPanel(new GridBagLayout());
     // Headers
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,2,5),0,0);
-    ret.add(GuiFactory.buildLabel("Proficiency"),c);c.gridx++; // I18n
-    ret.add(GuiFactory.buildLabel("Title"),c);c.gridx++; // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("hobby.display.proficiencyHeader")),c);c.gridx++;
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("hobby.display.titleHeader")),c);c.gridx++;
     for(HobbyTitleEntry entry : _hobby.getTitles())
     {
       c.gridx=0;

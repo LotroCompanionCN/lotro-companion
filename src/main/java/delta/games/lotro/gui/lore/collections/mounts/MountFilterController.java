@@ -129,7 +129,7 @@ public class MountFilterController implements ActionListener
 
     // Mount attributes
     JPanel mountPanel=buildMountPanel();
-    Border border=GuiFactory.buildTitledBorder("Mount"); // 18n
+    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("mounts.filter.mount.border"));
     mountPanel.setBorder(border);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(mountPanel,c);
@@ -151,7 +151,7 @@ public class MountFilterController implements ActionListener
     JPanel line1Panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Label filter
     {
-      line1Panel.add(GuiFactory.buildLabel("Name filter:")); // 18n
+      line1Panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("mounts.filter.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(20);
       line1Panel.add(_contains);
@@ -173,7 +173,7 @@ public class MountFilterController implements ActionListener
     }
     // Category
     {
-      JLabel label=GuiFactory.buildLabel("Category:"); // 18n
+      JLabel label=GuiFactory.buildLabel(Labels.getFieldLabel("mounts.filter.category"));
       line1Panel.add(label);
       _category=MountUiUtils.buildCategoryCombo();
       ItemSelectionListener<SkillCharacteristicSubCategory> categoryListener=new ItemSelectionListener<SkillCharacteristicSubCategory>()
@@ -191,7 +191,7 @@ public class MountFilterController implements ActionListener
     }
     // Type
     {
-      JLabel label=GuiFactory.buildLabel("Type:"); // 18n
+      JLabel label=GuiFactory.buildLabel(Labels.getFieldLabel("mounts.filter.type"));
       line1Panel.add(label);
       _mountType=MountUiUtils.buildTypeCombo();
       ItemSelectionListener<MountType> typeListener=new ItemSelectionListener<MountType>()

@@ -50,6 +50,7 @@ import delta.games.lotro.lore.items.ItemsManager;
 import delta.games.lotro.utils.ContextPropertyNames;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.gui.chooser.ObjectChoiceWindowController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller a panel to edit the equipment of a character.
@@ -94,37 +95,37 @@ public class EquipmentEditionPanelController implements ActionListener
   {
     JPopupMenu popup=new JPopupMenu();
     // Edit...
-    JMenuItem edit=new JMenuItem("Edit..."); // I18n
+    JMenuItem edit=new JMenuItem(Labels.getLabel("character.gear.contextMenu.edit"));
     edit.setActionCommand(EDIT_COMMAND);
     edit.addActionListener(this);
     popup.add(edit);
     // Choose...
-    JMenuItem choose=new JMenuItem("Choose..."); // I18n
+    JMenuItem choose=new JMenuItem(Labels.getLabel("character.gear.contextMenu.choose"));
     choose.setActionCommand(CHOOSE_COMMAND);
     choose.addActionListener(this);
     popup.add(choose);
     // Choose from bags...
-    JMenuItem choosefromBags=new JMenuItem("Choose from bags..."); // I18n
+    JMenuItem choosefromBags=new JMenuItem(Labels.getLabel("character.gear.contextMenu.chooseFromBags"));
     choosefromBags.setActionCommand(CHOOSE_FROM_BAGS_COMMAND);
     choosefromBags.addActionListener(this);
     popup.add(choosefromBags);
     // Choose from sharedVault...
-    JMenuItem choosefromSharedVault=new JMenuItem("Choose from shared vault..."); // I18n
+    JMenuItem choosefromSharedVault=new JMenuItem(Labels.getLabel("character.gear.contextMenu.chooseFromSharedVault"));
     choosefromSharedVault.setActionCommand(CHOOSE_FROM_SHARED_VAULT_COMMAND);
     choosefromSharedVault.addActionListener(this);
     popup.add(choosefromSharedVault);
     // Choose from stash...
-    JMenuItem choosefromStash=new JMenuItem("Choose from stash..."); // I18n
+    JMenuItem choosefromStash=new JMenuItem(Labels.getLabel("character.gear.contextMenu.chooseFromStash"));
     choosefromStash.setActionCommand(CHOOSE_FROM_STASH_COMMAND);
     choosefromStash.addActionListener(this);
     popup.add(choosefromStash);
     // Remove!
-    JMenuItem remove=new JMenuItem("Remove"); // I18n
+    JMenuItem remove=new JMenuItem(Labels.getLabel("character.gear.contextMenu.remove"));
     remove.setActionCommand(REMOVE_COMMAND);
     remove.addActionListener(this);
     popup.add(remove);
     // Copy to stash
-    JMenuItem copyToStash=new JMenuItem("Copy to stash"); // I18n
+    JMenuItem copyToStash=new JMenuItem(Labels.getLabel("character.gear.contextMenu.copyToStash"));
     copyToStash.setActionCommand(COPY_TO_STASH_COMMAND);
     copyToStash.addActionListener(this);
     popup.add(copyToStash);
@@ -170,7 +171,7 @@ public class EquipmentEditionPanelController implements ActionListener
   private void updatePanel()
   {
     JButton updateButton=GuiFactory.buildButton("Update");
-    updateButton.setToolTipText("Update gear using the current items database"); // I18n
+    updateButton.setToolTipText(Labels.getLabel("character.gear.updateTooltip"));
     updateButton.setActionCommand(UPDATE_COMMAND);
     updateButton.addActionListener(this);
     _displayPanel.setButton(updateButton);

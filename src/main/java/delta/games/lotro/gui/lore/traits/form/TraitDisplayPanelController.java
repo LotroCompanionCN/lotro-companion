@@ -32,6 +32,7 @@ import delta.games.lotro.common.enums.TraitSubCategory;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.utils.GadgetsControllersFactory;
 import delta.games.lotro.gui.utils.IconLinkLabelGadgetsController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.gui.HtmlUiUtils;
 
 /**
@@ -66,7 +67,7 @@ public class TraitDisplayPanelController extends AbstractNavigablePanelControlle
   @Override
   public String getTitle()
   {
-    return "Trait: "+_trait.getName();
+    return Labels.getLabel("trait.display.title",new Object[]{_trait.getName()});
   }
 
   @Override
@@ -190,7 +191,7 @@ public class TraitDisplayPanelController extends AbstractNavigablePanelControlle
       JPanel prerequisitesPanel=_prerequisites.getPanel();
       c=new GridBagConstraints(0,c.gridy,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
       panel.add(prerequisitesPanel,c);
-      prerequisitesPanel.setBorder(GuiFactory.buildTitledBorder("Prerequisites")); // 18n
+      prerequisitesPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("trait.display.prerequisites")));
       c.gridy++;
     }
     // Skills

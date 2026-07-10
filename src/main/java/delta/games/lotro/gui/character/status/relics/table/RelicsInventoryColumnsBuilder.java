@@ -9,6 +9,7 @@ import delta.common.ui.swing.tables.ProxiedTableColumnController;
 import delta.common.ui.swing.tables.TableColumnController;
 import delta.games.lotro.character.status.relics.RelicsInventoryEntry;
 import delta.games.lotro.gui.lore.items.legendary.relics.RelicsTableBuilder;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.legendary.relics.Relic;
 
 /**
@@ -57,7 +58,7 @@ public class RelicsInventoryColumnsBuilder
           return Integer.valueOf(item.getCount());
         }
       };
-      DefaultTableColumnController<RelicsInventoryEntry,Integer> countColumn=new DefaultTableColumnController<RelicsInventoryEntry,Integer>(COUNT_COLUMN,"Count",Integer.class,countCell); // I18n
+      DefaultTableColumnController<RelicsInventoryEntry,Integer> countColumn=new DefaultTableColumnController<RelicsInventoryEntry,Integer>(COUNT_COLUMN,Labels.getLabel("relics.inventory.table.column.count"),Integer.class,countCell);
       countColumn.setWidthSpecs(55,55,50);
       ret.add(countColumn);
     }

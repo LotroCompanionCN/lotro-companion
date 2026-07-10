@@ -13,6 +13,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.checkbox.CheckboxController;
 import delta.games.lotro.character.status.skirmishes.cfg.SkirmishEntriesPolicy;
 import delta.games.lotro.gui.utils.ConfigUpdateListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for an edition panel for a skirmish entry policy.
@@ -79,7 +80,7 @@ public class SkirmishEntryConfigController
   {
     // Build UI elements
     {
-      _mergeLevels=new CheckboxController("Merge Levels"); // I18n
+      _mergeLevels=new CheckboxController(Labels.getLabel("skirmish.statistics.config.mergeLevels"));
       final JCheckBox mergeLevelsCheckbox=_mergeLevels.getCheckbox();
       ActionListener al=new ActionListener()
       {
@@ -93,7 +94,7 @@ public class SkirmishEntryConfigController
       mergeLevelsCheckbox.addActionListener(al);
     }
     {
-      _mergeSizes=new CheckboxController("Merge Sizes"); // I18n
+      _mergeSizes=new CheckboxController(Labels.getLabel("skirmish.statistics.config.mergeSizes"));
       final JCheckBox mergeSizesCheckbox=_mergeSizes.getCheckbox();
       ActionListener al=new ActionListener()
       {

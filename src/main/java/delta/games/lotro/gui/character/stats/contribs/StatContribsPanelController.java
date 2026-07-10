@@ -25,6 +25,7 @@ import delta.games.lotro.character.stats.contribs.StatContribution;
 import delta.games.lotro.character.stats.contribs.StatsContributionsManager;
 import delta.games.lotro.common.stats.StatDescription;
 import delta.games.lotro.common.stats.StatUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.NumericUtils;
 
 /**
@@ -88,7 +89,7 @@ public class StatContribsPanelController
     {
       _chartPanel=new StatContribsChartPanelController();
       JPanel chartPanel=_chartPanel.getPanel();
-      TitledBorder border=GuiFactory.buildTitledBorder("Contributions Chart"); // I18n
+      TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("stat.contribs.panel.border.chart"));
       chartPanel.setBorder(border);
       panel.add(chartPanel,BorderLayout.CENTER);
     }
@@ -110,7 +111,7 @@ public class StatContribsPanelController
     JPanel configPanel=buildConfigurationPanel();
     panel.add(configPanel,BorderLayout.NORTH);
     JScrollPane scroll=GuiFactory.buildScrollPane(_table.getTable());
-    TitledBorder border=GuiFactory.buildTitledBorder("Contributions Table"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("stat.contribs.panel.border.table"));
     scroll.setBorder(border);
     panel.add(scroll,BorderLayout.CENTER);
     _totals=GuiFactory.buildLabel("");
@@ -134,7 +135,7 @@ public class StatContribsPanelController
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,1.0,0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     panel.add(_merged.getCheckbox(),c);
-    TitledBorder border=GuiFactory.buildTitledBorder("Configuration"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("stat.contribs.panel.border.configuration"));
     panel.setBorder(border);
     return panel;
   }
@@ -159,7 +160,7 @@ public class StatContribsPanelController
   {
     _statChooser=buildStatCombo();
     JPanel panel=GuiFactory.buildPanel(new FlowLayout());
-    panel.add(GuiFactory.buildLabel("Stat:")); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("stat.contribs.panel.field.stat")));
     panel.add(_statChooser.getComboBox());
     return panel;
   }

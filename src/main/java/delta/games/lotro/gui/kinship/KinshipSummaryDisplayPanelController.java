@@ -24,6 +24,7 @@ import delta.games.lotro.kinship.KinshipRoster;
 import delta.games.lotro.kinship.KinshipSummary;
 import delta.games.lotro.kinship.events.KinshipEvent;
 import delta.games.lotro.kinship.events.KinshipEventType;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.Formats;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.events.GenericEventsListener;
@@ -72,7 +73,7 @@ public class KinshipSummaryDisplayPanelController extends AbstractPanelControlle
     c=new GridBagConstraints(0,1,1,1,1.0,0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(2,2,2,2),0,0);
     panel.add(attributesPanel,c);
     // House button
-    JButton houseButton=GuiFactory.buildButton("House..."); // I18n
+    JButton houseButton=GuiFactory.buildButton(Labels.getLabel("kinship.summary.button.house"));
     c=new GridBagConstraints(1,1,1,1,0.0,0,GridBagConstraints.SOUTHEAST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     panel.add(houseButton,c);
     ActionListener al=new ActionListener()
@@ -95,15 +96,15 @@ public class KinshipSummaryDisplayPanelController extends AbstractPanelControlle
     Insets insets=new Insets(2,5,2,5);
     GridBagConstraints gbc=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,insets,0,0);
     // Labels
-    panel.add(GuiFactory.buildLabel("Status Date:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("kinship.summary.field.statusDate")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Founder:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("kinship.summary.field.founder")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Creation Date:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("kinship.summary.field.creationDate")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Leader:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("kinship.summary.field.leader")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("MOTD:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("kinship.summary.field.motd")),gbc);
     gbc.gridx=0; gbc.gridy++;
     // Values
     gbc.gridx=1; gbc.gridy=0;
@@ -208,7 +209,7 @@ public class KinshipSummaryDisplayPanelController extends AbstractPanelControlle
     HouseAddress address=kinshipSummary.getAddress();
     if (address==null)
     {
-      GuiFactory.showInformationDialog(getPanel(),"No known house!","Warning!"); // I18n
+      GuiFactory.showInformationDialog(getPanel(),Labels.getLabel("kinship.summary.house.noHouse"),Labels.getLabel("kinship.summary.house.warning"));
       return;
     }
     String server=_kinship.getSummary().getServerName();

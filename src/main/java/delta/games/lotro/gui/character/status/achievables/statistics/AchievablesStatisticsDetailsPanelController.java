@@ -16,6 +16,7 @@ import delta.games.lotro.character.status.achievables.statistics.traits.TraitEve
 import delta.games.lotro.character.status.achievables.statistics.virtues.VirtueXPStatsFromAchievable;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 import delta.games.lotro.gui.character.status.achievables.statistics.traits.TraitEventsTableController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.gui.common.statistics.ReputationTableController;
 import delta.games.lotro.gui.lore.items.CountedItemsTableController;
 import delta.games.lotro.lore.items.CountedItem;
@@ -49,27 +50,27 @@ public class AchievablesStatisticsDetailsPanelController extends AbstractPanelCo
     // Titles
     TitleEventsTableController titlesTable=new TitleEventsTableController(statistics);
     _titles=new AchievableStatisticsTabPanelController<TitleEvent>(parent,titlesTable.getTableController());
-    _titles.configure(null,"Titles(s)"); // I18n
+    _titles.configure(null,Labels.getLabel("character.status.achievables.statistics.details.count.titles"));
     // Reputation
     ReputationTableController<AchievablesFactionStats> tableController=new AchievablesReputationTableController(this,statistics.getReputationStats(),mode);
     _reputation=new AchievableStatisticsTabPanelController<AchievablesFactionStats>(parent,tableController.getTableController());
-    _reputation.configure(null,"Faction(s)"); // I18n
+    _reputation.configure(null,Labels.getLabel("character.status.achievables.statistics.details.count.factions"));
     // Virtues
     VirtueXPFromAchievablesTableController virtuesTable=new VirtueXPFromAchievablesTableController(statistics,mode);
     _virtueXP=new AchievableStatisticsTabPanelController<VirtueXPStatsFromAchievable>(parent,virtuesTable.getTableController());
-    _virtueXP.configure(null,"Source(s)"); // I18n
+    _virtueXP.configure(null,Labels.getLabel("character.status.achievables.statistics.details.count.sources"));
     // Items
     CountedItemsTableController<Item> itemsTable=new CountedItemsTableController<Item>(null,statistics.getItemsStats().getItems(),null);
     _items=new AchievableStatisticsTabPanelController<CountedItem<Item>>(parent,itemsTable.getTableController());
-    _items.configure(null,"Item(s)"); // I18n
+    _items.configure(null,Labels.getLabel("character.status.achievables.statistics.details.count.items"));
     // Emotes
     EmoteEventsTableController emotesTable=new EmoteEventsTableController(statistics);
     _emotes=new AchievableStatisticsTabPanelController<EmoteEvent>(parent,emotesTable.getTableController());
-    _emotes.configure(null,"Emote(s)"); // I18n
+    _emotes.configure(null,Labels.getLabel("character.status.achievables.statistics.details.count.emotes"));
     // Traits
     TraitEventsTableController traitsTable=new TraitEventsTableController(statistics);
     _traits=new AchievableStatisticsTabPanelController<TraitEvent>(parent,traitsTable.getTableController());
-    _traits.configure(null,"Trait(s)"); // I18n
+    _traits.configure(null,Labels.getLabel("character.status.achievables.statistics.details.count.traits"));
     JPanel panel=buildPanel();
     setPanel(panel);
   }
@@ -84,22 +85,22 @@ public class AchievablesStatisticsDetailsPanelController extends AbstractPanelCo
     panel.add(pane,BorderLayout.CENTER);
     // Titles
     JPanel titlesPanel=_titles.getPanel();
-    pane.add("Titles",titlesPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.titles"),titlesPanel);
     // Reputation
     JPanel reputationPanel=_reputation.getPanel();
-    pane.add("Reputation",reputationPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.reputation"),reputationPanel);
     // Virtue XP
     JPanel virtueXpPanel=_virtueXP.getPanel();
-    pane.add("Virtue XP",virtueXpPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.virtueXp"),virtueXpPanel);
     // Items
     JPanel itemsPanel=_items.getPanel();
-    pane.add("Items",itemsPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.items"),itemsPanel);
     // Emotes
     JPanel emotesPanel=_emotes.getPanel();
-    pane.add("Emotes",emotesPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.emotes"),emotesPanel);
     // Traits
     JPanel traitsPanel=_traits.getPanel();
-    pane.add("Traits",traitsPanel); // I18n
+    pane.add(Labels.getLabel("character.status.achievables.statistics.tab.traits"),traitsPanel);
     return panel;
   }
 

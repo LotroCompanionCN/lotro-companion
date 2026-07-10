@@ -33,6 +33,7 @@ import delta.games.lotro.gui.character.config.CharacterDataWindowController;
 import delta.games.lotro.gui.utils.l10n.DateFormat;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.gui.filechooser.FileChooserController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "character configurations" panel.
@@ -111,7 +112,7 @@ public class CharacterConfigurationsPanelController extends AbstractPanelControl
     JTable table=_toonsTable.getTable();
     JScrollPane scroll=GuiFactory.buildScrollPane(table);
     ret.add(scroll,BorderLayout.CENTER);
-    ret.setBorder(GuiFactory.buildTitledBorder("Configurations")); // I18n
+    ret.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("character.main.configs.panel.border")));
     return ret;
   }
 
@@ -223,8 +224,8 @@ public class CharacterConfigurationsPanelController extends AbstractPanelControl
     CharacterData data=controller.getSelectedItem();
     if (data!=null)
     {
-      FileChooserController ctrl=new FileChooserController("export", "Export character..."); // I18n
-      File toFile=ctrl.chooseFile(_parent.getWindow(),"Export"); // I18n
+      FileChooserController ctrl=new FileChooserController("export", Labels.getLabel("character.main.configs.export.filechooser.title"));
+      File toFile=ctrl.chooseFile(_parent.getWindow(),Labels.getLabel("character.main.configs.export.button"));
       if (toFile!=null)
       {
         boolean doIt=true;
@@ -235,7 +236,7 @@ public class CharacterConfigurationsPanelController extends AbstractPanelControl
         if (toFile.exists())
         {
           doIt=false;
-          int result=GuiFactory.showQuestionDialog(_parent.getWindow(),"Do you really want to overwrite the selected file?","Overwrite?",JOptionPane.YES_NO_OPTION); // I18n
+          int result=GuiFactory.showQuestionDialog(_parent.getWindow(),Labels.getLabel("character.main.configs.export.overwrite.question"),Labels.getLabel("character.main.configs.export.overwrite.title"),JOptionPane.YES_NO_OPTION);
           if (result==JOptionPane.OK_OPTION)
           {
             doIt=true;
@@ -247,11 +248,11 @@ public class CharacterConfigurationsPanelController extends AbstractPanelControl
           Window window=_parent.getWindow();
           if (ok)
           {
-            GuiFactory.showInformationDialog(window,"Export OK!","OK!"); // I18n
+            GuiFactory.showInformationDialog(window,Labels.getLabel("character.main.configs.export.ok"),Labels.getLabel("character.main.configs.export.ok.title"));
           }
           else
           {
-            GuiFactory.showErrorDialog(window,"Export failed!","Error!"); // I18n
+            GuiFactory.showErrorDialog(window,Labels.getLabel("character.main.configs.export.failed"),Labels.getLabel("character.main.configs.export.error.title"));
           }
         }
       }
@@ -267,7 +268,7 @@ public class CharacterConfigurationsPanelController extends AbstractPanelControl
       // Check deletion
       String serverName=data.getServer();
       String toonName=data.getName();
-      int result=GuiFactory.showQuestionDialog(_parent.getWindow(),"Do you really want to delete this configuration of " + toonName+"@"+ serverName + "?","Delete?",JOptionPane.YES_NO_OPTION); // I18n
+      int result=GuiFactory.showQuestionDialog(_parent.getWindow(),Labels.getLabel("character.main.configs.delete.question",new Object[]{toonName,serverName}),Labels.getLabel("character.main.configs.delete.title"),JOptionPane.YES_NO_OPTION);
       if (result==JOptionPane.OK_OPTION)
       {
         String id=CharacterDataWindowController.getIdentifier(data);

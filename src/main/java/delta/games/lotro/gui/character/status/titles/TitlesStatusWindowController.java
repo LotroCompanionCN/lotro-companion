@@ -28,6 +28,7 @@ import delta.games.lotro.gui.character.status.titles.table.TitlesStatusTableCont
 import delta.games.lotro.gui.lore.titles.TitleFilterController;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils;
 import delta.games.lotro.gui.main.GlobalPreferences;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.titles.TitleDescription;
 import delta.games.lotro.lore.titles.TitlesManager;
 
@@ -70,7 +71,7 @@ public class TitlesStatusWindowController extends DefaultDisplayDialogController
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
-    dialog.setTitle("Titles status"); // I18n
+    dialog.setTitle(Labels.getLabel("titles.status.window.title"));
     dialog.pack();
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -99,18 +100,18 @@ public class TitlesStatusWindowController extends DefaultDisplayDialogController
     // Table
     initTable();
     _panelController=new GenericTablePanelController<TitleStatus>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Status of titles"); // I18n
-    _panelController.getCountsDisplay().setText("Title(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("titles.status.panel.border"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("titles.status.table.counts"));
     JPanel tablePanel=_panelController.getPanel();
     // Titles filter
     _filterController=new TitleFilterController(_filter.getTitleFilter(),this);
     JPanel titleFilterPanel=_filterController.getPanel();
-    TitledBorder titleFilterBorder=GuiFactory.buildTitledBorder("Title Filter"); // I18n
+    TitledBorder titleFilterBorder=GuiFactory.buildTitledBorder(Labels.getLabel("titles.status.filter.title.border"));
     titleFilterPanel.setBorder(titleFilterBorder);
     // Title status filter
     _statusFilterController=new TitleStatusFilterController(_filter,this);
     JPanel statusFilterPanel=_statusFilterController.getPanel();
-    TitledBorder statusFilterBorder=GuiFactory.buildTitledBorder("Status Filter"); // I18n
+    TitledBorder statusFilterBorder=GuiFactory.buildTitledBorder(Labels.getLabel("titles.status.filter.status.border"));
     statusFilterPanel.setBorder(statusFilterBorder);
     // Whole panel
     GridBagConstraints c=new GridBagConstraints(0,0,2,1,1,0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);

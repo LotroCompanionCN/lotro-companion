@@ -19,6 +19,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.dat.data.DataFacade;
 import delta.games.lotro.gui.maps.MarkerSelectionListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.instances.InstanceMapDescription;
 import delta.games.lotro.lore.instances.PrivateEncounter;
 import delta.games.lotro.lore.maps.MapDescription;
@@ -86,7 +87,7 @@ public class InstanceMapsWindowController extends DefaultWindowController
       }
       else
       {
-        title="Landscape"; // I18n
+        title=Labels.getLabel("maps.landscape");
       }
       tabbedPane.add(title,panel);
       _panels.add(ctrl);
@@ -99,7 +100,7 @@ public class InstanceMapsWindowController extends DefaultWindowController
   {
     JFrame frame=super.build();
     // Title
-    String title="Instance maps: "+_pe.getName(); // I18n
+    String title=Labels.getLabel("maps.instance.title",new Object[]{_pe.getName()});
     frame.setTitle(title);
     frame.pack();
     frame.setResizable(false);

@@ -22,6 +22,7 @@ import delta.games.lotro.common.Identifiable;
 import delta.games.lotro.common.blacklist.Blacklist;
 import delta.games.lotro.common.blacklist.filter.BlackListFilter;
 import delta.games.lotro.common.blacklist.io.BlackListIO;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the blacklist UI.
@@ -68,13 +69,13 @@ public class BlacklistController<T extends Identifiable> implements Disposable
         handleButton(button.getActionCommand());
       }
     };
-    _add=GuiFactory.buildButton("Add"); // I18n
+    _add=GuiFactory.buildButton(Labels.getLabel("character.status.quests.blacklist.button.add"));
     _add.setActionCommand(ADD);
     _add.addActionListener(alButtons);
-    _remove=GuiFactory.buildButton("Remove"); // I18n
+    _remove=GuiFactory.buildButton(Labels.getLabel("character.status.quests.blacklist.button.remove"));
     _remove.setActionCommand(REMOVE);
     _remove.addActionListener(alButtons);
-    _active=new CheckboxController("Active"); // I18n
+    _active=new CheckboxController(Labels.getLabel("character.status.quests.blacklist.checkbox.active"));
     _active.setSelected(true);
     ActionListener alCheckbox=new ActionListener()
     {
@@ -147,7 +148,7 @@ public class BlacklistController<T extends Identifiable> implements Disposable
     ret.add(_add,c);
     c=new GridBagConstraints(2,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,5),0,0);
     ret.add(_remove,c);
-    ret.setBorder(GuiFactory.buildTitledBorder("Blacklist")); // I18n
+    ret.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("character.status.quests.blacklist.border")));
     return ret;
   }
 

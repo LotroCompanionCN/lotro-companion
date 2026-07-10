@@ -24,6 +24,7 @@ import delta.games.lotro.gui.character.status.achievables.table.AchievableStatus
 import delta.games.lotro.gui.lore.items.chooser.ItemChooser;
 import delta.games.lotro.gui.lore.quests.table.QuestColumnIds;
 import delta.games.lotro.gui.lore.quests.table.QuestsTableController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.QuestDescription;
 
 /**
@@ -108,10 +109,10 @@ public class QuestStatusTableController extends AbstractAreaController
       @Override
       public String getData(AchievableStatus status)
       {
-        return (_blacklist.isBlacklisted(status.getIdentifier()))?"Yes":"No"; // I18n
+        return (_blacklist.isBlacklisted(status.getIdentifier()))?Labels.getLabel("shared.yes"):Labels.getLabel("shared.no");
       }
     };
-    DefaultTableColumnController<AchievableStatus,String> blacklistedColumn=new DefaultTableColumnController<AchievableStatus,String>(AchievableStatusColumnIds.BLACKLISTED.name(),"Blacklisted",String.class,blacklistedCell); // I18n
+    DefaultTableColumnController<AchievableStatus,String> blacklistedColumn=new DefaultTableColumnController<AchievableStatus,String>(AchievableStatusColumnIds.BLACKLISTED.name(),Labels.getLabel("character.status.quests.table.column.blacklisted"),String.class,blacklistedCell);
     blacklistedColumn.setWidthSpecs(50,50,50);
     return blacklistedColumn;
   }

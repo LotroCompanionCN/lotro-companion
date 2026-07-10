@@ -14,6 +14,7 @@ import delta.games.lotro.character.classes.ClassDescription;
 import delta.games.lotro.character.races.RaceDescription;
 import delta.games.lotro.character.stats.buffs.Buff;
 import delta.games.lotro.gui.LotroIconsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Builder for a table that shows buffs.
@@ -43,7 +44,7 @@ public class BuffsTableBuilder
           return icon;
         }
       };
-      DefaultTableColumnController<Buff,ImageIcon> iconColumn=new DefaultTableColumnController<Buff,ImageIcon>("Icon",ImageIcon.class,iconCell); // I18n
+      DefaultTableColumnController<Buff,ImageIcon> iconColumn=new DefaultTableColumnController<Buff,ImageIcon>(Labels.getLabel("character.buffs.table.column.icon"),ImageIcon.class,iconCell);
       iconColumn.setWidthSpecs(50,50,50);
       iconColumn.setSortable(false);
       table.addColumnController(iconColumn);
@@ -58,7 +59,7 @@ public class BuffsTableBuilder
           return buff.getLabel();
         }
       };
-      DefaultTableColumnController<Buff,String> nameColumn=new DefaultTableColumnController<Buff,String>("Name",String.class,nameCell); // I18n
+      DefaultTableColumnController<Buff,String> nameColumn=new DefaultTableColumnController<Buff,String>(Labels.getLabel("character.buffs.table.column.name"),String.class,nameCell);
       nameColumn.setWidthSpecs(100,-1,210);
       table.addColumnController(nameColumn);
     }
@@ -72,7 +73,7 @@ public class BuffsTableBuilder
           return buff.getRequiredClass();
         }
       };
-      DefaultTableColumnController<Buff,ClassDescription> classColumn=new DefaultTableColumnController<Buff,ClassDescription>("Class",ClassDescription.class,classCell); // I18n
+      DefaultTableColumnController<Buff,ClassDescription> classColumn=new DefaultTableColumnController<Buff,ClassDescription>(Labels.getLabel("character.buffs.table.column.class"),ClassDescription.class,classCell);
       classColumn.setWidthSpecs(100,100,50);
       table.addColumnController(classColumn);
     }
@@ -86,7 +87,7 @@ public class BuffsTableBuilder
           return buff.getRequiredRace();
         }
       };
-      DefaultTableColumnController<Buff,RaceDescription> classColumn=new DefaultTableColumnController<Buff,RaceDescription>("Race",RaceDescription.class,classCell); // I18n
+      DefaultTableColumnController<Buff,RaceDescription> classColumn=new DefaultTableColumnController<Buff,RaceDescription>(Labels.getLabel("character.buffs.table.column.race"),RaceDescription.class,classCell);
       classColumn.setWidthSpecs(100,100,50);
       table.addColumnController(classColumn);
     }

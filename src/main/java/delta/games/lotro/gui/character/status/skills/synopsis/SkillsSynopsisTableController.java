@@ -31,6 +31,7 @@ import delta.games.lotro.common.comparators.NamedComparator;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.lore.skills.form.SkillFilter;
 import delta.games.lotro.gui.utils.SharedPanels;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a table that shows skills status for several toons.
@@ -143,7 +144,7 @@ public class SkillsSynopsisTableController
         return LotroIconsManager.getSkillIcon(item.getIconId());
       }
     };
-    DefaultTableColumnController<SkillDescription,Icon> iconColumn=new DefaultTableColumnController<SkillDescription,Icon>("Icon",Icon.class,iconCell); // I18n
+    DefaultTableColumnController<SkillDescription,Icon> iconColumn=new DefaultTableColumnController<SkillDescription,Icon>(Labels.getLabel("skills.synopsis.table.column.icon"),Icon.class,iconCell);
     iconColumn.setWidthSpecs(50,50,50);
     iconColumn.setSortable(false);
     // Header renderer
@@ -165,7 +166,7 @@ public class SkillsSynopsisTableController
       }
     };
     String id=character.getIdentifier();
-    DefaultTableColumnController<SkillDescription,SkillStatus> column=new DefaultTableColumnController<SkillDescription,SkillStatus>(id,"Skill",SkillStatus.class,cell); // I18n
+    DefaultTableColumnController<SkillDescription,SkillStatus> column=new DefaultTableColumnController<SkillDescription,SkillStatus>(id,Labels.getLabel("skills.synopsis.table.column.skill"),SkillStatus.class,cell);
 
     // Cell renderer
     TableCellRenderer renderer=new SkillStatusCellRenderer();

@@ -14,6 +14,7 @@ import delta.games.lotro.config.labels.AvailableLabelsDefinition;
 import delta.games.lotro.config.labels.DefinitionOfAvailableLabels;
 import delta.games.lotro.config.labels.LabelsConfiguration;
 import delta.games.lotro.config.labels.LabelsEntry;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to edit the labels configuration.
@@ -43,16 +44,16 @@ public class LabelsConfigurationPanelController extends AbstractPanelController
     int y=0;
     // Data labels
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    panel.add(GuiFactory.buildLabel("Data labels:"),c); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("configuration.labels.dataLabels")),c);
     c=new GridBagConstraints(1,y,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(5,5,5,5),0,0);
     panel.add(_dataLabelsCB.getComboBox(),c);
     y++;
     // Application labels
     c=new GridBagConstraints(0,y,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    panel.add(GuiFactory.buildLabel("Application labels:"),c); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("configuration.labels.applicationLabels")),c);
     c=new GridBagConstraints(1,y,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(5,5,5,5),0,0);
     panel.add(_appLabelsCB.getComboBox(),c);
-    panel.setBorder(GuiFactory.buildTitledBorder("Labels")); // I18n
+    panel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("configuration.labels.title")));
     return panel;
   }
 

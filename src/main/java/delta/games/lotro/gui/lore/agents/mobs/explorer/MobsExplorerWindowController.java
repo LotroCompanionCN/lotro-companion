@@ -63,7 +63,7 @@ public class MobsExplorerWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Mobs explorer"); // 18n
+    frame.setTitle(Labels.getLabel("mobs.explorer.title"));
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);
     return frame;
@@ -89,8 +89,8 @@ public class MobsExplorerWindowController extends DefaultWindowController
     // Table
     initTable(mobs);
     _panelController=new GenericTablePanelController<MobDescription>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Mobs"); // I18n
-    _panelController.getCountsDisplay().setText("Mob(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("mobs.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("mobs.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new MobsFilterController(_filter,mobs,_panelController);

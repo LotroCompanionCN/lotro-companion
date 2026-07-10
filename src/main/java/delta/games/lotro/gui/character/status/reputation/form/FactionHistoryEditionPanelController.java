@@ -20,6 +20,7 @@ import delta.common.ui.swing.text.dates.DateEditionController;
 import delta.common.ui.swing.text.dates.DateListener;
 import delta.games.lotro.character.status.reputation.FactionLevelStatus;
 import delta.games.lotro.character.status.reputation.FactionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.lore.reputation.FactionLevel;
 import delta.games.lotro.utils.strings.ContextRendering;
@@ -68,10 +69,10 @@ public class FactionHistoryEditionPanelController extends AbstractPanelControlle
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     // Header row
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    JLabel tier=GuiFactory.buildLabel("Rank"); // I18n
+    JLabel tier=GuiFactory.buildLabel(Labels.getLabel("reputation.faction.history.column.rank"));
     panel.add(tier,c);
     c=new GridBagConstraints(1,0,1,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    panel.add(GuiFactory.buildLabel("Completion date"),c); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("reputation.faction.history.column.date")),c);
     c.gridx++;
     c.gridy++;
 

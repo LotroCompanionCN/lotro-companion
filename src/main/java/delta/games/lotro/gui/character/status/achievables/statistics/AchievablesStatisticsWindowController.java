@@ -13,6 +13,7 @@ import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.status.achievables.AchievablesStatusManager;
 import delta.games.lotro.character.status.achievables.statistics.GlobalAchievablesStatistics;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.Achievable;
 
 /**
@@ -59,7 +60,7 @@ public class AchievablesStatisticsWindowController<T extends Achievable> extends
   {
     String name=toon.getName();
     String serverName=toon.getServerName();
-    String title="Statistics for "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.status.achievables.statistics.window.title",new Object[]{name,serverName});
     return title;
   }
 

@@ -35,6 +35,7 @@ import delta.games.lotro.lore.emotes.EmoteDescription;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.items.legendary.relics.Relic;
 import delta.games.lotro.lore.quests.Achievable;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.titles.TitleDescription;
 
 /**
@@ -164,7 +165,7 @@ public class RewardsPanelController extends AbstractPanelController
         JPanel selectablesPanel=GuiFactory.buildPanel(new GridBagLayout());
         GridBagConstraints c2=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
         addRewards(selectablesPanel,c2,selectable.getElements());
-        Border border=GuiFactory.buildTitledBorder("Select one of:"); // I18n
+        Border border=GuiFactory.buildTitledBorder(Labels.getLabel("common.rewards.selectOneOf"));
         selectablesPanel.setBorder(border);
         int nbElements=selectable.getNbElements();
         GridBagConstraints cSubPanel=new GridBagConstraints(c.gridx,c.gridy,2,nbElements,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);

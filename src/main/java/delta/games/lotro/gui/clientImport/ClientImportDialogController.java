@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDialogController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.dat.data.DataFacade;
 import delta.games.lotro.memory.extraction.MemoryExtractionSession;
@@ -62,7 +63,7 @@ public class ClientImportDialogController extends DefaultDialogController implem
   {
     JDialog dialog=super.build();
     dialog.setModal(false);
-    dialog.setTitle("Import from local client"); // I18n
+    dialog.setTitle(Labels.getLabel("clientimport.dialog.title"));
     dialog.setResizable(false);
     dialog.pack();
     WindowController controller=getParentController();
@@ -96,13 +97,13 @@ public class ClientImportDialogController extends DefaultDialogController implem
     // How-to panel
     _howToCtrl=new ClientImportHowToPanelController();
     JComponent howTo=_howToCtrl.getHowToGadget();
-    howTo.setBorder(GuiFactory.buildTitledBorder("How To?")); // I18n
+    howTo.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("clientimport.howTo.title")));
     GridBagConstraints c=new GridBagConstraints(0,0,2,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     ret.add(howTo,c);
     // Configuration panel
     _configCtrl=new ImportConfigurationPanelController();
     JPanel configurationPanel=_configCtrl.getPanel();
-    configurationPanel.setBorder(GuiFactory.buildTitledBorder("Configuration")); // I18n
+    configurationPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("clientimport.configuration.title")));
     c=new GridBagConstraints(0,1,1,2,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     ret.add(configurationPanel,c);
     // Commands panel
@@ -112,7 +113,7 @@ public class ClientImportDialogController extends DefaultDialogController implem
     // Display panel
     _displayCtrl=new ImportResultDisplayController();
     JPanel displayPanel=_displayCtrl.getPanel();
-    displayPanel.setBorder(GuiFactory.buildTitledBorder("Results")); // I18n
+    displayPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("clientimport.results.title")));
     c=new GridBagConstraints(1,2,1,0,1.0,1.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     ret.add(displayPanel,c);
     return ret;
@@ -121,7 +122,7 @@ public class ClientImportDialogController extends DefaultDialogController implem
   private JPanel buildCommandsPanel()
   {
     // Start button
-    _startButton=GuiFactory.buildButton("Start"); // I18n
+    _startButton=GuiFactory.buildButton(Labels.getLabel("clientimport.start"));
     ActionListener alStart=new ActionListener()
     {
       @Override

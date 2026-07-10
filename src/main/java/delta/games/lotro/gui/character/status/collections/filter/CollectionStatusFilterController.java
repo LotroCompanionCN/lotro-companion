@@ -23,6 +23,7 @@ import delta.games.lotro.character.status.collections.CollectionStatus;
 import delta.games.lotro.character.status.collections.filters.CollectionStateFilter;
 import delta.games.lotro.character.status.collections.filters.CollectionsStatusFilter;
 import delta.games.lotro.common.filters.NamedFilter;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.CollectionDescription;
 
 /**
@@ -119,7 +120,7 @@ public class CollectionStatusFilterController
     // Label filter
     {
       JPanel linePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
-      linePanel.add(GuiFactory.buildLabel("Name filter:")); // I18n
+      linePanel.add(GuiFactory.buildLabel(Labels.getLabel("collections.filter.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(10);
       linePanel.add(_contains);
@@ -145,7 +146,7 @@ public class CollectionStatusFilterController
     // State
     {
       JPanel linePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
-      JLabel label=GuiFactory.buildLabel("State:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("collections.filter.state"));
       linePanel.add(label);
       _states=buildStateMultiCheckbox();
       linePanel.add(_states.getPanel());

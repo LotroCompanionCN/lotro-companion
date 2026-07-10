@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterData;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "stat contribs" window.
@@ -48,7 +49,7 @@ public class StatContribsWindowController extends DefaultDialogController
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServer();
-    String title="Stat contributions for: "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("stat.contribs.window.title", new Object[]{name, serverName});
     dialog.setTitle(title);
     dialog.pack();
     dialog.setResizable(true);

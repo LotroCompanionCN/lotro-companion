@@ -9,6 +9,7 @@ import delta.common.ui.swing.area.AreaController;
 import delta.common.ui.swing.icons.IconsManager;
 import delta.common.ui.swing.labels.LabelWithHalo;
 import delta.common.utils.l10n.L10n;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the UI gadgets of a glory (=renown or infamy) reward.
@@ -26,7 +27,7 @@ public class GloryRewardGadgetsController extends RewardGadgetsController
   {
     super(parent);
     // Label
-    String nature=(renown)?"Renown":"Infamy"; // I18n
+    String nature=(renown)?Labels.getLabel("common.glory.renown"):Labels.getLabel("common.glory.infamy");
     String text=L10n.getString(glory)+" "+nature;
     Color color=Color.WHITE;
     _label=new LabelWithHalo();

@@ -71,7 +71,7 @@ public class ObjectChoiceWindowController<T> extends DefaultFormDialogController
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Choose:"); // I18n
+    dialog.setTitle(Labels.getLabel("chooser.window.title"));
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setSize(1000,dialog.getHeight());
     return dialog;
@@ -93,8 +93,8 @@ public class ObjectChoiceWindowController<T> extends DefaultFormDialogController
     }
     // Table
     _panelController=new GenericTablePanelController<T>(this,_tableController);
-    _panelController.getConfiguration().setBorderTitle("Choice"); // I18n
-    _panelController.getCountsDisplay().setText("Item(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("chooser.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("chooser.table.counts"));
     if (_filterController!=null)
     {
       _filterController.setFilterUpdateListener(_panelController);

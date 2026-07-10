@@ -20,6 +20,7 @@ import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.NumericTools;
 import delta.games.lotro.dat.data.DataFacade;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.gui.maps.resources.filter.ResourceNodeFilterWindowController;
 import delta.games.lotro.lore.crafting.CraftingLevel;
 import delta.games.lotro.lore.items.Item;
@@ -66,7 +67,7 @@ public class ResourcesMapsExplorerPanelController extends AbstractPanelControlle
 
   private void initFilter(WindowController parent)
   {
-    _filterButton=GuiFactory.buildButton("Filter..."); // I18n
+    _filterButton=GuiFactory.buildButton(Labels.getLabel("maps.resources.filter.button"));
     ActionListener al=new ActionListener()
     {
       @Override
@@ -131,26 +132,26 @@ public class ResourcesMapsExplorerPanelController extends AbstractPanelControlle
     // Crafting level selection
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     JPanel craftingLevelSelectionPanel=_craftingLevelSelection.getPanel();
-    craftingLevelSelectionPanel.setBorder(GuiFactory.buildTitledBorder("Choose crafting level:")); // I18n
+    craftingLevelSelectionPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("maps.resources.chooseCraftingLevel")));
     panel.add(craftingLevelSelectionPanel,c);
     // Map selection
     c=new GridBagConstraints(1,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     JPanel mapSelectionPanel=GuiFactory.buildPanel(new BorderLayout());
     JComponent mapSelection=_mapSelection.getComboBox().getComboBox();
     mapSelectionPanel.add(mapSelection,BorderLayout.CENTER);
-    mapSelectionPanel.setBorder(GuiFactory.buildTitledBorder("Choose map:")); // I18n
+    mapSelectionPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("maps.resources.chooseMap")));
     panel.add(mapSelectionPanel,c);
     // Items
     c=new GridBagConstraints(2,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     JPanel itemsPanel=_items.getPanel();
-    itemsPanel.setBorder(GuiFactory.buildTitledBorder("Items:")); // I18n
+    itemsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("maps.resources.items")));
     panel.add(itemsPanel,c);
     // Filter...
     c=new GridBagConstraints(3,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     panel.add(_filterButton,c);
     // Map
     c=new GridBagConstraints(0,1,4,1,1.0,1.0,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
-    _mapPanel.setBorder(GuiFactory.buildTitledBorder("Map")); // I18n
+    _mapPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("maps.resources.map")));
     panel.add(_mapPanel,c);
     return panel;
   }

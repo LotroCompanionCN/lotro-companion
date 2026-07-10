@@ -29,6 +29,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.LocalizedFormats;
 import delta.games.lotro.character.status.crafting.ProfessionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.CraftingLevel;
 import delta.games.lotro.lore.crafting.Profession;
 import delta.games.lotro.utils.Formats;
@@ -99,8 +100,8 @@ public class CraftingHistoryChartController
     }
     updateData();
     JFreeChart jfreechart = ChartFactory.createXYStepChart(title,
-                        "Time", // I18n
-                        "Tier", // I18n
+                        Labels.getLabel("crafting.chart.axis.time"),
+                        Labels.getLabel("crafting.chart.axis.tier"),
                         _data,
                         PlotOrientation.VERTICAL,
                         true,
@@ -192,7 +193,7 @@ public class CraftingHistoryChartController
     long lastProficiency=0;
     long lastMastery=0;
 
-    XYSeries proficiencySeries = new XYSeries("Proficiency"); // I18n
+    XYSeries proficiencySeries = new XYSeries(Labels.getLabel("crafting.chart.series.proficiency"));
     Profession profession=_stats.getProfession();
     CraftingLevel maxLevel=profession.getMaximumLevel();
     int maxTier=maxLevel.getTier();
@@ -208,7 +209,7 @@ public class CraftingHistoryChartController
         }
       }
     }
-    XYSeries masterySeries = new XYSeries("Mastery"); // I18n
+    XYSeries masterySeries = new XYSeries(Labels.getLabel("crafting.chart.series.mastery"));
     for(int i=0;i<=maxTier;i++)
     {
       long date=_stats.getLevelStatus(i).getMastery().getCompletionDate();

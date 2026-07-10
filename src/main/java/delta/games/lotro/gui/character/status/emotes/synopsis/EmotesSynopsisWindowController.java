@@ -15,6 +15,7 @@ import delta.common.utils.misc.TypedProperties;
 import delta.games.lotro.Config;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.utils.CharacterUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "emotes synopsis" window.
@@ -58,7 +59,7 @@ public class EmotesSynopsisWindowController extends DefaultWindowController
   {
     JFrame frame=super.build();
     // Title
-    String title="Emotes synopsis"; // I18n
+    String title=Labels.getLabel("emotes.synopsis.window.title");
     frame.setTitle(title);
     // Minimum size
     frame.setMinimumSize(new Dimension(500,380));

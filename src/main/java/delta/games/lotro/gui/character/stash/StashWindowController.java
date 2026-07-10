@@ -97,7 +97,7 @@ public class StashWindowController extends DefaultWindowController implements Ac
     // Items table
     c.gridy=1;c.weighty=1;c.fill=GridBagConstraints.BOTH;
     panel.add(tablePanel,c);
-    tablePanel.setBorder(GuiFactory.buildTitledBorder("Items")); // I18n
+    tablePanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("character.stash.panel.border")));
     ItemInstanceFilter instanceFilter=new ItemInstanceFilter(filter);
     _itemsTable.setFilter(instanceFilter);
     return panel;
@@ -110,7 +110,7 @@ public class StashWindowController extends DefaultWindowController implements Ac
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
-    String title="Stash of "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.stash.window.title",new Object[]{name,serverName});
     frame.setTitle(title);
     frame.pack();
     frame.setMinimumSize(new Dimension(500,380));

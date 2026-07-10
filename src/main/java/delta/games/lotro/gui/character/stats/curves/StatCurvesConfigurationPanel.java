@@ -14,6 +14,7 @@ import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.common.ui.swing.text.IntegerEditionController;
 import delta.games.lotro.gui.character.summary.CharacterUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a stat curves configuration panel.
@@ -61,7 +62,7 @@ public class StatCurvesConfigurationPanel
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     // Level
-    panel.add(GuiFactory.buildLabel("Level:"),c); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("stat.curves.configuration.field.level")),c);
     c.gridx++;
     _level=CharacterUiUtils.buildLevelCombo();
     _level.selectItem(Integer.valueOf(_config.getLevel()));
@@ -78,7 +79,7 @@ public class StatCurvesConfigurationPanel
     // Max rating
     c.gridx=0;
     c.gridy++;
-    panel.add(GuiFactory.buildLabel("Max rating:"),c); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("stat.curves.configuration.field.maxRating")),c);
     c.gridx++;
     _maxRating=new IntegerEditionController(GuiFactory.buildTextField(""));
     _maxRating.setValueRange(Integer.valueOf(1),Integer.valueOf(5000000));

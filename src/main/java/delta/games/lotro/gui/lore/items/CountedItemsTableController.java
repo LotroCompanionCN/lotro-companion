@@ -181,7 +181,7 @@ public class CountedItemsTableController<T extends ItemProvider>
           return money;
         }
       };
-      DefaultTableColumnController<CountedItem<T>,Money> valueColumn=new DefaultTableColumnController<CountedItem<T>,Money>(TOTAL_VALUE_COLUMN,"Total Value",Money.class,valueCell); // 18n
+      DefaultTableColumnController<CountedItem<T>,Money> valueColumn=new DefaultTableColumnController<CountedItem<T>,Money>(TOTAL_VALUE_COLUMN,Labels.getLabel("items.table.column.totalValue"),Money.class,valueCell);
       MoneyCellRenderer.configureColumn(valueColumn);
       ret.add(valueColumn);
     }
@@ -195,7 +195,7 @@ public class CountedItemsTableController<T extends ItemProvider>
           return Integer.valueOf(item.getQuantity());
         }
       };
-      DefaultTableColumnController<CountedItem<T>,Integer> countColumn=new DefaultTableColumnController<CountedItem<T>,Integer>(COUNT_COLUMN,"Count",Integer.class,countCell); // 18n
+      DefaultTableColumnController<CountedItem<T>,Integer> countColumn=new DefaultTableColumnController<CountedItem<T>,Integer>(COUNT_COLUMN,Labels.getLabel("items.table.column.count"),Integer.class,countCell);
       ColumnsUtils.configureIntegerColumn(countColumn,55);
       ret.add(countColumn);
     }

@@ -30,6 +30,7 @@ import delta.games.lotro.common.comparators.NamedComparator;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.lore.emotes.EmoteFilter;
 import delta.games.lotro.gui.utils.SharedPanels;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.emotes.EmoteDescription;
 import delta.games.lotro.lore.emotes.EmotesManager;
 
@@ -101,7 +102,7 @@ public class EmotesSynopsisTableController
         return emote.getName();
       }
     };
-    DefaultTableColumnController<EmoteDescription,String> column=new DefaultTableColumnController<EmoteDescription,String>("Emotes",String.class,cell); // I18n
+    DefaultTableColumnController<EmoteDescription,String> column=new DefaultTableColumnController<EmoteDescription,String>(Labels.getLabel("emotes.synopsis.table.column.emotes"),String.class,cell);
 
     // Init panels
     column.setMinWidth(100);

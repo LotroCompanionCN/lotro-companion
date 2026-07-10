@@ -31,6 +31,7 @@ import delta.games.lotro.character.status.traits.shared.TraitSlotsStatus;
 import delta.games.lotro.character.traits.TraitDescription;
 import delta.games.lotro.character.traits.TraitsManager;
 import delta.games.lotro.gui.lore.traits.TraitIconController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a racial traits status edition panel.
@@ -159,7 +160,7 @@ public class RacialTraitsEditionPanelController implements ActionListener
       MouseListener popupListener=buildRightClickListener();
       label.addMouseListener(popupListener);
     }
-    TitledBorder border=GuiFactory.buildTitledBorder("Selected Traits"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("traits.racial.edition.panel.border"));
     selectedTraitsPanel.setBorder(border);
     return selectedTraitsPanel;
   }

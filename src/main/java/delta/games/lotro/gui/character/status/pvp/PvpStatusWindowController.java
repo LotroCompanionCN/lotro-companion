@@ -8,6 +8,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.pvp.PVPStatus;
 import delta.games.lotro.character.pvp.io.PVPStatusIO;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a window that shows the PVP status of a character.
@@ -44,7 +45,7 @@ public class PvpStatusWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("PVP Status"); // I18n
+    frame.setTitle(Labels.getLabel("pvp.status.window.title"));
     frame.pack();
     frame.setResizable(false);
     return frame;

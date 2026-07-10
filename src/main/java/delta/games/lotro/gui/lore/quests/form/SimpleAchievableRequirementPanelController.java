@@ -26,6 +26,7 @@ import delta.games.lotro.common.requirements.QuestRequirement;
 import delta.games.lotro.common.requirements.QuestStatus;
 import delta.games.lotro.common.utils.ComparisonOperator;
 import delta.games.lotro.gui.common.navigation.ReferenceConstants;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.Achievable;
 import delta.games.lotro.utils.Proxy;
 
@@ -138,13 +139,13 @@ public class SimpleAchievableRequirementPanelController extends AbstractAchievab
 
   private String buildEqualRequirementLabel(QuestStatus status)
   {
-    if (status==QuestStatus.COMPLETED) return ACHIEVABLE_LINK_SEED+" is completed"; // I18n
-    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+" is underway"; // I18n
-    if (status==QuestStatus.FAILED) return ACHIEVABLE_LINK_SEED+" is failed"; // I18n
+    if (status==QuestStatus.COMPLETED) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isCompleted");
+    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isUnderway");
+    if (status==QuestStatus.FAILED) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isFailed");
     int objectiveIndex=status.getObjectiveIndex();
     if (objectiveIndex>0)
     {
-      return ACHIEVABLE_LINK_SEED+" is underway at objective "+objectiveIndex; // I18n
+      return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isUnderwayAtObjective")+objectiveIndex;
     }
     LOGGER.warn(UNMANAGED_QUEST_STATUS,status);
     return ACHIEVABLE_LINK_SEED+" is ???";
@@ -152,13 +153,13 @@ public class SimpleAchievableRequirementPanelController extends AbstractAchievab
 
   private String buildNotEqualRequirementLabel(QuestStatus status)
   {
-    if (status==QuestStatus.COMPLETED) return ACHIEVABLE_LINK_SEED+" is not completed"; // I18n
-    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+" is not underway"; // I18n
-    if (status==QuestStatus.FAILED) return ACHIEVABLE_LINK_SEED+" is not failed"; // I18n
+    if (status==QuestStatus.COMPLETED) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isNotCompleted");
+    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isNotUnderway");
+    if (status==QuestStatus.FAILED) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isNotFailed");
     int objectiveIndex=status.getObjectiveIndex();
     if (objectiveIndex>0)
     {
-      return ACHIEVABLE_LINK_SEED+" is not underway at objective "+objectiveIndex; // I18n
+      return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isNotUnderwayAtObjective")+objectiveIndex;
     }
     LOGGER.warn(UNMANAGED_QUEST_STATUS,status);
     return ACHIEVABLE_LINK_SEED+" is not ???";
@@ -166,9 +167,9 @@ public class SimpleAchievableRequirementPanelController extends AbstractAchievab
 
   private String buildGreaterOrEqualsRequirementLabel(QuestStatus status)
   {
-    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+" is underway/completed"; // I18n
-    if (status==QuestStatus.COMPLETED) return ACHIEVABLE_LINK_SEED+" is completed"; // I18n
-    if (status==null) return ACHIEVABLE_LINK_SEED+" is at least ???"; // I18n
+    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isUnderwayOrCompleted");
+    if (status==QuestStatus.COMPLETED) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isCompleted");
+    if (status==null) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isAtLeastUnknown");
     if (status==QuestStatus.FAILED)
     {
       LOGGER.warn("Unexpected requirement combinaison: greater or equal {} for {}",status,Integer.valueOf(_requirement.getQuestId()));
@@ -176,7 +177,7 @@ public class SimpleAchievableRequirementPanelController extends AbstractAchievab
     int objectiveIndex=status.getObjectiveIndex();
     if (objectiveIndex>0)
     {
-      return ACHIEVABLE_LINK_SEED+" is completed or underway with at least objective "+objectiveIndex+" done"; // I18n
+      return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isCompletedOrUnderwayAtLeastObjective")+objectiveIndex+" done";
     }
     LOGGER.warn(UNMANAGED_QUEST_STATUS,status);
     return "??? "+ACHIEVABLE_LINK_SEED+" ???";
@@ -184,8 +185,8 @@ public class SimpleAchievableRequirementPanelController extends AbstractAchievab
 
   private String buildLessRequirementLabel(QuestStatus status)
   {
-    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+" is not started"; // I18n
-    if (status==null) return ACHIEVABLE_LINK_SEED+" has not reached ???"; // I18n
+    if (status==QuestStatus.UNDERWAY) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.isNotStarted");
+    if (status==null) return ACHIEVABLE_LINK_SEED+Labels.getLabel("lore.quests.requirement.hasNotReachedUnknown");
     if ((status==QuestStatus.COMPLETED) || (status==QuestStatus.FAILED))
     {
       LOGGER.warn("Unexpected requirement combinaison: greater or equal {} for {}",status,Integer.valueOf(_requirement.getQuestId()));

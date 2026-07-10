@@ -21,6 +21,7 @@ import delta.games.lotro.character.status.collections.birds.filters.BirdStatusFi
 import delta.games.lotro.character.status.collections.birds.filters.KnownBirdFilter;
 import delta.games.lotro.common.filters.NamedFilter;
 import delta.games.lotro.gui.utils.SharedUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.birds.BirdDescription;
 
 /**
@@ -117,7 +118,7 @@ public class BirdingStatusFilterController
     JPanel linePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Label filter
     {
-      linePanel.add(GuiFactory.buildLabel("Name filter:")); // I18n
+      linePanel.add(GuiFactory.buildLabel(Labels.getLabel("birding.filter.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(10);
       linePanel.add(_contains);
@@ -139,7 +140,7 @@ public class BirdingStatusFilterController
     }
     // Known
     {
-      JLabel label=GuiFactory.buildLabel("Known:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("birding.filter.known"));
       linePanel.add(label);
       _known=buildKnownCombobox();
       linePanel.add(_known.getComboBox());

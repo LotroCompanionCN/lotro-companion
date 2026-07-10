@@ -21,6 +21,7 @@ import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.games.lotro.character.stats.buffs.Buff;
 import delta.games.lotro.character.stats.buffs.BuffFilter;
 import delta.games.lotro.utils.gui.filter.ObjectFilterPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a buff filter edition panel.
@@ -84,7 +85,7 @@ public class BuffsFilterController extends ObjectFilterPanelController
     // Name filter
     JPanel nameContainsPanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING));
     {
-      nameContainsPanel.add(GuiFactory.buildLabel("Name filter:")); // I18n
+      nameContainsPanel.add(GuiFactory.buildLabel(Labels.getLabel("character.buffs.filter.nameFilter")));
       _nameContains=buildReactiveTextField();
       nameContainsPanel.add(_nameContains);
     }
@@ -93,7 +94,7 @@ public class BuffsFilterController extends ObjectFilterPanelController
 
     // Category panel
     JPanel categoryPanel=GuiFactory.buildPanel(new FlowLayout());
-    categoryPanel.add(GuiFactory.buildLabel("Category:")); // I18n
+    categoryPanel.add(GuiFactory.buildLabel(Labels.getLabel("character.buffs.filter.category")));
     categoryPanel.add(_category.getComboBox());
 
     // Global assembly

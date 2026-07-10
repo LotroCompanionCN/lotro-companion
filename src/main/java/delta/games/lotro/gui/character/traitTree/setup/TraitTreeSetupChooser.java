@@ -11,6 +11,7 @@ import delta.games.lotro.character.classes.traitTree.setup.TraitTreeSetup;
 import delta.games.lotro.common.enums.TraitTreeType;
 import delta.games.lotro.gui.character.traitTree.setup.table.TraitTreeSetupTableBuilder;
 import delta.games.lotro.utils.gui.chooser.ObjectChoiceWindowController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Utility method to choose a trait tree setup.
@@ -65,7 +66,7 @@ public class TraitTreeSetupChooser
     final ObjectChoiceWindowController<TraitTreeSetup> chooser=new ObjectChoiceWindowController<TraitTreeSetup>(parent,prefs,table);
     JDialog dialog=chooser.getDialog();
     // Title
-    dialog.setTitle("Choose trait tree setup:"); // I18n
+    dialog.setTitle(Labels.getLabel("character.traitTree.setup.chooser.title"));
     // Dimension
     dialog.setMinimumSize(new Dimension(600,300));
     dialog.setSize(600,300);

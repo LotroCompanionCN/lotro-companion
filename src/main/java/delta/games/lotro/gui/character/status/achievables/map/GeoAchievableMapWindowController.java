@@ -16,6 +16,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.achievables.edition.AchievableGeoStatusManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.character.status.achievables.edition.AchievableStatusGeoItem;
 import delta.games.lotro.lore.maps.MapDescription;
 import delta.games.lotro.lore.quests.Achievable;
@@ -106,7 +107,7 @@ public class GeoAchievableMapWindowController extends DefaultDialogController
   {
     JDialog dialog=super.build();
     // Title
-    dialog.setTitle("Map"); // I18n
+    dialog.setTitle(Labels.getLabel("character.status.achievables.geoMap.window.title"));
     dialog.pack();
     dialog.setResizable(false);
     return dialog;

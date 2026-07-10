@@ -13,6 +13,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.status.reputation.ReputationDeedStatus;
 import delta.games.lotro.character.status.reputation.ReputationDeedsStatus;
 import delta.games.lotro.character.status.reputation.ReputationStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.FactionsRegistry;
 import delta.games.lotro.lore.reputation.ReputationDeed;
 
@@ -57,7 +58,7 @@ public class ReputationDeedsDisplayController
     {
       String deedName=deed.getName();
       JLabel label=GuiFactory.buildLabel(deedName+":");
-      label.setToolTipText("Status for the '"+deedName+"' deed"); // I18n
+      label.setToolTipText(Labels.getLabel("reputation.deed.status.tooltip",new Object[]{deedName}));
       GridBagConstraints c=new GridBagConstraints(0,y,1,1,0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
       panel.add(label,c);
       c.gridx++;

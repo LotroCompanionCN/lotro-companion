@@ -58,7 +58,7 @@ public class InstancesExplorerWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Instances explorer"); // I18n
+    frame.setTitle(Labels.getLabel("lore.instances.explorer.title"));
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);
     return frame;
@@ -83,8 +83,8 @@ public class InstancesExplorerWindowController extends DefaultWindowController
     // Table
     initInstancesTable();
     _panelController=new GenericTablePanelController<InstanceTreeEntry>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Instances"); // I18n
-    _panelController.getCountsDisplay().setText("Instance(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("lore.instances.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("lore.instances.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new InstancesFilterController(_filter,_panelController);

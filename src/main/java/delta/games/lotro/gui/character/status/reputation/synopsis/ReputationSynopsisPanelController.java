@@ -127,7 +127,7 @@ public class ReputationSynopsisPanelController implements GenericEventsListener<
   private JPanel buildStatsPanel()
   {
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
-    TitledBorder border=GuiFactory.buildTitledBorder("Reputation synopsis"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("reputation.synopsis.panel.border"));
     panel.setBorder(border);
 
     // Table

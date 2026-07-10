@@ -19,6 +19,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.gui.lore.items.ItemUiTools;
 import delta.games.lotro.gui.lore.items.table.ItemsTableBuilder;
 import delta.games.lotro.gui.utils.UiConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.hobbies.rewards.HobbyDropTableEntry;
 import delta.games.lotro.lore.items.Item;
 
@@ -80,7 +81,7 @@ public class HobbyDropTableBuilder
    */
   public static DefaultTableColumnController<HobbyDropTableEntry,String> addDetailsColumn(final WindowController parent, GenericTableController<HobbyDropTableEntry> table)
   {
-    DefaultTableColumnController<HobbyDropTableEntry,String> column=table.buildButtonColumn(HobbyDropTableColumnIds.DETAILS.name(),"Details...",90);
+    DefaultTableColumnController<HobbyDropTableEntry,String> column=table.buildButtonColumn(HobbyDropTableColumnIds.DETAILS.name(),Labels.getLabel("hobby.dropTable.column.details"),90);
     ActionListener al=new ActionListener()
     {
       @Override
@@ -130,7 +131,7 @@ public class HobbyDropTableBuilder
         return Float.valueOf(entry.getDropPercentage());
       }
     };
-    DefaultTableColumnController<HobbyDropTableEntry,Float> dropColumn=new DefaultTableColumnController<HobbyDropTableEntry,Float>(HobbyDropTableColumnIds.DROP_PERCENTAGE.name(),"Drop %",Float.class,dropCell); // I18n
+    DefaultTableColumnController<HobbyDropTableEntry,Float> dropColumn=new DefaultTableColumnController<HobbyDropTableEntry,Float>(HobbyDropTableColumnIds.DROP_PERCENTAGE.name(),Labels.getLabel("hobby.dropTable.column.dropPercentage"),Float.class,dropCell);
     dropColumn.setCellRenderer(new PercentageRenderer(2));
     dropColumn.setWidthSpecs(55,55,50);
     return dropColumn;

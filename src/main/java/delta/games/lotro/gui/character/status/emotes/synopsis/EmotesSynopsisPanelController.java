@@ -124,7 +124,7 @@ public class EmotesSynopsisPanelController extends AbstractPanelController imple
   private JPanel buildSynopsisPanel()
   {
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
-    TitledBorder border=GuiFactory.buildTitledBorder("Emotes synopsis"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("emotes.synopsis.panel.border"));
     panel.setBorder(border);
 
     // Table

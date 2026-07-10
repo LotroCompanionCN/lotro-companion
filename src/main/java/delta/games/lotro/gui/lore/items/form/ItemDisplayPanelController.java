@@ -42,6 +42,7 @@ import delta.games.lotro.gui.utils.IconAndLinkPanelController;
 import delta.games.lotro.gui.utils.SharedPanels;
 import delta.games.lotro.gui.utils.SharedUiUtils;
 import delta.games.lotro.gui.utils.UiConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.gui.utils.items.SaveItemIconController;
 import delta.games.lotro.gui.utils.navigation.NavigationHyperLink;
 import delta.games.lotro.lore.emotes.EmoteDescription;
@@ -678,7 +679,7 @@ public class ItemDisplayPanelController extends AbstractNavigablePanelController
       {
         GridBagConstraints c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
         String allegianceGroup=allegiancePointsEntry.getGroup().getLabel();
-        String label="This item is worth "+allegiancePointsEntry.getPoints()+" Allegiance Points ("+allegianceGroup+")."; // I18n
+        String label=Labels.getLabel("items.display.allegiancePoints", new Object[]{allegiancePointsEntry.getPoints(), allegianceGroup});
         panel.add(GuiFactory.buildLabel(label),c);
         y++;
       }

@@ -12,6 +12,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.utils.ContextPropertyNames;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "character configs" window.
@@ -65,7 +66,7 @@ public class CharacterConfigsWindowController extends DefaultWindowController
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
-    String title="Configurations: "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.main.configs.window.title",new Object[]{name,serverName});
     frame.setTitle(title);
     frame.pack();
     frame.setResizable(true);

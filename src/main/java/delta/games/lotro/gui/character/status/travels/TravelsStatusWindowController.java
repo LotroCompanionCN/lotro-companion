@@ -23,6 +23,7 @@ import delta.games.lotro.character.status.skills.io.SkillsStatusIo;
 import delta.games.lotro.character.status.travels.AnchorsStatusManager;
 import delta.games.lotro.character.status.travels.io.AnchorsStatusIo;
 import delta.games.lotro.gui.character.status.skills.SkillsStatusPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a window that show the status of travel-related features.
@@ -78,7 +79,7 @@ public class TravelsStatusWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Travels Status"); // I18n
+    frame.setTitle(Labels.getLabel("travels.status.window.title"));
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);
     frame.setMinimumSize(new Dimension(frame.getWidth(),MIN_HEIGHT));
@@ -104,11 +105,11 @@ public class TravelsStatusWindowController extends DefaultWindowController
     JTabbedPane tab=GuiFactory.buildTabbedPane();
     // Travel skills
     JPanel travelSkillsPanel=_travelSkillsPanel.getPanel();
-    tab.add("Travel Skills", travelSkillsPanel); // I18n
+    tab.add(Labels.getLabel("travels.tab.skills"), travelSkillsPanel);
     // Milestones
     JPanel anchorsPanel=_anchorsPanel.getPanel();
     JScrollPane scroll=GuiFactory.buildScrollPane(anchorsPanel);
-    tab.add("Milestones", scroll); // I18n
+    tab.add(Labels.getLabel("travels.tab.milestones"), scroll);
     panel.add(tab,BorderLayout.CENTER);
     return panel;
   }

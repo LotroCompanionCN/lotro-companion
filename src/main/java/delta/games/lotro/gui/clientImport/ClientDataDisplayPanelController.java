@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.misc.Disposable;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.memory.extraction.session.status.ImportStatusData;
 
 /**
@@ -53,17 +54,17 @@ public class ClientDataDisplayPanelController implements Disposable
     ret.add(Box.createHorizontalStrut(150),c);
     c.gridx=0;c.gridy++;
     // Server name
-    ret.add(GuiFactory.buildLabel("Server Name:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.data.serverName")),c);
     c.gridx++;
     ret.add(_serverName,c);
     c.gridx=0;c.gridy++;
     // Language
-    ret.add(GuiFactory.buildLabel("Language:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.data.language")),c);
     c.gridx++;
     ret.add(_language,c);
     c.gridx=0;c.gridy++;
     // Client type
-    ret.add(GuiFactory.buildLabel("Client type:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.data.clientType")),c);
     c.gridx++;
     ret.add(_clientType,c);
     c.gridx=0;c.gridy++;

@@ -1,5 +1,7 @@
 package delta.games.lotro.gui.character.status.allegiances.form;
 
+import delta.games.lotro.gui.utils.l10n.Labels;
+
 /**
  * State of an allegiance reward.
  * @author DAM
@@ -9,22 +11,15 @@ public enum AllegianceRewardState
   /**
    * Future.
    */
-  FUTURE("Future"), // I18n
+  FUTURE,
   /**
    * Unlocked (but not claimed).
    */
-  UNLOCKED("Unlocked"), // I18n
+  UNLOCKED,
   /**
    * Claimed.
    */
-  CLAIMED("Claimed"); // I18n
-
-  private String _label;
-
-  private AllegianceRewardState(String label)
-  {
-    _label=label;
-  }
+  CLAIMED;
 
   /**
    * Get the display label.
@@ -32,6 +27,16 @@ public enum AllegianceRewardState
    */
   public String getLabel()
   {
-    return _label;
+    switch (this)
+    {
+      case FUTURE:
+        return Labels.getLabel("rewards.track.step.future");
+      case UNLOCKED:
+        return Labels.getLabel("rewards.track.step.unlocked");
+      case CLAIMED:
+        return Labels.getLabel("rewards.track.step.claimed");
+      default:
+        return "";
+    }
   }
 }

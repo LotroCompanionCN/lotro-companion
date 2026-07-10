@@ -13,6 +13,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.CharacterSummary;
 import delta.games.lotro.character.comparators.StandardSummaryComparatorsBuilder;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a characters chooser.
@@ -81,7 +82,7 @@ public final class CharactersChooserController extends DefaultFormDialogControll
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Choose characters..."); // I18n
+    dialog.setTitle(Labels.getLabel("shared.chooseCharacters.button"));
     return dialog;
   }
 

@@ -21,6 +21,7 @@ import delta.games.lotro.common.enums.LotroEnum;
 import delta.games.lotro.common.enums.LotroEnumsRegistry;
 import delta.games.lotro.common.enums.TraitNature;
 import delta.games.lotro.gui.character.status.traits.TraitsStatusPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a window that show the status of mounted appearances.
@@ -67,7 +68,7 @@ public class MountedAppearancesStatusWindowController extends DefaultWindowContr
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Mounted Appearances"); // I18n
+    frame.setTitle(Labels.getLabel("traits.mountedAppearances.window.title"));
     frame.pack();
     frame.setSize(frame.getWidth()+100,INITIAL_HEIGHT);
     frame.setMinimumSize(new Dimension(frame.getWidth()+100,MIN_HEIGHT));

@@ -12,6 +12,7 @@ import delta.games.lotro.character.events.CharacterEvent;
 import delta.games.lotro.character.events.CharacterEventType;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.events.GenericEventsListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "outfits" window.
@@ -57,7 +58,7 @@ public class OutfitsDisplayWindowController extends DefaultDisplayDialogControll
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
-    String title="Outfits for "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.cosmetics.outfits.window.title",new Object[]{name,serverName});
     dialog.setTitle(title);
     dialog.setResizable(true);
     return dialog;

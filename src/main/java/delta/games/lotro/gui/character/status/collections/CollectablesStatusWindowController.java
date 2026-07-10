@@ -29,6 +29,7 @@ import delta.games.lotro.common.enums.LotroEnum;
 import delta.games.lotro.common.enums.LotroEnumsRegistry;
 import delta.games.lotro.gui.character.status.collections.summary.CollectionsStatusSummaryPanelController;
 import delta.games.lotro.gui.character.status.skills.SkillsStatusPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.CollectionDescription;
 import delta.games.lotro.lore.collections.filters.CollectionCategoryFilter;
 import delta.games.lotro.lore.collections.mounts.MountDescription;
@@ -140,7 +141,7 @@ public class CollectablesStatusWindowController extends DefaultDisplayDialogCont
   protected JDialog build()
   {
     JDialog window=super.build();
-    window.setTitle((_type==STATUS_TYPE.PETS)?"Pets Status":"Mounts Status"); // I18n
+    window.setTitle((_type==STATUS_TYPE.PETS)?Labels.getLabel("collections.window.title.pets"):Labels.getLabel("collections.window.title.mounts"));
     window.pack();
     window.setSize(window.getWidth(),INITIAL_HEIGHT);
     window.setMinimumSize(new Dimension(window.getWidth(),MIN_HEIGHT));

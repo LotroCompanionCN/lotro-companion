@@ -17,6 +17,7 @@ import delta.games.lotro.character.status.levelling.LevelHistory;
 import delta.games.lotro.character.status.levelling.MultipleToonsLevellingStats;
 import delta.games.lotro.character.utils.CharacterUtils;
 import delta.games.lotro.gui.character.status.curves.DatedCurvesChartConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.charts.MultipleToonsDatedCurvesChartPanelController;
 
 /**
@@ -51,8 +52,8 @@ public class CharacterLevelWindowController extends DefaultWindowController
     }
     LevelCurveProvider provider=new LevelCurveProvider();
     DatedCurvesChartConfiguration configuration=new DatedCurvesChartConfiguration();
-    configuration.setChartTitle("Characters levelling"); // I18n
-    configuration.setValueAxisLabel("Level"); // I18n
+    configuration.setChartTitle(Labels.getLabel("levelling.chart.title"));
+    configuration.setValueAxisLabel(Labels.getLabel("levelling.chart.axis.value"));
     configuration.setValueAxisTicks(new double[]{1,5,10});
     _levellingPanelController=new MultipleToonsDatedCurvesChartPanelController<LevelHistory>(this,_stats,provider,configuration);
   }
@@ -69,7 +70,7 @@ public class CharacterLevelWindowController extends DefaultWindowController
   {
     JFrame frame=super.build();
     // Title
-    String title="Characters levelling"; // I18n
+    String title=Labels.getLabel("levelling.window.title");
     frame.setTitle(title);
     frame.pack();
     frame.setMinimumSize(new Dimension(500,380));

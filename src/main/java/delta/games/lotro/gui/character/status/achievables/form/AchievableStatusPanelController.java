@@ -39,6 +39,7 @@ import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 import delta.games.lotro.gui.character.status.achievables.map.AchievableGeoStatusEditionController;
 import delta.games.lotro.gui.utils.l10n.DateFormat;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.deeds.DeedDescription;
 import delta.games.lotro.lore.deeds.DeedType;
 import delta.games.lotro.lore.quests.Achievable;
@@ -155,7 +156,7 @@ public class AchievableStatusPanelController extends AbstractPanelController imp
     if (useCompletionCount())
     {
       panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
-      panel.add(GuiFactory.buildLabel("Completion count:")); // I18n
+      panel.add(GuiFactory.buildLabel(Labels.getLabel("character.status.achievables.form.completionCount")));
       _completionCount=GuiFactory.buildLabel("-");
       panel.add(_completionCount);
     }
@@ -181,7 +182,7 @@ public class AchievableStatusPanelController extends AbstractPanelController imp
     if (mode==AchievableUIMode.DEED)
     {
       panel=GuiFactory.buildPanel(new FlowLayout());
-      panel.add(GuiFactory.buildLabel("Completion date:")); // I18n
+      panel.add(GuiFactory.buildLabel(Labels.getLabel("character.status.achievables.form.completionDate")));
       _completionDate=new DateEditionController(DateFormat.getDateTimeCodec());
       panel.add(_completionDate.getTextField());
     }
@@ -213,7 +214,7 @@ public class AchievableStatusPanelController extends AbstractPanelController imp
     {
       AchievableGeoStatusManager geoStatusManager=new AchievableGeoStatusManager(_status,this);
       _geoController=new AchievableGeoStatusEditionController(parent,geoStatusManager,_config.isEditable());
-      toggleMap=GuiFactory.buildButton("Map"); // I18n
+      toggleMap=GuiFactory.buildButton(Labels.getLabel("character.status.achievables.form.map"));
       ActionListener mapActionListener=new ActionListener()
       {
         @Override

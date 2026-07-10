@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.mounts.MountDescription;
 
 /**
@@ -46,7 +47,7 @@ public class MountDisplayWindowController extends DefaultDialogController
     container.removeAll();
     JPanel panel=_controller.getPanel();
     container.add(panel,BorderLayout.CENTER);
-    dialog.setTitle("Mount: "+mount.getName()); // 18n
+    dialog.setTitle(Labels.getLabel("lore.mounts.display.title",new Object[]{mount.getName()}));
     dialog.pack();
     WindowController controller=getParentController();
     if (controller!=null)

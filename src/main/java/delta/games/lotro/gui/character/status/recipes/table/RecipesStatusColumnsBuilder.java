@@ -10,6 +10,7 @@ import delta.common.ui.swing.tables.TableColumnController;
 import delta.games.lotro.character.status.recipes.RecipeState;
 import delta.games.lotro.character.status.recipes.RecipeStatus;
 import delta.games.lotro.gui.lore.crafting.recipes.RecipesTableController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.recipes.Recipe;
 
 /**
@@ -53,7 +54,7 @@ public class RecipesStatusColumnsBuilder
           return status.getState();
         }
       };
-      DefaultTableColumnController<RecipeStatus,RecipeState> stateColumn=new DefaultTableColumnController<RecipeStatus,RecipeState>(RecipeStatusColumnIds.STATE.name(),"State",RecipeState.class,stateCell); // I18n
+      DefaultTableColumnController<RecipeStatus,RecipeState> stateColumn=new DefaultTableColumnController<RecipeStatus,RecipeState>(RecipeStatusColumnIds.STATE.name(),Labels.getLabel("recipes.status.table.column.state"),RecipeState.class,stateCell);
       stateColumn.setWidthSpecs(80,80,80);
       ret.add(stateColumn);
     }

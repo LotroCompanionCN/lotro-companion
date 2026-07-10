@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.FactionFilter;
 import delta.games.lotro.lore.reputation.FactionsRegistry;
 
@@ -65,7 +66,7 @@ public class ReputationSynopsisFilterController
   {
     FactionsRegistry registry=FactionsRegistry.getInstance();
     List<String> categories=registry.getFactionCategories();
-    categories.remove("Guild"); // I18n
+    categories.remove(Labels.getLabel("reputation.synopsis.category.guild"));
     String[] ret=categories.toArray(new String[categories.size()]);
     return ret;
   }
@@ -92,7 +93,7 @@ public class ReputationSynopsisFilterController
       }
     };
     _category.addListener(categoryListener);
-    panel.add(GuiFactory.buildLabel("Category:")); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("reputation.synopsis.filter.category")));
     panel.add(_category.getComboBox());
     return panel;
   }

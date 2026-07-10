@@ -31,6 +31,7 @@ import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.common.utils.l10n.LocalizedFormats;
 import delta.games.lotro.character.status.reputation.FactionLevelStatus;
 import delta.games.lotro.character.status.reputation.FactionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.lore.reputation.FactionLevel;
 import delta.games.lotro.utils.Formats;
@@ -99,8 +100,8 @@ public class FactionHistoryChartController extends AbstractPanelController
   {
     updateData();
     JFreeChart jfreechart = ChartFactory.createXYStepChart("",
-                        "Time", // I18n
-                        "Level", // I18n
+                        Labels.getLabel("reputation.faction.chart.axis.time"),
+                        Labels.getLabel("reputation.faction.chart.axis.level"),
                         _data,
                         PlotOrientation.VERTICAL,
                         true,
@@ -202,7 +203,7 @@ public class FactionHistoryChartController extends AbstractPanelController
   {
     _data.removeAllSeries();
 
-    XYSeries series = new XYSeries("History"); // I18n
+    XYSeries series = new XYSeries(Labels.getLabel("reputation.faction.chart.series.history"));
     Faction faction=_stats.getFaction();
     FactionLevel[] levels=faction.getLevels();
     for(FactionLevel level : levels)

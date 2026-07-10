@@ -17,6 +17,7 @@ import delta.games.lotro.gui.character.status.achievables.statistics.AchievableS
 import delta.games.lotro.gui.character.status.achievables.statistics.AchievablesReputationTableController;
 import delta.games.lotro.gui.common.statistics.ReputationTableController;
 import delta.games.lotro.gui.lore.items.CountedItemsTableController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.CountedItem;
 import delta.games.lotro.lore.items.Item;
 
@@ -70,13 +71,13 @@ public class TasksStatisticsPanelController extends AbstractPanelController
     panel.add(pane,BorderLayout.CENTER);
     // Reputation
     JPanel reputationPanel=_reputation.getPanel();
-    pane.add("Reputation",reputationPanel); // I18n
+    pane.add(Labels.getLabel("tasks.statistics.tab.reputation"),reputationPanel);
     // Consumed items
     JPanel itemsPanel=_consumedItems.getPanel();
-    pane.add("Consumed items",itemsPanel); // I18n
+    pane.add(Labels.getLabel("tasks.statistics.tab.consumedItems"),itemsPanel);
     // Earned items
     JPanel earnedItemsPanel=_earnedItems.getPanel();
-    pane.add("Earned items",earnedItemsPanel); // I18n
+    pane.add(Labels.getLabel("tasks.statistics.tab.earnedItems"),earnedItemsPanel);
     return panel;
   }
 

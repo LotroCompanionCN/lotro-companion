@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.labels.BrowserHyperlinkAction;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a paypal 'donate' button.
@@ -37,9 +38,7 @@ public class PaypalButtonController
   {
     JButton button=GuiFactory.buildIconButton("/resources/gui/paypal/donate.png");
     // Tooltip
-    String tooltip="<html>Make a donation with Paypal.<br>" // I18n
-        + "This is only to show your support for my work on this tool."
-        + "</html>";
+    String tooltip=Labels.getLabel("misc.paypal.donate.tooltip");
     button.setToolTipText(tooltip);
     // Donate
     ActionListener al=new ActionListener()
@@ -48,7 +47,7 @@ public class PaypalButtonController
       public void actionPerformed(ActionEvent e)
       {
         String donatePaypal="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CG39NLT2NJ58A&source=url";
-        BrowserHyperlinkAction action=new BrowserHyperlinkAction(donatePaypal,"Donate"); // I18n
+        BrowserHyperlinkAction action=new BrowserHyperlinkAction(donatePaypal,Labels.getLabel("misc.paypal.donate.label"));
         action.doClick(null);
       }
     };

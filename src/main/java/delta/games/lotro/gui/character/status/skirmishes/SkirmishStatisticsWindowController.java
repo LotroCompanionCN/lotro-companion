@@ -59,7 +59,7 @@ public class SkirmishStatisticsWindowController extends DefaultDisplayDialogCont
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(1000,300));
-    dialog.setTitle("Skirmish statistics"); // I18n
+    dialog.setTitle(Labels.getLabel("skirmish.statistics.window.title"));
     dialog.setSize(new Dimension(1200,600));
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -88,8 +88,8 @@ public class SkirmishStatisticsWindowController extends DefaultDisplayDialogCont
     // Table
     initTable();
     _panelController=new GenericTablePanelController<SkirmishEntry>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Skirmish statistics"); // I18n
-    _panelController.getCountsDisplay().setText("Element(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("skirmish.statistics.panel.border"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("skirmish.statistics.table.counts"));
     JPanel tablePanel=_panelController.getPanel();
     // Build child controllers
     _filterController=new SkirmishEntryFilterController(_data.getFilter(),this);
@@ -104,12 +104,12 @@ public class SkirmishStatisticsWindowController extends DefaultDisplayDialogCont
     panel.add(filterPanel,c);
     // - config
     JPanel configPanel=_configController.getPanel();
-    configPanel.setBorder(GuiFactory.buildTitledBorder("Configuration")); // I18n
+    configPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("skirmish.statistics.configuration.border")));
     c=new GridBagConstraints(0,1,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(configPanel,c);
     // - totals
     JPanel totalsPanel=_totalsController.getPanel();
-    totalsPanel.setBorder(GuiFactory.buildTitledBorder("Totals")); // I18n
+    totalsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("skirmish.statistics.totals.border")));
     c=new GridBagConstraints(1,0,1,2,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(totalsPanel,c);
     // - table

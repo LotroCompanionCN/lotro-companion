@@ -45,6 +45,7 @@ import delta.games.lotro.gui.character.virtues.VirtuesEditionDialogController;
 import delta.games.lotro.utils.ContextPropertyNames;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.events.GenericEventsListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "character data" window.
@@ -112,11 +113,11 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     JPanel statsPanel=_statsController.getPanel();
     // Equipment panel
     JPanel equipmentPanel=_equipmentController.getPanel();
-    TitledBorder equipmentBorder=GuiFactory.buildTitledBorder("Equipment"); // I18n
+    TitledBorder equipmentBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.equipment"));
     equipmentPanel.setBorder(equipmentBorder);
     // Essences panel
     JPanel essencesPanel=buildEssencesPanel();
-    TitledBorder essencesBorder=GuiFactory.buildTitledBorder("Essences"); // I18n
+    TitledBorder essencesBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.essences"));
     essencesPanel.setBorder(essencesBorder);
 
     JPanel gearingPanel=GuiFactory.buildPanel(new GridBagLayout());
@@ -144,7 +145,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     // - virtues
     {
       JPanel virtuesPanel=buildVirtuesPanel();
-      TitledBorder border=GuiFactory.buildTitledBorder("Virtues"); // I18n
+      TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.virtues"));
       virtuesPanel.setBorder(border);
       c=new GridBagConstraints(0,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,5,0,5),0,0);
       bottomPanel1.add(virtuesPanel,c);
@@ -152,7 +153,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     // - tomes
     {
       JPanel tomesPanel=_tomesController.getPanel();
-      TitledBorder border=GuiFactory.buildTitledBorder("Tomes"); // I18n
+      TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.tomes"));
       tomesPanel.setBorder(border);
       c=new GridBagConstraints(1,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
       bottomPanel1.add(tomesPanel,c);
@@ -167,7 +168,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     // - traits
     {
       JPanel traitsPanel=_traitsController.getPanel();
-      TitledBorder border=GuiFactory.buildTitledBorder("Traits"); // I18n
+      TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.traits"));
       traitsPanel.setBorder(border);
       c=new GridBagConstraints(0,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,5,0,0),0,0);
       bottomPanel2.add(traitsPanel,c);
@@ -175,7 +176,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     // - buffs
     {
       JPanel buffsPanel=_buffsController.getPanel();
-      TitledBorder border=GuiFactory.buildTitledBorder("Buffs"); // I18n
+      TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.buffs"));
       buffsPanel.setBorder(border);
       c=new GridBagConstraints(1,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,5,0,0),0,0);
       bottomPanel2.add(buffsPanel,c);
@@ -183,7 +184,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     // - effects
     {
       JPanel effectsPanel=_effectsController.getPanel();
-      TitledBorder border=GuiFactory.buildTitledBorder("Effects"); // I18n
+      TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("character.config.data.border.effects"));
       effectsPanel.setBorder(border);
       c=new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,5,0,0),0,0);
       bottomPanel2.add(effectsPanel,c);
@@ -209,7 +210,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     JPanel panel=GuiFactory.buildPanel(new FlowLayout());
     // Edition
     {
-      JButton edit=GuiFactory.buildButton("Edit..."); // I18n
+      JButton edit=GuiFactory.buildButton(Labels.getLabel("character.config.data.button.edit"));
       ActionListener alEssences=new ActionListener()
       {
         @Override
@@ -223,7 +224,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     }
     // Summary
     {
-      JButton summary=GuiFactory.buildButton("Summary..."); // I18n
+      JButton summary=GuiFactory.buildButton(Labels.getLabel("character.config.data.button.summary"));
       ActionListener alEssences=new ActionListener()
       {
         @Override
@@ -243,7 +244,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     JPanel panel=GuiFactory.buildPanel(new FlowLayout());
     JPanel virtuesPanel=_virtuesController.getPanel();
     panel.add(virtuesPanel);
-    JButton button=GuiFactory.buildButton("Edit..."); // I18n
+    JButton button=GuiFactory.buildButton(Labels.getLabel("character.config.data.button.edit"));
     panel.add(button);
     ActionListener al=new ActionListener()
     {
@@ -275,7 +276,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
     // Title
     String name=_data.getName();
     String serverName=_data.getServer();
-    String title="Character: "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.config.data.window.title",new Object[]{name,serverName});
     dialog.setTitle(title);
     // Set values
     _statsController.update();

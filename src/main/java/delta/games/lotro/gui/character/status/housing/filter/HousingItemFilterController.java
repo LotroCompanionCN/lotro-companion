@@ -149,7 +149,7 @@ public class HousingItemFilterController implements ActionListener
 
     // Filter
     JPanel memberPanel=buildMemberPanel();
-    Border memberBorder=GuiFactory.buildTitledBorder("Item"); // I18n
+    Border memberBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.status.housing.filter.border.item"));
     memberPanel.setBorder(memberBorder);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(memberPanel,c);
@@ -171,7 +171,7 @@ public class HousingItemFilterController implements ActionListener
     JPanel linePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Name filter
     {
-      linePanel.add(GuiFactory.buildLabel("Name:")); // I18n
+      linePanel.add(GuiFactory.buildLabel(Labels.getLabel("character.status.housing.filter.field.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(10);
       linePanel.add(_contains);
@@ -190,7 +190,7 @@ public class HousingItemFilterController implements ActionListener
     }
     // Category filter
     {
-      JLabel label=GuiFactory.buildLabel("Category:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("character.status.housing.filter.field.category"));
       linePanel.add(label);
       _category=buildCategoryCombo();
       ItemSelectionListener<ItemClass> itemClassListener=new ItemSelectionListener<ItemClass>()
@@ -207,7 +207,7 @@ public class HousingItemFilterController implements ActionListener
     }
     // Hook filter
     {
-      JLabel label=GuiFactory.buildLabel("Hook:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("character.status.housing.filter.field.hook"));
       linePanel.add(label);
       _hook=buildHookCombo();
       ItemSelectionListener<String> listener=new ItemSelectionListener<String>()

@@ -11,6 +11,7 @@ import delta.games.lotro.character.status.achievables.AchievableStatus;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 import delta.games.lotro.gui.character.status.achievables.form.AchievableFormConfig;
 import delta.games.lotro.gui.character.status.achievables.form.AchievableStatusPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.deeds.DeedDescription;
 import delta.games.lotro.lore.quests.AchievableProxiesResolver;
 
@@ -50,7 +51,7 @@ public class DeedStatusDialogController extends DefaultFormDialogController<Achi
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Deed status edition..."); // I18n
+    dialog.setTitle(Labels.getLabel("character.status.deeds.dialog.title"));
     dialog.setResizable(true);
     dialog.pack();
     Dimension size=dialog.getSize();

@@ -15,6 +15,7 @@ import delta.common.ui.swing.combobox.ComboBoxItem;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.misc.TypedProperties;
 import delta.games.lotro.character.storage.currencies.Currency;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a currency choice panel.
@@ -72,7 +73,7 @@ public class CurrencyChoicePanelController
 
   private JButton buildCurrenciesChooserButton()
   {
-    JButton ret=GuiFactory.buildButton("Choose currencies..."); // I18n
+    JButton ret=GuiFactory.buildButton(Labels.getLabel("currencies.choice.button"));
     ActionListener al=new ActionListener()
     {
       @Override
@@ -94,7 +95,7 @@ public class CurrencyChoicePanelController
   private JPanel buildPanel()
   {
     JPanel ret=GuiFactory.buildPanel(new FlowLayout());
-    ret.add(GuiFactory.buildLabel("Currency: ")); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("currencies.choice.label")));
     ret.add(_currencySelector.getComboBox());
     JButton chooser=buildCurrenciesChooserButton();
     ret.add(chooser);

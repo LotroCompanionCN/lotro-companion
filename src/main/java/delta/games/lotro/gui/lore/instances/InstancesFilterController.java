@@ -134,7 +134,7 @@ public class InstancesFilterController implements ActionListener
 
     // Instance attributes
     JPanel instancePanel=buildInstancePanel();
-    Border border=GuiFactory.buildTitledBorder("Instance"); // I18n
+    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("lore.instances.filter.instance.border"));
     instancePanel.setBorder(border);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(instancePanel,c);
@@ -157,7 +157,7 @@ public class InstancesFilterController implements ActionListener
     JPanel line1Panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Label filter
     {
-      line1Panel.add(GuiFactory.buildLabel("Name filter:")); // I18n
+      line1Panel.add(GuiFactory.buildLabel(Labels.getLabel("lore.instances.filter.nameFilter")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(20);
       line1Panel.add(_contains);
@@ -179,7 +179,7 @@ public class InstancesFilterController implements ActionListener
     }
     // Group
     {
-      JLabel label=GuiFactory.buildLabel("Group:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("lore.instances.filter.group"));
       line1Panel.add(label);
       _group=InstancesUiUtils.buildInstanceCategoriesCombo();
       ItemSelectionListener<String> categoryListener=new ItemSelectionListener<String>()
@@ -197,7 +197,7 @@ public class InstancesFilterController implements ActionListener
     }
     // Category
     {
-      JLabel label=GuiFactory.buildLabel("Category:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("lore.instances.filter.category"));
       line1Panel.add(label);
       _category=InstancesUiUtils.buildCategoryCombo();
       ItemSelectionListener<WJEncounterCategory> categoryListener=new ItemSelectionListener<WJEncounterCategory>()
@@ -215,7 +215,7 @@ public class InstancesFilterController implements ActionListener
     }
     // Scalable
     {
-      JLabel label=GuiFactory.buildLabel("Scalable:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("lore.instances.filter.scalable"));
       line1Panel.add(label);
       _scalable=SharedUiUtils.build3StatesBooleanCombobox();
       ItemSelectionListener<Boolean> scalableListener=new ItemSelectionListener<Boolean>()

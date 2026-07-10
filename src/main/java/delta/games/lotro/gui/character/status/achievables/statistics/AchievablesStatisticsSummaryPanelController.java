@@ -11,6 +11,7 @@ import javax.swing.border.TitledBorder;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.L10n;
 import delta.games.lotro.character.status.achievables.AchievableElementState;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.character.status.achievables.statistics.GlobalAchievablesStatistics;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 
@@ -46,31 +47,31 @@ public class AchievablesStatisticsSummaryPanelController
   private JPanel buildPanel()
   {
     JPanel ret=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder border=GuiFactory.buildTitledBorder("Statistics"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("character.status.achievables.statistics.border"));
     ret.setBorder(border);
     GridBagConstraints cLabels=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,2,0),0,0);
     GridBagConstraints cValues=new GridBagConstraints(1,0,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,2,5),0,0);
 
     // Counts by state:
     // - Completed
-    ret.add(GuiFactory.buildLabel("Completed:"),cLabels); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("character.status.achievables.statistics.field.completed")),cLabels);
     _completed=GuiFactory.buildLabel("");
     ret.add(_completed,cValues);
     cLabels.gridy++;cValues.gridy++;
     // - Underway
-    ret.add(GuiFactory.buildLabel("Underway:"),cLabels); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("character.status.achievables.statistics.field.underway")),cLabels);
     _underway=GuiFactory.buildLabel("");
     ret.add(_underway,cValues);
     cLabels.gridy++;cValues.gridy++;
     // - Not started
-    ret.add(GuiFactory.buildLabel("Not started:"),cLabels); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("character.status.achievables.statistics.field.notStarted")),cLabels);
     _notStarted=GuiFactory.buildLabel("");
     ret.add(_notStarted,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Completions count (quests only)
     if (_mode==AchievableUIMode.QUEST)
     {
-      ret.add(GuiFactory.buildLabel("Completions count:"),cLabels); // I18n
+      ret.add(GuiFactory.buildLabel(Labels.getLabel("character.status.achievables.statistics.field.completionsCount")),cLabels);
       _completionsCount=GuiFactory.buildLabel("");
       ret.add(_completionsCount,cValues);
       cLabels.gridy++;cValues.gridy++;

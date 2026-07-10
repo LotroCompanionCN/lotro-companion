@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.reputation.FactionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.utils.strings.ContextRendering;
 
@@ -39,7 +40,7 @@ public class FactionEditionDialogController extends DefaultFormDialogController<
     Faction faction=_data.getFaction();
     String rawName=faction.getName();
     String name=ContextRendering.render(this,rawName);
-    dialog.setTitle("Edit faction history: "+name); // I18n
+    dialog.setTitle(Labels.getLabel("reputation.faction.edition.title",new Object[]{name}));
     dialog.setResizable(false);
     return dialog;
   }

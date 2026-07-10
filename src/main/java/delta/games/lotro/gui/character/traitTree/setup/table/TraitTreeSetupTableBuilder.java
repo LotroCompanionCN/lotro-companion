@@ -18,6 +18,7 @@ import delta.games.lotro.character.classes.traitTree.TraitTreeBranch;
 import delta.games.lotro.character.classes.traitTree.setup.TraitTreeSetup;
 import delta.games.lotro.character.classes.traitTree.setup.TraitTreeSetupsManager;
 import delta.games.lotro.common.enums.TraitTreeType;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Builder for a table that shows trait tree setups.
@@ -106,7 +107,7 @@ public class TraitTreeSetupTableBuilder
         return setup.getName();
       }
     };
-    DefaultTableColumnController<TraitTreeSetup,String> nameColumn=new DefaultTableColumnController<TraitTreeSetup,String>(TraitTreeSetupColumnIds.NAME.name(),"Name",String.class,nameCell); // I18n
+    DefaultTableColumnController<TraitTreeSetup,String> nameColumn=new DefaultTableColumnController<TraitTreeSetup,String>(TraitTreeSetupColumnIds.NAME.name(),Labels.getLabel("character.traitTree.setup.table.column.name"),String.class,nameCell);
     nameColumn.setWidthSpecs(150,-1,150);
     return nameColumn;
   }
@@ -125,7 +126,7 @@ public class TraitTreeSetupTableBuilder
         return Integer.valueOf(setup.getStatus().getCost());
       }
     };
-    DefaultTableColumnController<TraitTreeSetup,Integer> costColumn=new DefaultTableColumnController<TraitTreeSetup,Integer>(TraitTreeSetupColumnIds.COST.name(),"Cost",Integer.class,costCell); // I18n
+    DefaultTableColumnController<TraitTreeSetup,Integer> costColumn=new DefaultTableColumnController<TraitTreeSetup,Integer>(TraitTreeSetupColumnIds.COST.name(),Labels.getLabel("character.traitTree.setup.table.column.cost"),Integer.class,costCell);
     costColumn.setWidthSpecs(55,55,50);
     return costColumn;
   }
@@ -144,7 +145,7 @@ public class TraitTreeSetupTableBuilder
         return setup.getType();
       }
     };
-    DefaultTableColumnController<TraitTreeSetup,TraitTreeType> keyColumn=new DefaultTableColumnController<TraitTreeSetup,TraitTreeType>(TraitTreeSetupColumnIds.TYPE.name(),"Type",TraitTreeType.class,keyCell); // I18n
+    DefaultTableColumnController<TraitTreeSetup,TraitTreeType> keyColumn=new DefaultTableColumnController<TraitTreeSetup,TraitTreeType>(TraitTreeSetupColumnIds.TYPE.name(),Labels.getLabel("character.traitTree.setup.table.column.type"),TraitTreeType.class,keyCell);
     keyColumn.setWidthSpecs(80,100,80);
     return keyColumn;
   }
@@ -164,7 +165,7 @@ public class TraitTreeSetupTableBuilder
         return (branch!=null)?branch.getName():null;
       }
     };
-    DefaultTableColumnController<TraitTreeSetup,String> classColumn=new DefaultTableColumnController<TraitTreeSetup,String>(TraitTreeSetupColumnIds.MAIN_BRANCH.name(),"Branch",String.class,classCell); // I18n
+    DefaultTableColumnController<TraitTreeSetup,String> classColumn=new DefaultTableColumnController<TraitTreeSetup,String>(TraitTreeSetupColumnIds.MAIN_BRANCH.name(),Labels.getLabel("character.traitTree.setup.table.column.branch"),String.class,classCell);
     classColumn.setWidthSpecs(150,150,150);
     return classColumn;
   }

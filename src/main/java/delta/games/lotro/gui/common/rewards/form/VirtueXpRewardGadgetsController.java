@@ -9,6 +9,7 @@ import delta.common.ui.swing.area.AreaController;
 import delta.common.ui.swing.icons.IconsManager;
 import delta.common.ui.swing.labels.LabelWithHalo;
 import delta.common.utils.l10n.L10n;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the UI gadgets of a virtue XP reward.
@@ -25,7 +26,7 @@ public class VirtueXpRewardGadgetsController extends RewardGadgetsController
   {
     super(parent);
     // Label
-    String text=L10n.getString(virtueXP)+" Virtue Experience"; // I18n
+    String text=Labels.getLabel("common.rewards.virtueXpFormat",new Object[]{L10n.getString(virtueXP)});
     Color color=Color.WHITE;
     _label=new LabelWithHalo();
     _label.setText(text);

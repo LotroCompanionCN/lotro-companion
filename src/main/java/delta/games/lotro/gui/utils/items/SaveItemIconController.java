@@ -15,6 +15,7 @@ import delta.common.ui.swing.menus.PopupMenuController;
 import delta.common.ui.swing.misc.Disposable;
 import delta.games.lotro.dat.utils.DatIconsUtils;
 import delta.games.lotro.gui.utils.icons.ItemIconBuilder;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.utils.gui.filechooser.FileChooserController;
 
@@ -47,7 +48,7 @@ public class SaveItemIconController implements CommandExecutor,Disposable
   private void installMenu()
   {
     _menu=new PopupMenuController(this);
-    _menu.addMenuItem("Save icon...",SAVE_ICON_TO_FILE); // I18n
+    _menu.addMenuItem(Labels.getLabel("item.icon.save.menu"),SAVE_ICON_TO_FILE);
     _menu.install(_component);
   }
 
@@ -62,7 +63,7 @@ public class SaveItemIconController implements CommandExecutor,Disposable
 
   private void doSaveIcon()
   {
-    FileChooserController ctrl=new FileChooserController(ID, "Save item icon..."); // I18n
+    FileChooserController ctrl=new FileChooserController(ID, Labels.getLabel("item.icon.save.filechooser.title"));
     // Setup default file
     String filename=_item.getIcon()+".png";
     ctrl.getChooser().setSelectedFile(new File(filename));
@@ -78,7 +79,7 @@ public class SaveItemIconController implements CommandExecutor,Disposable
       if (toFile.exists())
       {
         doIt=false;
-        int result=GuiFactory.showQuestionDialog(_component,"Do you really want to overwrite the selected file?","Overwrite?",JOptionPane.YES_NO_OPTION); // I18n
+        int result=GuiFactory.showQuestionDialog(_component,Labels.getLabel("item.icon.save.overwrite.question"),Labels.getLabel("item.icon.save.overwrite.title"),JOptionPane.YES_NO_OPTION);
         if (result==JOptionPane.OK_OPTION)
         {
           doIt=true;
@@ -89,7 +90,7 @@ public class SaveItemIconController implements CommandExecutor,Disposable
         boolean ok=saveToFile(toFile);
         if (!ok)
         {
-          GuiFactory.showErrorDialog(_component,"Export failed!","Error!"); // I18n
+          GuiFactory.showErrorDialog(_component,Labels.getLabel("item.icon.save.export.failed"),Labels.getLabel("item.icon.save.export.error.title"));
         }
       }
     }

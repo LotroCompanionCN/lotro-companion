@@ -26,6 +26,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.stats.BasicStatsSet;
 import delta.games.lotro.character.stats.ratings.RatingCurve;
 import delta.games.lotro.common.stats.StatDescription;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a stat curve chart.
@@ -172,8 +173,8 @@ public class StatCurveChartPanelController
   private JFreeChart buildChart()
   {
     String title=_config.getTitle();
-    String xAxisLabel="Rating"; // I18n
-    String yAxisLabel="Percentage"; // I18n
+    String xAxisLabel=Labels.getLabel("stat.curves.chart.axis.rating");
+    String yAxisLabel=Labels.getLabel("stat.curves.chart.axis.percentage");
 
     XYDataset xydataset=createDataset();
     JFreeChart jfreechart=ChartFactory.createXYLineChart(title,xAxisLabel,yAxisLabel,xydataset,PlotOrientation.VERTICAL,true,true,false);
@@ -232,7 +233,7 @@ public class StatCurveChartPanelController
       }
       // Current point series
       {
-        XYSeries currentPointSeries=new XYSeries(key+" (Current)"); // I18n
+        XYSeries currentPointSeries=new XYSeries(Labels.getLabel("stat.curves.chart.series.current", new Object[]{key}));
         data.addSeries(currentPointSeries);
         _currentValueSeries.add(currentPointSeries);
       }

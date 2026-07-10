@@ -11,6 +11,7 @@ import delta.games.lotro.character.events.CharacterEvent;
 import delta.games.lotro.character.events.CharacterEventType;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.events.GenericEventsListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "all essences edition" window.
@@ -54,7 +55,7 @@ public class AllEssencesEditionWindowController extends DefaultWindowController 
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServer();
-    String title="Essences for: "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.essences.edition.window.title",new Object[]{name,serverName});
     frame.setTitle(title);
     frame.pack();
     frame.setResizable(false);

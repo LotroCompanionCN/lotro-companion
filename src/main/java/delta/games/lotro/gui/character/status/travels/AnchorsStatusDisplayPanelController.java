@@ -27,6 +27,7 @@ import delta.games.lotro.common.geo.PositionUtils;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.utils.GadgetsControllersFactory;
 import delta.games.lotro.gui.utils.IconLinkLabelGadgetsController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.maps.Area;
 import delta.games.lotro.lore.maps.Dungeon;
 import delta.games.lotro.lore.maps.Zone;
@@ -89,7 +90,7 @@ public class AnchorsStatusDisplayPanelController
     String name=status.getName();
     if (name!=null)
     {
-      newLabel="Return to "+name; // I18n
+      newLabel=Labels.getLabel("travels.anchor.label",new Object[]{name});
     }
     // Use position
     Icon newIcon=null;

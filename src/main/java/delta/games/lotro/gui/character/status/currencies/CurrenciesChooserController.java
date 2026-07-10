@@ -12,6 +12,7 @@ import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.storage.currencies.Currency;
 import delta.games.lotro.character.storage.currencies.CurrencyNameComparator;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a currencies chooser.
@@ -63,7 +64,7 @@ public final class CurrenciesChooserController extends DefaultFormDialogControll
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Choose currencies..."); // I18n
+    dialog.setTitle(Labels.getLabel("currencies.chooser.title"));
     return dialog;
   }
 

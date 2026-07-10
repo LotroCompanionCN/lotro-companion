@@ -56,7 +56,7 @@ public class EmotesExplorerWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Emotes explorer"); // I18n
+    frame.setTitle(Labels.getLabel("lore.emotes.explorer.title"));
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);
     return frame;
@@ -82,7 +82,7 @@ public class EmotesExplorerWindowController extends DefaultWindowController
     initEmotesTable();
     // Table panel
     _panelController=new GenericTablePanelController<EmoteDescription>(this,_tableController);
-    _panelController.getConfiguration().setBorderTitle("Emotes"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("lore.emotes.explorer.table.border.title"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter UI
     EmoteFilterConfiguration config=new EmoteFilterConfiguration();

@@ -25,6 +25,7 @@ import delta.games.lotro.character.utils.CharacterUtils;
 import delta.games.lotro.gui.character.status.curves.DatedCurvesChartConfiguration;
 import delta.games.lotro.gui.character.status.curves.DatedCurvesChartController;
 import delta.games.lotro.gui.character.status.curves.ValueRenderer;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.charts.MultipleToonsDatedCurvesChartPanelController;
 
 /**
@@ -125,7 +126,7 @@ public class MultipleCharactersCurrencyHistoryWindowController extends DefaultWi
   {
     JFrame frame=super.build();
     // Title
-    String title="Currency history"; // I18n
+    String title=Labels.getLabel("currencies.history.window.title");
     frame.setTitle(title);
     frame.pack();
     frame.setMinimumSize(new Dimension(500,380));

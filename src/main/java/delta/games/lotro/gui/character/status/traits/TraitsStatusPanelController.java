@@ -66,7 +66,7 @@ public class TraitsStatusPanelController
     _panelController=new TraitsStatusDisplayPanelController(_parent,_traits,_status,_filter);
     JPanel displayPanel=_panelController.getPanel();
     JScrollPane scroll=GuiFactory.buildScrollPane(displayPanel);
-    scroll.setBorder(GuiFactory.buildTitledBorder("Traits")); // I18n
+    scroll.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("traits.status.panel.border")));
     // Filter
     _filterController=new TraitStatusFilterController(_filter,_panelController);
     JPanel filterPanel=_filterController.getPanel();

@@ -10,6 +10,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.area.AreaController;
 import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.games.lotro.character.status.reputation.FactionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a faction display panel.
@@ -57,15 +58,15 @@ public class FactionStatusPanelController extends AbstractPanelController
     JPanel panel=GuiFactory.buildBackgroundPanel(new GridBagLayout());
     GridBagConstraints c=new GridBagConstraints(0,0,2,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     JPanel statusPanel=_statusController.getPanel();
-    statusPanel.setBorder(GuiFactory.buildTitledBorder("Current reputation")); // I18n
+    statusPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("reputation.faction.panel.currentReputation")));
     panel.add(statusPanel,c);
     c=new GridBagConstraints(0,1,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
     JPanel historyPanel=_historyController.getPanel();
-    historyPanel.setBorder(GuiFactory.buildTitledBorder("History")); // I18n
+    historyPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("reputation.faction.panel.history")));
     panel.add(historyPanel,c);
     c=new GridBagConstraints(1,1,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.BOTH,new Insets(5,5,5,5),0,0);
     JPanel chartPanel=_chartController.getPanel();
-    chartPanel.setBorder(GuiFactory.buildTitledBorder("History chart")); // I18n
+    chartPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("reputation.faction.panel.historyChart")));
     panel.add(chartPanel,c);
     return panel;
   }

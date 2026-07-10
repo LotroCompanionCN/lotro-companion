@@ -12,6 +12,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.common.ui.swing.tables.panel.FilterUpdateListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.hobbies.HobbyDescription;
 import delta.games.lotro.lore.hobbies.rewards.HobbyRewards;
 import delta.games.lotro.lore.hobbies.rewards.HobbyRewardsProfile;
@@ -97,7 +98,7 @@ public class HobbyRewardsFilterController
     JPanel line1Panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Territory
     {
-      JLabel label=GuiFactory.buildLabel("Territory:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getFieldLabel("hobby.filter.territory"));
       line1Panel.add(label);
       _territory=HobbiesUiUtils.buildTerritoryCombo(_hobby);
       ItemSelectionListener<Territory> categoryListener=new ItemSelectionListener<Territory>()
@@ -116,7 +117,7 @@ public class HobbyRewardsFilterController
     }
     // Proficiencies
     {
-      JLabel label=GuiFactory.buildLabel("Proficiency:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getFieldLabel("hobby.filter.proficiency"));
       line1Panel.add(label);
       _proficiency=new ComboBoxController<Integer>();
       ItemSelectionListener<Integer> proficiencyListener=new ItemSelectionListener<Integer>()

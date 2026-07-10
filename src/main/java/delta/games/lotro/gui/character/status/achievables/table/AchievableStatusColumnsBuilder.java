@@ -11,6 +11,7 @@ import delta.common.ui.swing.tables.DefaultTableColumnController;
 import delta.common.ui.swing.tables.TableColumnController;
 import delta.common.ui.swing.tables.panel.FilterUpdateListener;
 import delta.games.lotro.character.status.achievables.AchievableElementState;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.character.status.achievables.AchievableStatus;
 import delta.games.lotro.character.status.achievables.Progress;
 import delta.games.lotro.character.status.achievables.comparators.ProgressComparator;
@@ -40,7 +41,7 @@ public class AchievableStatusColumnsBuilder
           return status.getCompletionCountForDisplay();
         }
       };
-      DefaultTableColumnController<AchievableStatus,Integer> countColumn=new DefaultTableColumnController<AchievableStatus,Integer>(AchievableStatusColumnIds.COMPLETION_COUNT.name(),"Count",Integer.class,countCell); // I18n
+      DefaultTableColumnController<AchievableStatus,Integer> countColumn=new DefaultTableColumnController<AchievableStatus,Integer>(AchievableStatusColumnIds.COMPLETION_COUNT.name(),Labels.getLabel("character.status.achievables.table.column.count"),Integer.class,countCell);
       countColumn.setWidthSpecs(50,50,50);
       ret.add(countColumn);
     }
@@ -70,7 +71,7 @@ public class AchievableStatusColumnsBuilder
           return (timestamp!=null)?new Date(timestamp.longValue()):null;
         }
       };
-      DefaultTableColumnController<AchievableStatus,Date> completionDateColumn=new DefaultTableColumnController<AchievableStatus,Date>(AchievableStatusColumnIds.COMPLETION_DATE.name(),"Completion Date",Date.class,completionDateCell); // I18n
+      DefaultTableColumnController<AchievableStatus,Date> completionDateColumn=new DefaultTableColumnController<AchievableStatus,Date>(AchievableStatusColumnIds.COMPLETION_DATE.name(),Labels.getLabel("character.status.achievables.table.column.completionDate"),Date.class,completionDateCell);
       ColumnsUtils.configureDateTimeColumn(completionDateColumn);
       ret.add(completionDateColumn);
     }
@@ -93,7 +94,7 @@ public class AchievableStatusColumnsBuilder
         return status.getState();
       }
     };
-    DefaultTableColumnController<AchievableStatus,AchievableElementState> completedColumn=new DefaultTableColumnController<AchievableStatus,AchievableElementState>(AchievableStatusColumnIds.COMPLETED.name(),"Completed",AchievableElementState.class,completedCell); // I18n
+    DefaultTableColumnController<AchievableStatus,AchievableElementState> completedColumn=new DefaultTableColumnController<AchievableStatus,AchievableElementState>(AchievableStatusColumnIds.COMPLETED.name(),Labels.getLabel("character.status.achievables.table.column.completed"),AchievableElementState.class,completedCell);
     completedColumn.setWidthSpecs(30,30,30);
     completedColumn.setEditable(editable);
     // Renderer
@@ -134,7 +135,7 @@ public class AchievableStatusColumnsBuilder
         return status.getProgress();
       }
     };
-    DefaultTableColumnController<AchievableStatus,Progress> progressColumn=new DefaultTableColumnController<AchievableStatus,Progress>(AchievableStatusColumnIds.PROGRESS.name(),"Progress",Progress.class,progressCell); // I18n
+    DefaultTableColumnController<AchievableStatus,Progress> progressColumn=new DefaultTableColumnController<AchievableStatus,Progress>(AchievableStatusColumnIds.PROGRESS.name(),Labels.getLabel("character.status.achievables.table.column.progress"),Progress.class,progressCell);
     progressColumn.setWidthSpecs(70,70,70);
     progressColumn.setEditable(false);
     // Renderer

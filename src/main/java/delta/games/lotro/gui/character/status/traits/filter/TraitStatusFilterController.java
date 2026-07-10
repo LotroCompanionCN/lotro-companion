@@ -26,6 +26,7 @@ import delta.games.lotro.common.enums.TraitGroup;
 import delta.games.lotro.common.filters.NamedFilter;
 import delta.games.lotro.gui.character.status.traits.TraitGroupsUtils;
 import delta.games.lotro.gui.utils.SharedUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a trait status filter edition panel.
@@ -126,7 +127,7 @@ public class TraitStatusFilterController
     JPanel linePanel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Label filter
     {
-      linePanel.add(GuiFactory.buildLabel("Name filter:")); // I18n
+      linePanel.add(GuiFactory.buildLabel(Labels.getLabel("traits.filter.name")));
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(10);
       linePanel.add(_contains);
@@ -148,7 +149,7 @@ public class TraitStatusFilterController
     }
     // Known
     {
-      JLabel label=GuiFactory.buildLabel("Known:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("traits.filter.known"));
       linePanel.add(label);
       _known=buildKnownCombobox();
       linePanel.add(_known.getComboBox());
@@ -159,7 +160,7 @@ public class TraitStatusFilterController
     JPanel line2Panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEADING,5,0));
     // Group
     {
-      JLabel label=GuiFactory.buildLabel("Slot:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("traits.filter.slot"));
       line2Panel.add(label);
       _group=buildGroupCombobox();
       line2Panel.add(_group.getComboBox());
@@ -210,7 +211,7 @@ public class TraitStatusFilterController
   private ComboBoxController<TraitGroup> buildTraitGroupCombobox()
   {
     ComboBoxController<TraitGroup> ctrl=new ComboBoxController<TraitGroup>();
-    ctrl.addEmptyItem("(all)"); // I18n
+    ctrl.addEmptyItem(Labels.getLabel("traits.filter.all"));
     List<TraitGroup> groups=TraitGroupsUtils.getTraitGroupsForSlots();
     for(TraitGroup group : groups)
     {

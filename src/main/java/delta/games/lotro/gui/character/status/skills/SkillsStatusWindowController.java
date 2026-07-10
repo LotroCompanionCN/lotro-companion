@@ -12,6 +12,7 @@ import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.skills.SkillDescription;
 import delta.games.lotro.character.status.skills.SkillsStatusManager;
 import delta.games.lotro.character.status.skills.io.SkillsStatusIo;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a window that shows the status of some skills.
@@ -47,7 +48,7 @@ public class SkillsStatusWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Skills Status"); // I18n
+    frame.setTitle(Labels.getLabel("skills.status.window.title"));
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);
     frame.setMinimumSize(new Dimension(frame.getWidth(),MIN_HEIGHT));

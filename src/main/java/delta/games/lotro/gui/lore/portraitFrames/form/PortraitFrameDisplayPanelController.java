@@ -17,6 +17,7 @@ import delta.common.ui.swing.navigator.NavigatorWindowController;
 import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.lore.items.ItemUiTools;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.gui.utils.navigation.NavigationHyperLink;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.portraitFrames.PortraitFrameDescription;
@@ -50,7 +51,7 @@ public class PortraitFrameDisplayPanelController extends AbstractPanelController
   @Override
   public String getTitle()
   {
-    return "Portrait frame: "+_portraitFrame.getName(); // I18n
+    return Labels.getLabel("portraitFrame.display.title",new Object[]{_portraitFrame.getName()});
   }
 
   private JPanel build()

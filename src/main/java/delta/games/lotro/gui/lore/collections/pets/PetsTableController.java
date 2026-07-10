@@ -17,6 +17,7 @@ import delta.common.utils.misc.TypedProperties;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.lore.items.chooser.ItemChooser;
 import delta.games.lotro.gui.utils.UiConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.pets.CosmeticPetDescription;
 import delta.games.lotro.lore.collections.pets.CosmeticPetsManager;
 
@@ -83,7 +84,7 @@ public class PetsTableController
           return icon;
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,Icon> iconColumn=new DefaultTableColumnController<CosmeticPetDescription,Icon>(PetColumnIds.ICON.name(),"Icon",Icon.class,iconCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,Icon> iconColumn=new DefaultTableColumnController<CosmeticPetDescription,Icon>(PetColumnIds.ICON.name(),Labels.getLabel("pets.table.column.icon"),Icon.class,iconCell);
       iconColumn.setWidthSpecs(50,50,50);
       iconColumn.setSortable(false);
       ret.add(iconColumn);
@@ -99,7 +100,7 @@ public class PetsTableController
           return Integer.valueOf(pet.getIdentifier());
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,Integer> idColumn=new DefaultTableColumnController<CosmeticPetDescription,Integer>(PetColumnIds.ID.name(),"ID",Integer.class,idCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,Integer> idColumn=new DefaultTableColumnController<CosmeticPetDescription,Integer>(PetColumnIds.ID.name(),Labels.getLabel("pets.table.column.id"),Integer.class,idCell);
       idColumn.setWidthSpecs(80,80,80);
       ret.add(idColumn);
     }
@@ -113,7 +114,7 @@ public class PetsTableController
           return pet.getName();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> nameColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.NAME.name(),"Name",String.class,nameCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> nameColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.NAME.name(),Labels.getLabel("pets.table.column.name"),String.class,nameCell);
       nameColumn.setWidthSpecs(150,200,180);
       ret.add(nameColumn);
     }
@@ -127,7 +128,7 @@ public class PetsTableController
           return pet.getInitialName();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> initialNameColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.INITIAL_NAME.name(),"Initial Name",String.class,initialNameCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> initialNameColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.INITIAL_NAME.name(),Labels.getLabel("pets.table.column.initialName"),String.class,initialNameCell);
       initialNameColumn.setWidthSpecs(120,120,120);
       ret.add(initialNameColumn);
     }
@@ -141,7 +142,7 @@ public class PetsTableController
           return pet.getClassification().getGenusLabel();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> genusColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.GENUS.name(),"Genus",String.class,genusCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> genusColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.GENUS.name(),Labels.getLabel("pets.table.column.genus"),String.class,genusCell);
       genusColumn.setWidthSpecs(140,140,140);
       ret.add(genusColumn);
     }
@@ -155,7 +156,7 @@ public class PetsTableController
           return pet.getClassification().getSpeciesLabel();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> speciesColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.SPECIES.name(),"Species",String.class,speciesCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> speciesColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.SPECIES.name(),Labels.getLabel("pets.table.column.species"),String.class,speciesCell);
       speciesColumn.setWidthSpecs(100,100,100);
       ret.add(speciesColumn);
     }
@@ -169,7 +170,7 @@ public class PetsTableController
           return pet.getClassification().getSubSpeciesLabel();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> subSpeciesColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.SUBSPECIES.name(),"Sub-species",String.class,subSpeciesCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> subSpeciesColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.SUBSPECIES.name(),Labels.getLabel("pets.table.column.subspecies"),String.class,subSpeciesCell);
       subSpeciesColumn.setWidthSpecs(100,100,100);
       ret.add(subSpeciesColumn);
     }
@@ -183,7 +184,7 @@ public class PetsTableController
           return pet.getDescription();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> descriptionColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.DESCRIPTION.name(),"Description",String.class,descriptionCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> descriptionColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.DESCRIPTION.name(),Labels.getLabel("pets.table.column.description"),String.class,descriptionCell);
       descriptionColumn.setWidthSpecs(100,-1,200);
       ret.add(descriptionColumn);
     }
@@ -197,7 +198,7 @@ public class PetsTableController
           return pet.getSourceDescription();
         }
       };
-      DefaultTableColumnController<CosmeticPetDescription,String> sourceColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.SOURCE.name(),"Source",String.class,sourceCell); // 18n
+      DefaultTableColumnController<CosmeticPetDescription,String> sourceColumn=new DefaultTableColumnController<CosmeticPetDescription,String>(PetColumnIds.SOURCE.name(),Labels.getLabel("pets.table.column.source"),String.class,sourceCell);
       sourceColumn.setWidthSpecs(100,-1,200);
       ret.add(sourceColumn);
     }

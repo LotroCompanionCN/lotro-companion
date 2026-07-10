@@ -15,6 +15,7 @@ import delta.games.lotro.character.stats.virtues.VirtuesContributionsMgr;
 import delta.games.lotro.character.virtues.VirtueDescription;
 import delta.games.lotro.common.stats.StatUtils;
 import delta.games.lotro.gui.LotroIconsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a virtue icon.
@@ -144,11 +145,11 @@ public class VirtueIconController
     if (_active)
     {
       BasicStatsSet stats=virtuesMgr.getContribution(virtue,_tier+_bonus,false);
-      sb.append("Active:").append(EndOfLine.NATIVE_EOL); // I18n
+      sb.append(Labels.getLabel("character.virtues.active.label")).append(EndOfLine.NATIVE_EOL);
       addStatsTooltipText(stats,sb);
     }
     BasicStatsSet passiveStats=virtuesMgr.getContribution(virtue,_tier,true);
-    sb.append("Passive:").append(EndOfLine.NATIVE_EOL); // I18n
+    sb.append(Labels.getLabel("character.virtues.passive.label")).append(EndOfLine.NATIVE_EOL);
     addStatsTooltipText(passiveStats,sb);
     String text=sb.toString().trim();
     String html="<html>"+text.replace(EndOfLine.NATIVE_EOL,"<br>")+"</html>";

@@ -11,6 +11,7 @@ import delta.games.lotro.character.events.CharacterEvent;
 import delta.games.lotro.character.events.CharacterEventType;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.events.GenericEventsListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "essences summary" window.
@@ -54,7 +55,7 @@ public class EssencesSummaryWindowController extends DefaultDialogController imp
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServer();
-    String title="Essences summary for: "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("character.essences.summary.window.title",new Object[]{name,serverName});
     dialog.setTitle(title);
     dialog.pack();
     dialog.setResizable(true);

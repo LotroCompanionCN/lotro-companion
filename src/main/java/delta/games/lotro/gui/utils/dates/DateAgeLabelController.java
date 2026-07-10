@@ -3,6 +3,7 @@ package delta.games.lotro.gui.utils.dates;
 import delta.common.ui.swing.text.dates.DateCodec;
 import delta.games.lotro.common.Duration;
 import delta.games.lotro.gui.utils.l10n.DateFormat;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a label to display a date and an age.
@@ -54,6 +55,6 @@ public class DateAgeLabelController extends AbstractTimedLabelController
     }
     String dateStr=codec.formatDate(_date);
     String durationStr=Duration.getSmartDurationString(age);
-    return dateStr+" ("+durationStr+")"; // I18n
+    return Labels.getLabel("date.age.display", new Object[]{dateStr, durationStr});
   }
 }

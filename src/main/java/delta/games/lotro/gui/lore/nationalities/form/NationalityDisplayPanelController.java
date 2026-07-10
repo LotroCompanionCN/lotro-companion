@@ -23,6 +23,7 @@ import delta.games.lotro.character.races.RacesManager;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils.TitleRenderingFormat;
 import delta.games.lotro.gui.utils.IconAndLinkPanelController;
 import delta.games.lotro.gui.utils.SharedPanels;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.titles.TitleDescription;
 import delta.games.lotro.lore.titles.TitlesManager;
 import delta.games.lotro.utils.gui.HtmlUiUtils;
@@ -56,7 +57,7 @@ public class NationalityDisplayPanelController implements NavigablePanelControll
   @Override
   public String getTitle()
   {
-    return "Nationality: "+_nationality.getName(); // I18n
+    return Labels.getLabel("nationality.display.title",new Object[]{_nationality.getName()});
   }
 
   @Override
@@ -97,7 +98,7 @@ public class NationalityDisplayPanelController implements NavigablePanelControll
     String fullText=description+"<p>"+maleNamingGuidelines+"<p>"+femaleNamingGuidelines;
     JEditorPane display=HtmlUiUtils.buildEditorPane(fullText);
     JScrollPane displayPane=GuiFactory.buildScrollPane(display);
-    displayPane.setBorder(GuiFactory.buildTitledBorder("Description")); // I18n
+    displayPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("nationality.display.description")));
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.BOTH,new Insets(0,5,0,0),0,0);
     panel.add(displayPane,c);
     return panel;

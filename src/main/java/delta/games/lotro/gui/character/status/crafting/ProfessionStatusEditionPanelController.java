@@ -23,6 +23,7 @@ import delta.games.lotro.character.status.crafting.CraftingLevelTierStatus;
 import delta.games.lotro.character.status.crafting.ProfessionStatus;
 import delta.games.lotro.gui.utils.l10n.DateFormat;
 import delta.games.lotro.lore.crafting.CraftingLevel;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.Profession;
 
 /**
@@ -100,24 +101,24 @@ public class ProfessionStatusEditionPanelController
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     // Header row 1
     GridBagConstraints c=new GridBagConstraints(0,0,1,2,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    JLabel tier=GuiFactory.buildLabel("Tier"); // I18n
+    JLabel tier=GuiFactory.buildLabel(Labels.getLabel("crafting.edition.table.column.tier"));
     panel.add(tier,c);
     c.gridx=1;c.gridwidth=3;c.gridheight=1;
-    JLabel proficiency=GuiFactory.buildLabel("Proficiency"); // I18n
+    JLabel proficiency=GuiFactory.buildLabel(Labels.getLabel("crafting.edition.table.column.proficiency"));
     panel.add(proficiency,c);
     c.gridx=4;c.gridwidth=3;c.gridheight=1;
-    JLabel mastery=GuiFactory.buildLabel("Mastery"); // I18n
+    JLabel mastery=GuiFactory.buildLabel(Labels.getLabel("crafting.edition.table.column.mastery"));
     panel.add(mastery,c);
 
     // Header row 2
     c.gridx=1;c.gridy=1;c.gridwidth=1;
     for(int i=0;i<2;i++)
     {
-      panel.add(GuiFactory.buildLabel("Completed"),c); // I18n
+      panel.add(GuiFactory.buildLabel(Labels.getLabel("crafting.edition.table.column.completed")),c);
       c.gridx++;
-      panel.add(GuiFactory.buildLabel("XP"),c); // I18n
+      panel.add(GuiFactory.buildLabel(Labels.getLabel("crafting.edition.table.column.xp")),c);
       c.gridx++;
-      panel.add(GuiFactory.buildLabel("Completion date"),c); // I18n
+      panel.add(GuiFactory.buildLabel(Labels.getLabel("crafting.edition.table.column.completionDate")),c);
       c.gridx++;
     }
     c.gridy++;

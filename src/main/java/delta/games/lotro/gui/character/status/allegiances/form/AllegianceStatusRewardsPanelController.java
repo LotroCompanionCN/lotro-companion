@@ -12,6 +12,7 @@ import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.common.ui.swing.multicheckbox.MultiCheckboxController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.allegiances.AllegianceStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to display the rewards of an allegiance status.
@@ -58,12 +59,12 @@ public class AllegianceStatusRewardsPanelController
     ret.add(_stateFilter.getPanel(),c);
     // Summary
     JScrollPane summaryPane=GuiFactory.buildScrollPane(_summary.getPanel());
-    summaryPane.setBorder(GuiFactory.buildTitledBorder("Total")); // I18n
+    summaryPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("character.status.allegiances.border.total")));
     c=new GridBagConstraints(0,1,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.BOTH,new Insets(5,5,5,5),0,0);
     ret.add(summaryPane,c);
     // Details
     JScrollPane detailsPane=GuiFactory.buildScrollPane(_details.getPanel());
-    detailsPane.setBorder(GuiFactory.buildTitledBorder("Details")); // I18n
+    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("character.status.allegiances.border.details")));
     c=new GridBagConstraints(1,1,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.BOTH,new Insets(5,5,5,5),0,0);
     ret.add(detailsPane,c);
     return ret;

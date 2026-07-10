@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.traitTree.TraitTreeStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the "trait tree edition" dialog.
@@ -31,7 +32,7 @@ public class TraitTreeEditionDialog extends DefaultFormDialogController<TraitTre
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Trait tree edition..."); // I18n
+    dialog.setTitle(Labels.getLabel("character.traitTree.edition.title"));
     dialog.setResizable(false);
     return dialog;
   }

@@ -10,6 +10,7 @@ import javax.swing.border.TitledBorder;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.CharacterData;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a stat curve display panel (chart+values).
@@ -50,20 +51,20 @@ public class StatCurvesPanelController
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
     // Chart
     JPanel chartPanel=_chartPanel.getPanel();
-    TitledBorder chartBorder=GuiFactory.buildTitledBorder("Chart"); // I18n
+    TitledBorder chartBorder=GuiFactory.buildTitledBorder(Labels.getLabel("stat.curves.panel.border.chart"));
     chartPanel.setBorder(chartBorder);
     panel.add(chartPanel,BorderLayout.CENTER);
 
     JPanel southPanel=GuiFactory.buildPanel(new GridBagLayout());
     // Values
     JPanel valuesPanel=_valuesPanel.getPanel();
-    TitledBorder valuesBorder=GuiFactory.buildTitledBorder("Values"); // I18n
+    TitledBorder valuesBorder=GuiFactory.buildTitledBorder(Labels.getLabel("stat.curves.panel.border.values"));
     valuesPanel.setBorder(valuesBorder);
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,1.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     southPanel.add(valuesPanel,c);
     // Configuration
     JPanel configurationPanel=_configPanel.getPanel();
-    TitledBorder configurationBorder=GuiFactory.buildTitledBorder("Configuration"); // I18n
+    TitledBorder configurationBorder=GuiFactory.buildTitledBorder(Labels.getLabel("stat.curves.panel.border.configuration"));
     configurationPanel.setBorder(configurationBorder);
     c=new GridBagConstraints(1,0,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     southPanel.add(configurationPanel,c);

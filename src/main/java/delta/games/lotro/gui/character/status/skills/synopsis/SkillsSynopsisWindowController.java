@@ -16,6 +16,7 @@ import delta.games.lotro.Config;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.skills.SkillDescription;
 import delta.games.lotro.character.utils.CharacterUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "skills synopsis" window.
@@ -60,7 +61,7 @@ public class SkillsSynopsisWindowController extends DefaultWindowController
   {
     JFrame frame=super.build();
     // Title
-    String title="Skills synopsis"; // I18n
+    String title=Labels.getLabel("skills.synopsis.window.title");
     frame.setTitle(title);
     // Minimum size
     frame.setMinimumSize(new Dimension(500,380));

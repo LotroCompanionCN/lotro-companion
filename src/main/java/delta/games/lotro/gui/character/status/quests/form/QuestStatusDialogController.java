@@ -11,6 +11,7 @@ import delta.games.lotro.character.status.achievables.AchievableStatus;
 import delta.games.lotro.gui.character.status.achievables.AchievableUIMode;
 import delta.games.lotro.gui.character.status.achievables.form.AchievableFormConfig;
 import delta.games.lotro.gui.character.status.achievables.form.AchievableStatusPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.AchievableProxiesResolver;
 import delta.games.lotro.lore.quests.QuestDescription;
 
@@ -42,7 +43,7 @@ public class QuestStatusDialogController extends DefaultDisplayDialogController<
     JDialog dialog=super.build();
     QuestDescription quest=(QuestDescription)_data.getAchievable();
     String questName=quest.getName();
-    dialog.setTitle("Quest status: "+questName); // I18n
+    dialog.setTitle(Labels.getLabel("character.status.quests.dialog.title",new Object[]{questName}));
     dialog.setResizable(true);
     dialog.pack();
     Dimension size=dialog.getSize();

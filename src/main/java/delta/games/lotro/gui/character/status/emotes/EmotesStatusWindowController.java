@@ -11,6 +11,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.status.emotes.EmotesStatusManager;
 import delta.games.lotro.character.status.emotes.io.EmotesStatusIo;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.emotes.EmoteDescription;
 import delta.games.lotro.lore.emotes.EmotesManager;
 
@@ -48,7 +49,7 @@ public class EmotesStatusWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Emotes Status"); // I18n
+    frame.setTitle(Labels.getLabel("emotes.status.window.title"));
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);
     frame.setMinimumSize(new Dimension(frame.getWidth(),MIN_HEIGHT));

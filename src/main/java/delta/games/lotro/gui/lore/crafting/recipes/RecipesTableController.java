@@ -19,6 +19,7 @@ import delta.games.lotro.gui.lore.items.ItemsSummaryPanelController;
 import delta.games.lotro.gui.lore.items.chooser.ItemChooser;
 import delta.games.lotro.gui.utils.DurationCellRenderer;
 import delta.games.lotro.gui.utils.UiConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.Profession;
 import delta.games.lotro.lore.crafting.recipes.Recipe;
 import delta.games.lotro.lore.crafting.recipes.RecipesManager;
@@ -86,7 +87,7 @@ public class RecipesTableController
           return Integer.valueOf(recipe.getIdentifier());
         }
       };
-      DefaultTableColumnController<Recipe,Integer> idColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.ID.name(),"ID",Integer.class,idCell); // 18n
+      DefaultTableColumnController<Recipe,Integer> idColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.ID.name(),Labels.getLabel("recipes.table.column.id"),Integer.class,idCell);
       idColumn.setWidthSpecs(80,80,80);
       ret.add(idColumn);
     }
@@ -100,7 +101,7 @@ public class RecipesTableController
           return recipe.getName();
         }
       };
-      DefaultTableColumnController<Recipe,String> nameColumn=new DefaultTableColumnController<Recipe,String>(RecipeColumnIds.NAME.name(),"Name",String.class,nameCell); // 18n
+      DefaultTableColumnController<Recipe,String> nameColumn=new DefaultTableColumnController<Recipe,String>(RecipeColumnIds.NAME.name(),Labels.getLabel("recipes.table.column.name"),String.class,nameCell);
       nameColumn.setWidthSpecs(100,300,200);
       ret.add(nameColumn);
     }
@@ -114,7 +115,7 @@ public class RecipesTableController
           return recipe.getProfession();
         }
       };
-      DefaultTableColumnController<Recipe,Profession> professionColumn=new DefaultTableColumnController<Recipe,Profession>(RecipeColumnIds.PROFESSION.name(),"Profession",Profession.class,professionCell); // 18n
+      DefaultTableColumnController<Recipe,Profession> professionColumn=new DefaultTableColumnController<Recipe,Profession>(RecipeColumnIds.PROFESSION.name(),Labels.getLabel("recipes.table.column.profession"),Profession.class,professionCell);
       professionColumn.setWidthSpecs(100,100,100);
       ret.add(professionColumn);
     }
@@ -128,7 +129,7 @@ public class RecipesTableController
           return Integer.valueOf(recipe.getTier());
         }
       };
-      DefaultTableColumnController<Recipe,Integer> tierColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.TIER.name(),"Tier",Integer.class,tierCell); // 18n
+      DefaultTableColumnController<Recipe,Integer> tierColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.TIER.name(),Labels.getLabel("recipes.table.column.tier"),Integer.class,tierCell);
       tierColumn.setWidthSpecs(50,50,50);
       ret.add(tierColumn);
     }
@@ -142,7 +143,7 @@ public class RecipesTableController
           return recipe.getCategory();
         }
       };
-      DefaultTableColumnController<Recipe,CraftingUICategory> categoryColumn=new DefaultTableColumnController<Recipe,CraftingUICategory>(RecipeColumnIds.CATEGORY.name(),"Category",CraftingUICategory.class,categoryCell); // 18n
+      DefaultTableColumnController<Recipe,CraftingUICategory> categoryColumn=new DefaultTableColumnController<Recipe,CraftingUICategory>(RecipeColumnIds.CATEGORY.name(),Labels.getLabel("recipes.table.column.category"),CraftingUICategory.class,categoryCell);
       categoryColumn.setWidthSpecs(80,270,80);
       ret.add(categoryColumn);
     }
@@ -156,7 +157,7 @@ public class RecipesTableController
           return Integer.valueOf(recipe.getXP());
         }
       };
-      DefaultTableColumnController<Recipe,Integer> xpColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.XP.name(),"XP",Integer.class,xpCell); // 18n
+      DefaultTableColumnController<Recipe,Integer> xpColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.XP.name(),Labels.getLabel("recipes.table.column.xp"),Integer.class,xpCell);
       xpColumn.setWidthSpecs(30,30,30);
       ret.add(xpColumn);
     }
@@ -171,7 +172,7 @@ public class RecipesTableController
           return (cooldown!=-1)?Integer.valueOf(cooldown):null;
         }
       };
-      DefaultTableColumnController<Recipe,Integer> cooldownColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.COOLDOWN.name(),"Cooldown",Integer.class,cooldownCell); // 18n
+      DefaultTableColumnController<Recipe,Integer> cooldownColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.COOLDOWN.name(),Labels.getLabel("recipes.table.column.cooldown"),Integer.class,cooldownCell);
       cooldownColumn.setWidthSpecs(60,60,60);
       cooldownColumn.setCellRenderer(new DurationCellRenderer());
       ret.add(cooldownColumn);
@@ -187,7 +188,7 @@ public class RecipesTableController
           return Boolean.valueOf(oneTimeUse);
         }
       };
-      DefaultTableColumnController<Recipe,Boolean> cooldownColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.ONE_TIME_USE.name(),"Single use",Boolean.class,cooldownCell); // 18n
+      DefaultTableColumnController<Recipe,Boolean> cooldownColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.ONE_TIME_USE.name(),Labels.getLabel("recipes.table.column.singleUse"),Boolean.class,cooldownCell);
       cooldownColumn.setWidthSpecs(30,30,30);
       ret.add(cooldownColumn);
     }
@@ -202,7 +203,7 @@ public class RecipesTableController
           return Boolean.valueOf(guildRequired);
         }
       };
-      DefaultTableColumnController<Recipe,Boolean> guildColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.GUILD.name(),"Guild",Boolean.class,guildCell); // 18n
+      DefaultTableColumnController<Recipe,Boolean> guildColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.GUILD.name(),Labels.getLabel("recipes.table.column.guild"),Boolean.class,guildCell);
       guildColumn.setWidthSpecs(30,30,30);
       ret.add(guildColumn);
     }
@@ -218,7 +219,7 @@ public class RecipesTableController
           return RecipeUiUtils.getIngredientItems(recipe);
         }
       };
-      DefaultTableColumnController<Recipe,List> ingredientsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.INGREDIENTS.name(),"Ingredients",List.class,ingredientsCell); // 18n
+      DefaultTableColumnController<Recipe,List> ingredientsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.INGREDIENTS.name(),Labels.getLabel("recipes.table.column.ingredients"),List.class,ingredientsCell);
       ingredientsColumn.setWidthSpecs(150,230,150);
       ItemsSummaryPanelController panelController=new ItemsSummaryPanelController();
       TableCellRenderer renderer=panelController.buildRenderer();
@@ -235,7 +236,7 @@ public class RecipesTableController
           return RecipeUiUtils.getResultItems(recipe);
         }
       };
-      DefaultTableColumnController<Recipe,List> resultsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.RESULT.name(),"Result",List.class,resultsCell); // 18n
+      DefaultTableColumnController<Recipe,List> resultsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.RESULT.name(),Labels.getLabel("recipes.table.column.result"),List.class,resultsCell);
       resultsColumn.setWidthSpecs(80,80,80);
       ItemsSummaryPanelController panelController=new ItemsSummaryPanelController();
       TableCellRenderer renderer=panelController.buildRenderer();
@@ -255,7 +256,7 @@ public class RecipesTableController
         return Boolean.valueOf(recipe.getIngredientPack()!=null);
       }
     };
-    DefaultTableColumnController<Recipe,Boolean> column=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.USE_INGREDIENT_PACK.name(),"Use Ingredient Pack",Boolean.class,cell); // 18n
+    DefaultTableColumnController<Recipe,Boolean> column=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.USE_INGREDIENT_PACK.name(),Labels.getLabel("recipes.table.column.useIngredientPack"),Boolean.class,cell);
     column.setWidthSpecs(30,30,30);
     return column;
   }

@@ -12,6 +12,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.cosmetics.Outfit;
 import delta.games.lotro.character.cosmetics.OutfitsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to display the outfits of a character.
@@ -70,8 +71,8 @@ public class OutfitsDisplayPanelController
 
   private String getTitleForOutfit(int index)
   {
-    if (index==0) return "Equipment"; // I18n
-    return "Outfit #"+index; // I18n
+    if (index==0) return Labels.getLabel("character.cosmetics.outfits.equipment");
+    return Labels.getLabel("character.cosmetics.outfits.outfitNumber",new Object[]{Integer.valueOf(index)});
   }
 
   private void disposeOutfitPanels()

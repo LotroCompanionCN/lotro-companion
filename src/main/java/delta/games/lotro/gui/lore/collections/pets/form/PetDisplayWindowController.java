@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.pets.CosmeticPetDescription;
 
 /**
@@ -46,7 +47,7 @@ public class PetDisplayWindowController extends DefaultDialogController
     container.removeAll();
     JPanel panel=_controller.getPanel();
     container.add(panel,BorderLayout.CENTER);
-    dialog.setTitle("Pet: "+pet.getName()); // 18n
+    dialog.setTitle(Labels.getLabel("pet.display.title",new Object[]{pet.getName()}));
     dialog.pack();
     WindowController controller=getParentController();
     if (controller!=null)

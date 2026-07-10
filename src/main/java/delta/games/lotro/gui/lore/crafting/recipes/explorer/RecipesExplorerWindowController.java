@@ -59,7 +59,7 @@ public class RecipesExplorerWindowController extends DefaultWindowController
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Recipes explorer"); // 18n
+    frame.setTitle(Labels.getLabel("recipes.explorer.title"));
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);
     return frame;

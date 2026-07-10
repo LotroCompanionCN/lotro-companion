@@ -66,7 +66,7 @@ public class EmotesStatusPanelController
     _panelController=new EmotesStatusDisplayPanelController(_parent,_emotes,_status,_filter);
     JPanel displayPanel=_panelController.getPanel();
     JScrollPane scroll=GuiFactory.buildScrollPane(displayPanel);
-    scroll.setBorder(GuiFactory.buildTitledBorder("Emotes")); // I18n
+    scroll.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("emotes.status.panel.border")));
     // Filter
     _filterController=new EmoteStatusFilterController(_filter,_panelController);
     JPanel filterPanel=_filterController.getPanel();

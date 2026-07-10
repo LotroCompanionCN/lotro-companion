@@ -25,6 +25,7 @@ import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.character.summary.CharacterSummaryDialogController;
 import delta.games.lotro.utils.events.EventsManager;
 import delta.games.lotro.utils.events.GenericEventsListener;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for character header panel.
@@ -91,7 +92,7 @@ public class MainCharacterHeaderPanelController extends AbstractPanelController 
     c.gridx=3;c.weightx=0.0;c.fill=GridBagConstraints.NONE;c.anchor=GridBagConstraints.EAST;
     panel.add(_levelLabel,c);
     c.gridx=4;
-    JButton edit=GuiFactory.buildButton("Edit..."); // I18n
+    JButton edit=GuiFactory.buildButton(Labels.getLabel("character.main.header.button.edit"));
     ActionListener al=new ActionListener()
     {
       @Override
@@ -152,7 +153,7 @@ public class MainCharacterHeaderPanelController extends AbstractPanelController 
     String text=name;
     if ((region!=null) && (!region.isEmpty()))
     {
-      text=text+" of "+region; // I18n
+      text=Labels.getLabel("character.main.header.name.ofRegion",new Object[]{text,region});
     }
     _nameLabel.setText(text);
     // Level

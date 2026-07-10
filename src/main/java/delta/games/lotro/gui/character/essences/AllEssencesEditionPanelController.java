@@ -24,6 +24,7 @@ import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.items.ItemInstance;
 import delta.games.lotro.lore.items.essences.EssencesSet;
 import delta.games.lotro.utils.events.EventsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to edit all the essences of a character.
@@ -82,8 +83,8 @@ public class AllEssencesEditionPanelController implements EssenceUpdatedListener
       int columnSpan=(i>1)?3:1;
       GridBagConstraints c=new GridBagConstraints(columnIndex,0,columnSpan,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
       String text="";
-      if (i==1) text="Name"; // I18n
-      else if (i>1) text="Slot #"+(i-1); // I18n
+      if (i==1) text=Labels.getLabel("character.essences.edition.column.name");
+      else if (i>1) text=Labels.getLabel("character.essences.edition.column.slot",new Object[]{Integer.valueOf(i-1)});
       JLabel label=GuiFactory.buildLabel(text);
       _panel.add(label,c);
       columnIndex+=columnSpan;

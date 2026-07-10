@@ -14,6 +14,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.l10n.L10n;
 import delta.games.lotro.character.status.hobbies.HobbyStatus;
 import delta.games.lotro.gui.common.navigation.ReferenceConstants;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils.TitleRenderingFormat;
 import delta.games.lotro.gui.utils.IconAndLinkPanelController;
@@ -64,7 +65,7 @@ public class HobbyStatusPanelController
     // Proficiency
     int proficiency=status.getValue();
     String proficiencyValue=(proficiency>=0)?L10n.getString(proficiency):"?";
-    JLabel proficiencyLabel=GuiFactory.buildLabel("Proficiency: "+proficiencyValue); // I18n
+    JLabel proficiencyLabel=GuiFactory.buildLabel(Labels.getLabel("hobbies.status.proficiency",new Object[]{proficiencyValue}));
     c=new GridBagConstraints(1,0,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,5,0,5),0,0);
     ret.add(proficiencyLabel,c);
     // Title

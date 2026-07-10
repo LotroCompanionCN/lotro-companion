@@ -10,6 +10,7 @@ import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.effects.CharacterEffectsManager;
 import delta.games.lotro.character.status.effects.EffectInstance;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the character effects edition dialog.
@@ -34,7 +35,7 @@ public class CharacterEffectsEditionDialogController extends DefaultFormDialogCo
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("Effects edition"); // I18n
+    dialog.setTitle(Labels.getLabel("effects.edition.dialog.title"));
     dialog.setResizable(true);
     dialog.setMinimumSize(new Dimension(700,650));
     return dialog;

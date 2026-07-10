@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.dat.data.DataFacade;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a resources maps explorer window.
@@ -35,7 +36,7 @@ public class ResourcesMapsExplorerWindowController extends DefaultWindowControll
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Resources maps explorer"); // I18n
+    frame.setTitle(Labels.getLabel("maps.resources.explorer.title"));
     frame.setResizable(false);
     frame.pack();
     return frame;

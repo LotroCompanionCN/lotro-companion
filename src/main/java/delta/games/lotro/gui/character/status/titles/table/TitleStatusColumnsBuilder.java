@@ -8,6 +8,7 @@ import delta.common.ui.swing.tables.DefaultTableColumnController;
 import delta.common.ui.swing.tables.TableColumnController;
 import delta.games.lotro.character.status.titles.TitleState;
 import delta.games.lotro.character.status.titles.TitleStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Builds column definitions for TitleStatus data.
@@ -58,7 +59,7 @@ public class TitleStatusColumnsBuilder
         return Boolean.FALSE;
       }
     };
-    DefaultTableColumnController<TitleStatus,Boolean> stateColumn=new DefaultTableColumnController<TitleStatus,Boolean>(TitleStatusColumnIds.ACQUIRED.name(),"Acquired",Boolean.class,stateCell); // I18n
+    DefaultTableColumnController<TitleStatus,Boolean> stateColumn=new DefaultTableColumnController<TitleStatus,Boolean>(TitleStatusColumnIds.ACQUIRED.name(),Labels.getLabel("titles.status.table.column.acquired"),Boolean.class,stateCell);
     stateColumn.setWidthSpecs(30,30,30);
     return stateColumn;
   }

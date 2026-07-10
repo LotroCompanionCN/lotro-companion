@@ -16,6 +16,7 @@ import delta.games.lotro.gui.maps.DatRadarImageProvider;
 import delta.games.lotro.gui.maps.MarkerSelectionListener;
 import delta.games.lotro.gui.maps.RadarMapLayer;
 import delta.games.lotro.gui.maps.basemap.DatBasemapImageProvider;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.maps.Area;
 import delta.games.lotro.lore.maps.Dungeon;
@@ -113,12 +114,12 @@ public class ResourcesMapPanelController extends AbstractAreaController
 
     // Satellite map
     RadarImageProvider provider=new DatRadarImageProvider(facade);
-    RadarMapLayer radarLayer=new RadarMapLayer(RadarMapLayer.SATELLITE_MAP,1,provider);
+    RadarMapLayer radarLayer=new RadarMapLayer(Labels.getLabel("maps.radar.satelliteMap"),1,provider);
     canvas.addLayer(radarLayer);
     radarLayer.setRegion(region);
     // Height map
     RadarImageProvider heightMapProvider=new DatHeightMapImageProvider(facade);
-    RadarMapLayer heightMapLayer=new RadarMapLayer(RadarMapLayer.HEIGHT_MAP,1,heightMapProvider);
+    RadarMapLayer heightMapLayer=new RadarMapLayer(Labels.getLabel("maps.radar.heightMap"),1,heightMapProvider);
     heightMapLayer.setVisible(false);
     canvas.addLayer(heightMapLayer);
     heightMapLayer.setRegion(region);

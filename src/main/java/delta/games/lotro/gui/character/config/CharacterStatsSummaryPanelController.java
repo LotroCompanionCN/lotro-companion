@@ -25,6 +25,7 @@ import delta.games.lotro.common.stats.StatUtils;
 import delta.games.lotro.common.stats.WellKnownStat;
 import delta.games.lotro.gui.character.stats.contribs.StatContribsWindowController;
 import delta.games.lotro.gui.character.stats.details.DetailedCharacterStatsWindowController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the character stats summary panel.
@@ -86,11 +87,11 @@ public class CharacterStatsSummaryPanelController
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
     GridBagConstraints c1=new GridBagConstraints(0,0,1,2,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     StatDescription[][] statGroups1={main,mainStats,offence};
-    String[] groupNames1={"Vitals","Main","Offence"}; // I18n
+    String[] groupNames1={Labels.getLabel("character.config.stats.group.vitals"),Labels.getLabel("character.config.stats.group.main"),Labels.getLabel("character.config.stats.group.offence")};
     JPanel p1=showStatsColumn(statGroups1,groupNames1,true);
     panel.add(p1,c1);
     StatDescription[][] statGroups2={defence,avoidance,mitigation};
-    String[] groupNames2={"Defence","Avoidance","Mitigation"}; // I18n
+    String[] groupNames2={Labels.getLabel("character.config.stats.group.defence"),Labels.getLabel("character.config.stats.group.avoidance"),Labels.getLabel("character.config.stats.group.mitigation")};
     JPanel p2=showStatsColumn(statGroups2,groupNames2,false);
     GridBagConstraints c2=new GridBagConstraints(1,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(p2,c2);
@@ -98,7 +99,7 @@ public class CharacterStatsSummaryPanelController
     // Buttons
     JPanel buttonsPanel=GuiFactory.buildPanel(new FlowLayout());
     // Details button
-    JButton details=GuiFactory.buildButton("Details..."); // I18n
+    JButton details=GuiFactory.buildButton(Labels.getLabel("character.config.stats.button.details"));
     ActionListener alDetails=new ActionListener()
     {
       @Override
@@ -110,7 +111,7 @@ public class CharacterStatsSummaryPanelController
     details.addActionListener(alDetails);
     buttonsPanel.add(details);
     // Contribs button
-    JButton contribs=GuiFactory.buildButton("Contribs..."); // I18n
+    JButton contribs=GuiFactory.buildButton(Labels.getLabel("character.config.stats.button.contribs"));
     ActionListener alContribs=new ActionListener()
     {
       @Override

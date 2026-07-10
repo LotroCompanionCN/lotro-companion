@@ -1,6 +1,7 @@
 package delta.games.lotro.gui.utils.dates;
 
 import delta.games.lotro.common.Duration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a label to display a date and an age.
@@ -43,8 +44,8 @@ public class DecayLabelController extends AbstractTimedLabelController
     {
       int secondsLeft=(int)(timeLeft/1000);
       String durationStr=Duration.getSmartDurationString(secondsLeft);
-      return "Expires in: "+durationStr; // I18n
+      return Labels.getLabel("decay.expiresIn", new Object[]{durationStr});
     }
-    return "Expired"; // I18n
+    return Labels.getLabel("decay.expired");
   }
 }

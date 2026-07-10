@@ -13,6 +13,7 @@ import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.common.ui.swing.text.IntegerEditionController;
 import delta.games.lotro.character.status.reputation.FactionStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.lore.reputation.FactionLevel;
 import delta.games.lotro.utils.strings.ContextRendering;
@@ -49,7 +50,7 @@ public class FactionStatusEditionPanelController extends AbstractPanelController
   private JPanel buildPanel()
   {
     JPanel panel=GuiFactory.buildPanel(new FlowLayout());
-    panel.add(GuiFactory.buildLabel("Current tier: ")); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("reputation.faction.status.field.currentTier")));
     // Tiers
     _tiers=buildTierCombo();
     panel.add(_tiers.getComboBox());
@@ -84,7 +85,7 @@ public class FactionStatusEditionPanelController extends AbstractPanelController
     _reputationMax=GuiFactory.buildLabel(" / 000000");
     // Assembly
     JPanel panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.CENTER,5,2));
-    panel.add(GuiFactory.buildLabel("Reputation: ")); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getLabel("reputation.faction.status.field.reputation")));
     panel.add(_reputationValue.getTextField());
     panel.add(_reputationMax);
     return panel;

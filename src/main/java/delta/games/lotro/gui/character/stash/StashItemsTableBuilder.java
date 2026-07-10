@@ -19,6 +19,7 @@ import delta.games.lotro.lore.items.EquipmentLocation;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.items.ItemInstance;
 import delta.games.lotro.lore.items.ItemPropertyNames;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a table that shows all items in a stash.
@@ -108,7 +109,7 @@ public class StashItemsTableBuilder
           return icon;
         }
       };
-      DefaultTableColumnController<Item,ImageIcon> iconColumn=new DefaultTableColumnController<Item,ImageIcon>("Icon",ImageIcon.class,iconCell); // I18n
+      DefaultTableColumnController<Item,ImageIcon> iconColumn=new DefaultTableColumnController<Item,ImageIcon>(Labels.getLabel("character.stash.table.column.icon"),ImageIcon.class,iconCell);
       iconColumn.setWidthSpecs(50,50,50);
       iconColumn.setSortable(false);
       ret.add(iconColumn);
@@ -123,7 +124,7 @@ public class StashItemsTableBuilder
           return item.getName();
         }
       };
-      DefaultTableColumnController<Item,String> nameColumn=new DefaultTableColumnController<Item,String>("Name",String.class,nameCell); // I18n
+      DefaultTableColumnController<Item,String> nameColumn=new DefaultTableColumnController<Item,String>(Labels.getLabel("character.stash.table.column.name"),String.class,nameCell);
       nameColumn.setWidthSpecs(200,-1,300);
       ret.add(nameColumn);
     }
@@ -137,7 +138,7 @@ public class StashItemsTableBuilder
           return item.getEquipmentLocation();
         }
       };
-      DefaultTableColumnController<Item,EquipmentLocation> locationColumn=new DefaultTableColumnController<Item,EquipmentLocation>("Location",EquipmentLocation.class,locationCell); // I18n
+      DefaultTableColumnController<Item,EquipmentLocation> locationColumn=new DefaultTableColumnController<Item,EquipmentLocation>(Labels.getLabel("character.stash.table.column.location"),EquipmentLocation.class,locationCell);
       locationColumn.setWidthSpecs(70,70,70);
       ret.add(locationColumn);
     }
@@ -155,7 +156,7 @@ public class StashItemsTableBuilder
         return property;
       }
     };
-    DefaultTableColumnController<ItemInstance<? extends Item>,String> commentColumn=new DefaultTableColumnController<ItemInstance<? extends Item>,String>("Comment",String.class,commentCell); // I18n
+    DefaultTableColumnController<ItemInstance<? extends Item>,String> commentColumn=new DefaultTableColumnController<ItemInstance<? extends Item>,String>(Labels.getLabel("character.stash.table.column.comment"),String.class,commentCell);
     commentColumn.setWidthSpecs(200,-1,400);
     return commentColumn;
   }

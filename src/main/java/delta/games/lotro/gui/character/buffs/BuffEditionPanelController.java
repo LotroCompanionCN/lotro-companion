@@ -29,6 +29,7 @@ import delta.games.lotro.character.stats.buffs.BuffInstance;
 import delta.games.lotro.character.stats.buffs.BuffRegistry;
 import delta.games.lotro.character.stats.buffs.BuffsManager;
 import delta.games.lotro.utils.events.EventsManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to edit buffs.
@@ -79,7 +80,7 @@ public class BuffEditionPanelController implements ActionListener
     buildBuffControllers();
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     _panel.add(_iconsPanel,c);
-    JButton button=GuiFactory.buildButton("Add..."); // I18n
+    JButton button=GuiFactory.buildButton(Labels.getLabel("character.buffs.button.add"));
     c=new GridBagConstraints(1,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     _panel.add(button,c);
     ActionListener al=new ActionListener()
@@ -140,7 +141,7 @@ public class BuffEditionPanelController implements ActionListener
   private JPopupMenu buildContextualMenu()
   {
     JPopupMenu popup=new JPopupMenu();
-    JMenuItem remove=new JMenuItem("Remove"); // I18n
+    JMenuItem remove=new JMenuItem(Labels.getLabel("character.buffs.contextMenu.remove"));
     remove.setActionCommand(REMOVE_COMMAND);
     remove.addActionListener(this);
     popup.add(remove);

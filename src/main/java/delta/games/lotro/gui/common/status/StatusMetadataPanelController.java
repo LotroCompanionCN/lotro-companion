@@ -8,6 +8,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.games.lotro.common.status.StatusMetadata;
 import delta.games.lotro.gui.utils.dates.DateAgeLabelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to display status metadata.
@@ -49,7 +50,7 @@ public class StatusMetadataPanelController extends AbstractPanelController
   private JPanel buildPanel()
   {
     JPanel ret=GuiFactory.buildPanel(new FlowLayout());
-    ret.add(GuiFactory.buildLabel("Date: ")); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getFieldLabel("common.date")));
     ret.add(_dateAge.getLabel());
     return ret;
   }

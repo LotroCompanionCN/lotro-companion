@@ -115,7 +115,7 @@ public class PortraitFramesStatusFilterController
     // Label filter
     {
       GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,5,5,5),0,0);
-      panel.add(GuiFactory.buildLabel("Name:"),c); // I18n
+      panel.add(GuiFactory.buildLabel(Labels.getLabel("portraitFrames.status.filter.name")),c);
       _contains=GuiFactory.buildTextField("");
       _contains.setColumns(10);
       c=new GridBagConstraints(1,y,1,1,1.0,0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,5,5),0,0);
@@ -139,7 +139,7 @@ public class PortraitFramesStatusFilterController
     }
     // State filter
     {
-      JLabel label=GuiFactory.buildLabel("Unlocked:"); // I18n
+      JLabel label=GuiFactory.buildLabel(Labels.getLabel("portraitFrames.status.filter.unlocked"));
       GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,5,5,5),0,0);
       panel.add(label,c);
       _unlocked=buildStateComboBox();

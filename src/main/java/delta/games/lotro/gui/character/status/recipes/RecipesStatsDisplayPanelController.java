@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.L10n;
 import delta.games.lotro.character.status.recipes.RecipesStatistics;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "recipes stats" display panel.
@@ -48,11 +49,11 @@ public class RecipesStatsDisplayPanelController
 
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     // Auto
-    _autoRecipesCount=buildLabelLine(panel,c,"Auto: "); // I18n
+    _autoRecipesCount=buildLabelLine(panel,c,Labels.getLabel("recipes.status.statistics.auto"));
     // Learnt
-    _learntRecipesCount=buildLabelLine(panel,c,"Learnt: "); // I18n
+    _learntRecipesCount=buildLabelLine(panel,c,Labels.getLabel("recipes.status.statistics.learnt"));
     // Not known
-    _notKnownRecipesCount=buildLabelLine(panel,c,"Not known: "); // I18n
+    _notKnownRecipesCount=buildLabelLine(panel,c,Labels.getLabel("recipes.status.statistics.notKnown"));
     return panel;
   }
 

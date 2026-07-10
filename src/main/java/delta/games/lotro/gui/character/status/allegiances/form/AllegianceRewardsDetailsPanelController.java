@@ -14,6 +14,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.allegiances.AllegianceStatus;
 import delta.games.lotro.gui.common.rewards.form.RewardsPanelController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.allegiances.AllegianceDescription;
 import delta.games.lotro.lore.allegiances.Points2LevelCurve;
 import delta.games.lotro.lore.deeds.DeedDescription;
@@ -107,15 +108,14 @@ public class AllegianceRewardsDetailsPanelController
   private String getLabel(int level, AllegianceRewardState state)
   {
     StringBuilder sb=new StringBuilder();
-    sb.append("Level ").append(level); // I18n
-    sb.append(": ");
+    sb.append(Labels.getLabel("character.status.allegiances.details.level",new Object[]{Integer.valueOf(level)}));
     if (state==AllegianceRewardState.CLAIMED)
     {
-      sb.append("claimed"); // I18n
+      sb.append(Labels.getLabel("character.status.allegiances.details.state.claimed"));
     }
     else if (state==AllegianceRewardState.UNLOCKED)
     {
-      sb.append("unlocked"); // I18n
+      sb.append(Labels.getLabel("character.status.allegiances.details.state.unlocked"));
     }
     else if (state==AllegianceRewardState.FUTURE)
     {
@@ -131,12 +131,12 @@ public class AllegianceRewardsDetailsPanelController
         }
         else
         {
-          sb.append("need ").append(missingPoints).append(" points"); // I18n
+          sb.append(Labels.getLabel("character.status.allegiances.details.state.need",new Object[]{Integer.valueOf(missingPoints)}));
         }
       }
       else
       {
-        sb.append("not started"); // I18n
+        sb.append(Labels.getLabel("character.status.allegiances.details.state.notStarted"));
       }
     }
     return sb.toString();

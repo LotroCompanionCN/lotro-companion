@@ -27,6 +27,7 @@ import delta.games.lotro.common.stats.CustomStatsMergeMode;
 import delta.games.lotro.common.stats.StatDescription;
 import delta.games.lotro.common.stats.StatsManager;
 import delta.games.lotro.common.stats.StatsProvider;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to edit custom stats.
@@ -150,15 +151,15 @@ public class CustomStatsEditionPanelController
   {
     // Automatic stats
     _autoStats=GuiFactory.buildPanel(new GridBagLayout());
-    _autoStats.setBorder(GuiFactory.buildTitledBorder("Automatic stats")); // I18n
+    _autoStats.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("common.stats.automatic")));
 
     // Result stats
     _resultStats=GuiFactory.buildPanel(new GridBagLayout());
-    _resultStats.setBorder(GuiFactory.buildTitledBorder("Result stats")); // I18n
+    _resultStats.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("common.stats.result")));
 
     // Custom stats
     JPanel customStatsPanel=buildCustomStatsPanel();
-    customStatsPanel.setBorder(GuiFactory.buildTitledBorder("Custom stats")); // I18n
+    customStatsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("common.stats.custom")));
 
     // Assembly
     JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
@@ -191,7 +192,7 @@ public class CustomStatsEditionPanelController
   private JPanel buildModePanel()
   {
     JPanel panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEFT));
-    panel.add(GuiFactory.buildLabel("Mode:")); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("common.stats.mode")));
     panel.add(_mode.getComboBox());
     _mode.addListener(buildModeChoiceListener());
     return panel;

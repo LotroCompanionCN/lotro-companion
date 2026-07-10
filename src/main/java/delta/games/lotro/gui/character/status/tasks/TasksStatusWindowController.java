@@ -33,6 +33,7 @@ import delta.games.lotro.gui.character.status.tasks.table.TaskStatusTableControl
 import delta.games.lotro.gui.common.navigation.ReferenceConstants;
 import delta.games.lotro.gui.main.GlobalPreferences;
 import delta.games.lotro.gui.utils.NavigationUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.quests.QuestDescription;
 
 /**
@@ -80,7 +81,7 @@ public class TasksStatusWindowController extends DefaultDisplayDialogController<
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(1000,300));
-    dialog.setTitle("Tasks status"); // I18n
+    dialog.setTitle(Labels.getLabel("tasks.status.window.title"));
     dialog.pack();
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -109,8 +110,8 @@ public class TasksStatusWindowController extends DefaultDisplayDialogController<
     // Table
     initTable();
     _panelController=new GenericTablePanelController<TaskStatus>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Status of tasks"); // I18n
-    _panelController.getCountsDisplay().setText("Task(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("tasks.status.panel.border"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("tasks.status.table.counts"));
     JPanel tablePanel=_panelController.getPanel();
     // Build child controllers
     _filterController=new TaskFilterController(this,_filter,this);
@@ -128,12 +129,12 @@ public class TasksStatusWindowController extends DefaultDisplayDialogController<
     JPanel statusPanel=GuiFactory.buildPanel(new GridBagLayout());
     // - deeds status
     JPanel taskDeedsPanel=_taskDeedsController.getPanel();
-    taskDeedsPanel.setBorder(GuiFactory.buildTitledBorder("Task Deeds")); // I18n
+    taskDeedsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("tasks.status.taskDeeds.border")));
     c=new GridBagConstraints(0,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     statusPanel.add(taskDeedsPanel,c);
     // - quests status
     JPanel taskQuestsPanel=_taskQuestsController.getPanel();
-    taskQuestsPanel.setBorder(GuiFactory.buildTitledBorder("Task Quests")); // I18n
+    taskQuestsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("tasks.status.taskQuests.border")));
     c=new GridBagConstraints(0,1,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     statusPanel.add(taskQuestsPanel,c);
 
@@ -151,15 +152,15 @@ public class TasksStatusWindowController extends DefaultDisplayDialogController<
     GridBagConstraints c=new GridBagConstraints(0,0,3,1,0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     // Task filter
     JPanel taskFilterPanel=_filterController.getPanel();
-    taskFilterPanel.setBorder(GuiFactory.buildTitledBorder("Task Filter")); // I18n
+    taskFilterPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("tasks.status.filter.task.border")));
     panel.add(taskFilterPanel,c);
     c=new GridBagConstraints(0,1,1,1,0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     // Status filter
     JPanel statusFilterPanel=_statusFilterController.getPanel();
-    statusFilterPanel.setBorder(GuiFactory.buildTitledBorder("Status Filter")); // I18n
+    statusFilterPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("tasks.status.filter.status.border")));
     panel.add(statusFilterPanel,c);
     // Stats button
-    JButton b=GuiFactory.buildButton("Stats");
+    JButton b=GuiFactory.buildButton(Labels.getLabel("tasks.status.button.stats"));
     ActionListener al=new ActionListener()
     {
       @Override

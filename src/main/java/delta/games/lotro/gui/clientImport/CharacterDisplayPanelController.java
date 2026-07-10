@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.misc.Disposable;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.memory.extraction.session.status.ImportStatusData;
 
 /**
@@ -55,22 +56,22 @@ public class CharacterDisplayPanelController implements Disposable
     ret.add(Box.createHorizontalStrut(150),c);
     c.gridx=0;c.gridy++;
     // Character name
-    ret.add(GuiFactory.buildLabel("Name:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.character.name")),c);
     c.gridx++;
     ret.add(_characterName,c);
     c.gridx=0;c.gridy++;
     // Class
-    ret.add(GuiFactory.buildLabel("Class:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.character.class")),c);
     c.gridx++;
     ret.add(_characterClass,c);
     c.gridx=0;c.gridy++;
     // Race
-    ret.add(GuiFactory.buildLabel("Race:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.character.race")),c);
     c.gridx++;
     ret.add(_race,c);
     c.gridx=0;c.gridy++;
     // Level
-    ret.add(GuiFactory.buildLabel("Level:"),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.character.level")),c);
     c.gridx++;
     ret.add(_level,c);
     c.gridx=0;c.gridy++;

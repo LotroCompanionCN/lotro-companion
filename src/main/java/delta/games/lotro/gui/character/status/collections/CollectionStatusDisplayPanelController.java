@@ -20,6 +20,7 @@ import delta.games.lotro.common.rewards.Rewards;
 import delta.games.lotro.gui.common.rewards.form.RewardsPanelController;
 import delta.games.lotro.gui.utils.GadgetsControllersFactory;
 import delta.games.lotro.gui.utils.IconLinkLabelGadgetsController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.Collectable;
 import delta.games.lotro.lore.collections.CollectionDescription;
 
@@ -80,12 +81,12 @@ public class CollectionStatusDisplayPanelController
     ret.add(statsPanel,c);
     y++;
     c=new GridBagConstraints(0,y,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
-    itemsPanel.setBorder(GuiFactory.buildTitledBorder("Elements")); // I18n
+    itemsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("collections.panel.elements.border")));
     ret.add(itemsPanel,c);
     y++;
     c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     JPanel rewardsPanel=_rewardsCtrl.getPanel();
-    rewardsPanel.setBorder(GuiFactory.buildTitledBorder("Rewards")); // I18n
+    rewardsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("collections.panel.rewards.border")));
     ret.add(rewardsPanel,c);
     return ret;
   }
@@ -95,7 +96,7 @@ public class CollectionStatusDisplayPanelController
     JPanel ret=GuiFactory.buildPanel(new GridBagLayout());
     CollectionDescription collection=_status.getCollection();
     String name=collection.getName();
-    JLabel stateLabel=GuiFactory.buildLabel("Collection: "+name); // I18n
+    JLabel stateLabel=GuiFactory.buildLabel(Labels.getLabel("collections.panel.summary.label",new Object[]{name}));
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(5,5,2,5),0,0);
     ret.add(stateLabel,c);
     return ret;
@@ -107,19 +108,19 @@ public class CollectionStatusDisplayPanelController
     String label="";
     if (_status.isComplete())
     {
-      label="Completed"; // I18n
+      label=Labels.getLabel("collections.status.completed");
     }
     else
     {
       int completedCount=_status.getCompletedCount();
       if (completedCount==0)
       {
-        label="Not started"; // I18n
+        label=Labels.getLabel("collections.status.notStarted");
       }
       else
       {
         int total=_status.getTotalCount();
-        label="Done "+completedCount+" / "+total; // I18n
+        label=Labels.getLabel("collections.status.done",new Object[]{Integer.valueOf(completedCount),Integer.valueOf(total)});
       }
     }
     JLabel stateLabel=GuiFactory.buildLabel("State: "+label);

@@ -15,6 +15,7 @@ import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.events.CharacterEvent;
 import delta.games.lotro.character.events.CharacterEventType;
 import delta.games.lotro.character.status.crafting.CraftingStatus;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.events.EventsManager;
 
 /**
@@ -65,7 +66,7 @@ public class CraftingWindowController extends DefaultFormDialogController<Crafti
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
-    String title="Crafting history editor for "+name+" @ "+serverName; // I18n
+    String title=Labels.getLabel("crafting.history.editor.window.title",new Object[]{name,serverName});
     dialog.setTitle(title);
     // Minimum size
     dialog.setMinimumSize(new Dimension(500,380));

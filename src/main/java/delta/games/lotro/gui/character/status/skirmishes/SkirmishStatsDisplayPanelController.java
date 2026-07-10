@@ -12,6 +12,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.L10n;
 import delta.games.lotro.character.status.skirmishes.SkirmishStats;
 import delta.games.lotro.common.Duration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "skirmish stats" display panel.
@@ -60,33 +61,33 @@ public class SkirmishStatsDisplayPanelController
 
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     // Monster kills
-    _monsterKills=buildLabelLine(panel,c,"Monster kills: "); // I18n
+    _monsterKills=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.monsterKills"));
     // Lieutenant kills
-    _lieutenantKills=buildLabelLine(panel,c,"Lieutenant kills: "); // I18n
+    _lieutenantKills=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.lieutenantKills"));
     // Boss kills
-    _bossKills=buildLabelLine(panel,c,"Boss kills: "); // I18n
+    _bossKills=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.bossKills"));
     // Boss resets
-    _bossResets=buildLabelLine(panel,c,"Boss resets: "); // I18n
+    _bossResets=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.bossResets"));
     // Defenders lost
-    _defendersLost=buildLabelLine(panel,c,"Defenders lost: "); // I18n
+    _defendersLost=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.defendersLost"));
     // Defenders saved
-    _defendersSaved=buildLabelLine(panel,c,"Defenders saved: "); // I18n
+    _defendersSaved=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.defendersSaved"));
     // Soldier deaths
-    _soldiersDeaths=buildLabelLine(panel,c,"Soldier deaths: "); // I18n
+    _soldiersDeaths=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.soldierDeaths"));
     // Control points taken
-    _controlPointsTaken=buildLabelLine(panel,c,"Control Points taken: "); // I18n
+    _controlPointsTaken=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.controlPointsTaken"));
     // Encounters completed
-    _encountersCompleted=buildLabelLine(panel,c,"Encounters completed: "); // I18n
+    _encountersCompleted=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.encountersCompleted"));
     // Play time
-    _playTime=buildLabelLine(panel,c,"Play time: "); // I18n
+    _playTime=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.playTime"));
     // Skirmishes completed
-    _skirmishesCompleted=buildLabelLine(panel,c,"Skirmishes completed: "); // I18n
+    _skirmishesCompleted=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.skirmishesCompleted"));
     // Skirmishes attempted
-    _skirmishesAttempted=buildLabelLine(panel,c,"Skirmishes attempted: "); // I18n
+    _skirmishesAttempted=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.skirmishesAttempted"));
     // Best time
-    _bestTime=buildLabelLine(panel,c,"Best time: "); // I18n
+    _bestTime=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.bestTime"));
     // Total marks earned
-    _totalMarksEarned=buildLabelLine(panel,c,"Total marks earned: "); // I18n
+    _totalMarksEarned=buildLabelLine(panel,c,Labels.getLabel("skirmish.statistics.field.totalMarksEarned"));
     return panel;
   }
 

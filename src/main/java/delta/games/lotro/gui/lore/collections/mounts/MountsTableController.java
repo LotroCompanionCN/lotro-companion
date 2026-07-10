@@ -19,6 +19,7 @@ import delta.games.lotro.common.enums.SkillCharacteristicSubCategory;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.lore.items.chooser.ItemChooser;
 import delta.games.lotro.gui.utils.UiConfiguration;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.collections.mounts.MountDescription;
 import delta.games.lotro.lore.collections.mounts.MountsManager;
 
@@ -85,7 +86,7 @@ public class MountsTableController
           return icon;
         }
       };
-      DefaultTableColumnController<MountDescription,Icon> iconColumn=new DefaultTableColumnController<MountDescription,Icon>(MountColumnIds.ICON.name(),"Icon",Icon.class,iconCell); // 18n
+      DefaultTableColumnController<MountDescription,Icon> iconColumn=new DefaultTableColumnController<MountDescription,Icon>(MountColumnIds.ICON.name(),Labels.getLabel("mounts.table.column.icon"),Icon.class,iconCell);
       iconColumn.setWidthSpecs(50,50,50);
       iconColumn.setSortable(false);
       ret.add(iconColumn);
@@ -101,7 +102,7 @@ public class MountsTableController
           return Integer.valueOf(mount.getIdentifier());
         }
       };
-      DefaultTableColumnController<MountDescription,Integer> idColumn=new DefaultTableColumnController<MountDescription,Integer>(MountColumnIds.ID.name(),"ID",Integer.class,idCell); // 18n
+      DefaultTableColumnController<MountDescription,Integer> idColumn=new DefaultTableColumnController<MountDescription,Integer>(MountColumnIds.ID.name(),Labels.getLabel("mounts.table.column.id"),Integer.class,idCell);
       idColumn.setWidthSpecs(80,80,80);
       ret.add(idColumn);
     }
@@ -115,7 +116,7 @@ public class MountsTableController
           return mount.getMountCategory();
         }
       };
-      DefaultTableColumnController<MountDescription,SkillCharacteristicSubCategory> categoryColumn=new DefaultTableColumnController<MountDescription,SkillCharacteristicSubCategory>(MountColumnIds.CATEGORY.name(),"Category",SkillCharacteristicSubCategory.class,categoryCell); // 18n
+      DefaultTableColumnController<MountDescription,SkillCharacteristicSubCategory> categoryColumn=new DefaultTableColumnController<MountDescription,SkillCharacteristicSubCategory>(MountColumnIds.CATEGORY.name(),Labels.getLabel("mounts.table.column.category"),SkillCharacteristicSubCategory.class,categoryCell);
       categoryColumn.setWidthSpecs(100,140,140);
       ret.add(categoryColumn);
     }
@@ -129,7 +130,7 @@ public class MountsTableController
           return mount.getName();
         }
       };
-      DefaultTableColumnController<MountDescription,String> nameColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.NAME.name(),"Name",String.class,nameCell); // 18n
+      DefaultTableColumnController<MountDescription,String> nameColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.NAME.name(),Labels.getLabel("mounts.table.column.name"),String.class,nameCell);
       nameColumn.setWidthSpecs(100,200,180);
       ret.add(nameColumn);
     }
@@ -143,7 +144,7 @@ public class MountsTableController
           return mount.getInitialName();
         }
       };
-      DefaultTableColumnController<MountDescription,String> initialNameColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.INITIAL_NAME.name(),"Initial Name",String.class,initialNameCell); // 18n
+      DefaultTableColumnController<MountDescription,String> initialNameColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.INITIAL_NAME.name(),Labels.getLabel("mounts.table.column.initialName"),String.class,initialNameCell);
       initialNameColumn.setWidthSpecs(120,120,120);
       ret.add(initialNameColumn);
     }
@@ -157,7 +158,7 @@ public class MountsTableController
           return mount.getMountType();
         }
       };
-      DefaultTableColumnController<MountDescription,MountType> mountTypeColumn=new DefaultTableColumnController<MountDescription,MountType>(MountColumnIds.MOUNT_TYPE.name(),"Mount Type",MountType.class,mountTypeCell); // 18n
+      DefaultTableColumnController<MountDescription,MountType> mountTypeColumn=new DefaultTableColumnController<MountDescription,MountType>(MountColumnIds.MOUNT_TYPE.name(),Labels.getLabel("mounts.table.column.mountType"),MountType.class,mountTypeCell);
       mountTypeColumn.setWidthSpecs(100,100,100);
       ret.add(mountTypeColumn);
     }
@@ -171,7 +172,7 @@ public class MountsTableController
           return Integer.valueOf(mount.getMorale());
         }
       };
-      DefaultTableColumnController<MountDescription,Integer> moraleColumn=new DefaultTableColumnController<MountDescription,Integer>(MountColumnIds.MORALE.name(),"Morale",Integer.class,moraleCell); // 18n
+      DefaultTableColumnController<MountDescription,Integer> moraleColumn=new DefaultTableColumnController<MountDescription,Integer>(MountColumnIds.MORALE.name(),Labels.getLabel("mounts.table.column.morale"),Integer.class,moraleCell);
       moraleColumn.setWidthSpecs(50,50,50);
       ret.add(moraleColumn);
     }
@@ -185,7 +186,7 @@ public class MountsTableController
           return Integer.valueOf((int)(mount.getSpeed()*100));
         }
       };
-      DefaultTableColumnController<MountDescription,Integer> speedColumn=new DefaultTableColumnController<MountDescription,Integer>(MountColumnIds.SPEED.name(),"Speed",Integer.class,speedCell); // 18n
+      DefaultTableColumnController<MountDescription,Integer> speedColumn=new DefaultTableColumnController<MountDescription,Integer>(MountColumnIds.SPEED.name(),Labels.getLabel("mounts.table.column.speed"),Integer.class,speedCell);
       speedColumn.setWidthSpecs(50,50,50);
       ret.add(speedColumn);
     }
@@ -199,7 +200,7 @@ public class MountsTableController
           return mount.isTall()?"Tall":"Short";
         }
       };
-      DefaultTableColumnController<MountDescription,String> sizeColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.SIZE.name(),"Size",String.class,sizeCell); // 18n
+      DefaultTableColumnController<MountDescription,String> sizeColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.SIZE.name(),Labels.getLabel("mounts.table.column.size"),String.class,sizeCell);
       sizeColumn.setWidthSpecs(50,50,50);
       ret.add(sizeColumn);
     }
@@ -213,7 +214,7 @@ public class MountsTableController
           return mount.getDescription();
         }
       };
-      DefaultTableColumnController<MountDescription,String> descriptionColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.DESCRIPTION.name(),"Description",String.class,descriptionCell); // 18n
+      DefaultTableColumnController<MountDescription,String> descriptionColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.DESCRIPTION.name(),Labels.getLabel("mounts.table.column.description"),String.class,descriptionCell);
       descriptionColumn.setWidthSpecs(100,-1,200);
       ret.add(descriptionColumn);
     }
@@ -227,7 +228,7 @@ public class MountsTableController
           return mount.getSourceDescription();
         }
       };
-      DefaultTableColumnController<MountDescription,String> sourceColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.SOURCE.name(),"Source",String.class,sourceCell); // 18n
+      DefaultTableColumnController<MountDescription,String> sourceColumn=new DefaultTableColumnController<MountDescription,String>(MountColumnIds.SOURCE.name(),Labels.getLabel("mounts.table.column.source"),String.class,sourceCell);
       sourceColumn.setWidthSpecs(100,-1,200);
       ret.add(sourceColumn);
     }

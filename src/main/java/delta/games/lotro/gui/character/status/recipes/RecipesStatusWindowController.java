@@ -34,6 +34,7 @@ import delta.games.lotro.gui.common.navigation.ReferenceConstants;
 import delta.games.lotro.gui.lore.crafting.recipes.RecipeFilterController;
 import delta.games.lotro.gui.main.GlobalPreferences;
 import delta.games.lotro.gui.utils.NavigationUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.recipes.Recipe;
 
 /**
@@ -80,7 +81,7 @@ public class RecipesStatusWindowController extends DefaultDisplayDialogControlle
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(1000,300));
-    dialog.setTitle("Recipes status"); // I18n
+    dialog.setTitle(Labels.getLabel("recipes.status.window.title"));
     dialog.pack();
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -110,8 +111,8 @@ public class RecipesStatusWindowController extends DefaultDisplayDialogControlle
     Blacklist blacklist=BlackListIO.load(_toon,"recipes");
     initTable(blacklist);
     _panelController=new GenericTablePanelController<RecipeStatus>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Status of recipes"); // I18n
-    _panelController.getCountsDisplay().setText("Recipe(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("recipes.status.panel.border"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("recipes.status.table.counts"));
     JPanel tablePanel=_panelController.getPanel();
     // Build child controllers
     _filterController=new RecipeFilterController(_data.getRecipes(),_filter.getRecipeFilter(),this);
@@ -127,7 +128,7 @@ public class RecipesStatusWindowController extends DefaultDisplayDialogControlle
     // - stats
     JPanel statsPanel=_statsController.getPanel();
     c=new GridBagConstraints(1,0,1,1,0,0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-    statsPanel.setBorder(GuiFactory.buildTitledBorder("Statistics")); // I18n
+    statsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("recipes.status.statistics.border")));
     panel.add(statsPanel,c);
     // - table
     c=new GridBagConstraints(0,1,2,1,1,1,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
@@ -142,12 +143,12 @@ public class RecipesStatusWindowController extends DefaultDisplayDialogControlle
     GridBagConstraints c=new GridBagConstraints(0,0,3,1,0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     // Recipe filter
     JPanel recipeFilterPanel=_filterController.getPanel();
-    recipeFilterPanel.setBorder(GuiFactory.buildTitledBorder("Recipe Filter")); // I18n
+    recipeFilterPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("recipes.status.filter.recipe.border")));
     panel.add(recipeFilterPanel,c);
     c=new GridBagConstraints(0,1,1,1,0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     // Status filter
     JPanel statusFilterPanel=_statusFilterController.getPanel();
-    statusFilterPanel.setBorder(GuiFactory.buildTitledBorder("Status Filter")); // I18n
+    statusFilterPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("recipes.status.filter.status.border")));
     panel.add(statusFilterPanel,c);
     // Blacklist
     JPanel blacklistPanel=_blacklistController.getPanel();

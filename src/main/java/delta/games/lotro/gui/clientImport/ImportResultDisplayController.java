@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.misc.Disposable;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.memory.extraction.session.status.ImportStatus;
 import delta.games.lotro.memory.extraction.session.status.ImportStatusData;
 
@@ -63,18 +64,18 @@ public class ImportResultDisplayController implements Disposable
     _clientDataCtrl=new ClientDataDisplayPanelController();
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     JPanel clientPanel=_clientDataCtrl.getPanel();
-    clientPanel.setBorder(GuiFactory.buildTitledBorder("Client")); // I18n
+    clientPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("clientimport.result.client")));
     ret.add(clientPanel,c);
     // Character panel
     _characterCtrl=new CharacterDisplayPanelController();
     c=new GridBagConstraints(0,1,1,1,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     JPanel characterPanel=_characterCtrl.getPanel();
-    characterPanel.setBorder(GuiFactory.buildTitledBorder("Character")); // I18n
+    characterPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("clientimport.result.character")));
     ret.add(characterPanel,c);
     // Extraction results panel
     _extractionCtrl=new ExtractionResultsPanelController();
     JPanel extractionPanel=_extractionCtrl.getPanel();
-    extractionPanel.setBorder(GuiFactory.buildTitledBorder("Extraction")); // I18n
+    extractionPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("clientimport.result.extraction")));
     c=new GridBagConstraints(1,0,1,2,1.0,1.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     ret.add(extractionPanel,c);
     return ret;
@@ -84,7 +85,7 @@ public class ImportResultDisplayController implements Disposable
   {
     JPanel ret=GuiFactory.buildPanel(new GridBagLayout());
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-    ret.add(GuiFactory.buildLabel("Result: "),c); // I18n
+    ret.add(GuiFactory.buildLabel(Labels.getLabel("clientimport.result.label")),c);
     _message=GuiFactory.buildLabel("");
     c=new GridBagConstraints(1,0,1,1,1.0,1.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
     ret.add(_message,c);
@@ -118,11 +119,11 @@ public class ImportResultDisplayController implements Disposable
     }
     if (importStatus==ImportStatus.RUNNING)
     {
-      return "Import in progress"; // I18n
+      return Labels.getLabel("clientimport.status.inProgress");
     }
     if (importStatus==ImportStatus.FINISHED)
     {
-      return "Import finished!"; // I18n
+      return Labels.getLabel("clientimport.status.finished");
     }
     return "?";
   }

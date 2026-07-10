@@ -22,6 +22,7 @@ import delta.games.lotro.character.storage.currencies.CurrenciesFacade;
 import delta.games.lotro.character.storage.currencies.Currency;
 import delta.games.lotro.gui.account.AccountPreferencesManager;
 import delta.games.lotro.gui.character.CharacterPreferencesManager;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a "currency history" window for a single character.
@@ -119,7 +120,7 @@ public class SingleCharacterCurrencyHistoryWindowController extends DefaultDispl
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(500,380));
     dialog.setPreferredSize(new Dimension(700,500));
-    dialog.setTitle("Currencies"); // I18n
+    dialog.setTitle(Labels.getLabel("currencies.status.title"));
     dialog.pack();
     return dialog;
   }

@@ -17,6 +17,7 @@ import delta.common.ui.swing.labels.HyperLinkController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.gui.maps.resources.ResourceNodesLootManager;
 import delta.games.lotro.gui.utils.IconController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.Item;
 
 /**
@@ -101,14 +102,14 @@ public class ResourceNodeFilterPanelController
     _panel.removeAll();
     // Headers
     GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    _panel.add(GuiFactory.buildLabel("Show?"),c); // I18n
+    _panel.add(GuiFactory.buildLabel(Labels.getLabel("maps.resources.filter.show")),c);
     c=new GridBagConstraints(1,0,2,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(5,5,5,5),0,0);
-    _panel.add(GuiFactory.buildLabel("Source item"),c); // I18n
+    _panel.add(GuiFactory.buildLabel(Labels.getLabel("maps.resources.filter.sourceItem")),c);
     boolean hasLootableItems=hasLootableItems();
     if (hasLootableItems)
     {
       c=new GridBagConstraints(3,0,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(5,5,5,5),0,0);
-      _panel.add(GuiFactory.buildLabel("Lootable items"),c); // I18n
+      _panel.add(GuiFactory.buildLabel(Labels.getLabel("maps.resources.filter.lootableItems")),c);
     }
     // Filter items
     int y=1;

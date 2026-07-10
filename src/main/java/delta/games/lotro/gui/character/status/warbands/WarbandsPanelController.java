@@ -131,7 +131,7 @@ public class WarbandsPanelController
   private JPanel buildStatsPanel()
   {
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
-    TitledBorder logFrameBorder=GuiFactory.buildTitledBorder("Warbands"); // I18n
+    TitledBorder logFrameBorder=GuiFactory.buildTitledBorder(Labels.getLabel("warbands.panel.border"));
     panel.setBorder(logFrameBorder);
 
     // Table

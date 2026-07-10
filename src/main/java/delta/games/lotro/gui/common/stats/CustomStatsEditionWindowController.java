@@ -8,6 +8,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.common.stats.StatsManager;
 import delta.games.lotro.common.stats.StatsProvider;
 import delta.games.lotro.lore.items.Item;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.items.ItemInstance;
 
 /**
@@ -55,7 +56,7 @@ public class CustomStatsEditionWindowController extends DefaultFormDialogControl
   {
     Item reference=_data.getReference();
     String name=reference.getName();
-    String title="Edit stats for "+name; // I18n
+    String title=Labels.getLabel("common.editStatsFor",new Object[]{name});
     getDialog().setTitle(title);
   }
 

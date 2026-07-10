@@ -83,8 +83,8 @@ public class TitlesExplorerWindowController extends DefaultWindowController
     // Table
     initTitlesTable();
     _panelController=new GenericTablePanelController<TitleDescription>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Titles"); // I18n
-    _panelController.getCountsDisplay().setText("Title(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("titles.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("titles.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     _filterController=new TitleFilterController(_filter,_panelController);

@@ -10,6 +10,7 @@ import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.character.status.portraitFrames.PortraitFramesStatus;
 import delta.games.lotro.character.status.portraitFrames.io.PortraitFramesStatusIo;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a window that shows the status of portrait frames.
@@ -44,7 +45,7 @@ public class PortraitFramesStatusWindowController extends DefaultWindowControlle
   protected JFrame build()
   {
     JFrame frame=super.build();
-    frame.setTitle("Portrait frames status"); // I18n
+    frame.setTitle(Labels.getLabel("portraitFrames.status.window.title"));
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);
     frame.setMinimumSize(new Dimension(frame.getWidth(),MIN_HEIGHT));

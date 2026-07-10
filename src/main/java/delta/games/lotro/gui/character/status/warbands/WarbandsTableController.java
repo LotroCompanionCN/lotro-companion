@@ -34,6 +34,7 @@ import delta.games.lotro.character.log.CharacterLog;
 import delta.games.lotro.character.status.warbands.WarbandStats;
 import delta.games.lotro.character.status.warbands.WarbandsStats;
 import delta.games.lotro.gui.utils.SharedPanels;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.warbands.WarbandDefinition;
 import delta.games.lotro.lore.warbands.WarbandFilter;
 import delta.games.lotro.lore.warbands.WarbandsRegistry;
@@ -318,7 +319,7 @@ public class WarbandsTableController
     String lastDateStr;
     if (date==null)
     {
-      lastDateStr="never"; // I18n
+      lastDateStr=Labels.getLabel("warbands.table.never");
     }
     else
     {
@@ -331,11 +332,11 @@ public class WarbandsTableController
     }
     else if (nbTimes==1)
     {
-      nbTimesStr="1 time"; // I18n
+      nbTimesStr=Labels.getLabel("warbands.table.once");
     }
     else
     {
-      nbTimesStr=nbTimes+" times"; // I18n
+      nbTimesStr=Labels.getLabel("warbands.table.nTimes",new Object[]{Integer.valueOf(nbTimes)});
     }
     JPanel textPanel=GuiFactory.buildPanel(new GridBagLayout());
     // Last date

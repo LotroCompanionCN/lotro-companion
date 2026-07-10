@@ -15,6 +15,7 @@ import delta.games.lotro.character.status.achievables.statistics.reputation.Achi
 import delta.games.lotro.character.status.tasks.statistics.TasksStatistics;
 import delta.games.lotro.common.statistics.items.ItemsStats;
 import delta.games.lotro.gui.common.money.MoneyDisplayController;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for a panel to show the summary of the statistics about some achievables.
@@ -52,54 +53,54 @@ public class TasksStatisticsSummaryPanelController
     JPanel panel=GuiFactory.buildPanel(new BorderLayout());
     // Stats panel
     JPanel statsPanel=GuiFactory.buildPanel(new GridBagLayout());
-    TitledBorder border=GuiFactory.buildTitledBorder("Statistics"); // I18n
+    TitledBorder border=GuiFactory.buildTitledBorder(Labels.getLabel("tasks.statistics.summary.border"));
     statsPanel.setBorder(border);
     panel.add(statsPanel,BorderLayout.CENTER);
     GridBagConstraints cLabels=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,2,0),0,0);
     GridBagConstraints cValues=new GridBagConstraints(1,0,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,2,5),0,0);
 
     // Distinct tasks count
-    statsPanel.add(GuiFactory.buildLabel("Distinct tasks count:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.distinctTasksCount")),cLabels);
     _distinctTasksCount=GuiFactory.buildLabel("");
     statsPanel.add(_distinctTasksCount,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Completions count
-    statsPanel.add(GuiFactory.buildLabel("Completions count:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.completionsCount")),cLabels);
     _completionsCount=GuiFactory.buildLabel("");
     statsPanel.add(_completionsCount,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Reputation
-    statsPanel.add(GuiFactory.buildLabel("Reputation:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.reputation")),cLabels);
     _reputation=GuiFactory.buildLabel("");
     statsPanel.add(_reputation,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Consumed items
-    statsPanel.add(GuiFactory.buildLabel("Consumed items:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.consumedItems")),cLabels);
     _consumedItemsCount=GuiFactory.buildLabel("");
     statsPanel.add(_consumedItemsCount,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Price
-    statsPanel.add(GuiFactory.buildLabel("Value:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.value")),cLabels);
     _priceDisplay=new MoneyDisplayController();
     statsPanel.add(_priceDisplay.getPanel(),cValues);
     cLabels.gridy++;cValues.gridy++;
     // Earned items
-    statsPanel.add(GuiFactory.buildLabel("Earned items:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.earnedItems")),cLabels);
     _earnedItemsCount=GuiFactory.buildLabel("");
     statsPanel.add(_earnedItemsCount,cValues);
     cLabels.gridy++;cValues.gridy++;
     // XP
-    statsPanel.add(GuiFactory.buildLabel("Total XP:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.totalXP")),cLabels);
     _totalXP=GuiFactory.buildLabel("");
     statsPanel.add(_totalXP,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Item XP
-    statsPanel.add(GuiFactory.buildLabel("Total Item XP:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.totalItemXP")),cLabels);
     _totalItemXP=GuiFactory.buildLabel("");
     statsPanel.add(_totalItemXP,cValues);
     cLabels.gridy++;cValues.gridy++;
     // Mount XP
-    statsPanel.add(GuiFactory.buildLabel("Total Mount XP:"),cLabels); // I18n
+    statsPanel.add(GuiFactory.buildLabel(Labels.getLabel("tasks.statistics.summary.field.totalMountXP")),cLabels);
     _totalMountXP=GuiFactory.buildLabel("");
     statsPanel.add(_totalMountXP,cValues);
     cLabels.gridy++;cValues.gridy++;
@@ -126,7 +127,7 @@ public class TasksStatisticsSummaryPanelController
     String nbFactionsStr=L10n.getString(nbFactions);
     int nbReputationPoints=reputation.getTotalReputationPoints();
     String nbReputationPointsStr=L10n.getString(nbReputationPoints);
-    String reputationStr=String.format("%s points, %s factions",nbReputationPointsStr,nbFactionsStr); // I18n
+    String reputationStr=Labels.getLabel("tasks.statistics.reputation.format",new Object[]{nbReputationPointsStr,nbFactionsStr});
     _reputation.setText(reputationStr);
     // Consumed items
     ItemsStats consumedItemsStats=_statistics.getConsumedItemsStats();
@@ -151,7 +152,7 @@ public class TasksStatisticsSummaryPanelController
     String nbItemsStr=L10n.getString(nbItems);
     int nbDistinctItems=stats.getDistinctItemsCount();
     String nbDistinctItemsStr=L10n.getString(nbDistinctItems);
-    String ret=String.format("%s items, (%s distinct)",nbItemsStr,nbDistinctItemsStr); // I18n
+    String ret=Labels.getLabel("tasks.statistics.items.format",new Object[]{nbItemsStr,nbDistinctItemsStr});
     return ret;
   }
 

@@ -17,6 +17,7 @@ import delta.games.lotro.character.status.traits.TraitsStatus;
 import delta.games.lotro.character.status.traits.shared.TraitSlotsStatus;
 import delta.games.lotro.gui.character.status.traits.racial.RacialTraitsEditionDialogController;
 import delta.games.lotro.gui.character.traitTree.TraitTreeEditionDialog;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.events.EventsManager;
 
 /**
@@ -57,7 +58,7 @@ public class TraitsEditionPanelController
   {
     _panel=GuiFactory.buildPanel(new FlowLayout());
     // Trait tree
-    JButton traitTreeButton=GuiFactory.buildButton("Trait tree..."); // I18n
+    JButton traitTreeButton=GuiFactory.buildButton(Labels.getLabel("traits.edition.traitTree"));
     _panel.add(traitTreeButton);
     ActionListener alTraitTree=new ActionListener()
     {
@@ -69,7 +70,7 @@ public class TraitsEditionPanelController
     };
     traitTreeButton.addActionListener(alTraitTree);
     // Racial traits
-    JButton racialTraitsButton=GuiFactory.buildButton("Racial..."); // I18n
+    JButton racialTraitsButton=GuiFactory.buildButton(Labels.getLabel("traits.edition.racial"));
     _panel.add(racialTraitsButton);
     ActionListener alRacial=new ActionListener()
     {

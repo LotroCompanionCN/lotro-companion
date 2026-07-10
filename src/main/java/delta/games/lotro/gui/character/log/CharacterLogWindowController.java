@@ -63,7 +63,7 @@ public class CharacterLogWindowController extends DefaultWindowController
   {
     JFrame frame=super.build();
     String name=_toon.getName();
-    String title="Character log for: "+name; // I18n
+    String title=Labels.getLabel("character.log.window.title",new Object[]{name});
     frame.setTitle(title);
     frame.pack();
     frame.setMinimumSize(new Dimension(400,300));

@@ -43,6 +43,7 @@ import delta.games.lotro.lore.items.EquipmentLocation;
 import delta.games.lotro.lore.items.Item;
 import delta.games.lotro.lore.items.ItemFactory;
 import delta.games.lotro.lore.items.ItemInstance;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Controller for the "new toon" dialog.
@@ -73,7 +74,7 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
   protected JDialog build()
   {
     JDialog dialog=super.build();
-    dialog.setTitle("New character..."); // I18n
+    dialog.setTitle(Labels.getLabel("toon.new.window.title"));
     dialog.setResizable(false);
     return dialog;
   }
@@ -82,7 +83,7 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
   protected JPanel buildFormPanel()
   {
     JPanel dataPanel=buildNewToonPanel();
-    TitledBorder pathsBorder=GuiFactory.buildTitledBorder("Character"); // I18n
+    TitledBorder pathsBorder=GuiFactory.buildTitledBorder(Labels.getLabel("toon.new.border.title"));
     dataPanel.setBorder(pathsBorder);
     return dataPanel;
   }
@@ -121,17 +122,17 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
 
     Insets insets=new Insets(5,5,5,5);
     GridBagConstraints gbc=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,insets,0,0);
-    panel.add(GuiFactory.buildLabel("Name:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("toon.new.field.name")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Server:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("toon.new.field.server")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Account:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("toon.new.field.account")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Race:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("toon.new.field.race")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Class:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("toon.new.field.class")),gbc);
     gbc.gridx=0; gbc.gridy++;
-    panel.add(GuiFactory.buildLabel("Sex:"),gbc); // I18n
+    panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("toon.new.field.sex")),gbc);
     gbc.gridx=1; gbc.gridy=0;
     gbc.weightx=1.0; gbc.fill=GridBagConstraints.HORIZONTAL;
     panel.add(_toonName,gbc);
@@ -172,7 +173,7 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
     CharacterFile toon=manager.addToon(summary);
     if (toon==null)
     {
-      showErrorMessage("Character creation failed!"); // I18n
+      showErrorMessage(Labels.getLabel("toon.new.creation.error.message"));
       return;
     }
 
@@ -234,19 +235,19 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
     String toonName=_toonName.getText();
     if ((toonName==null) || (toonName.trim().isEmpty()))
     {
-      errorMsg="Invalid toon name!"; // I18n
+      errorMsg=Labels.getLabel("toon.new.validation.error.invalidToonName");
     }
     String server=_server.getSelectedItem();
     if ((server==null) || (server.trim().isEmpty()))
     {
-      errorMsg="Invalid server name!"; // I18n
+      errorMsg=Labels.getLabel("toon.new.validation.error.invalidServerName");
     }
     return errorMsg;
   }
 
   private void showErrorMessage(String errorMsg)
   {
-    String title="Character creation"; // I18n
+    String title=Labels.getLabel("toon.new.creation.error.title");
     JDialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }

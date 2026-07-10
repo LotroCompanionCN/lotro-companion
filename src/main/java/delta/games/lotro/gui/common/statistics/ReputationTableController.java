@@ -21,6 +21,7 @@ import delta.games.lotro.common.statistics.ReputationStats;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.utils.DataProvider;
 import delta.games.lotro.utils.comparators.DelegatingComparator;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.strings.ContextRendering;
 
 /**
@@ -81,7 +82,7 @@ public abstract class ReputationTableController<T extends FactionStats> extends 
           return factionName;
         }
       };
-      DefaultTableColumnController<T,String> factionColumn=new DefaultTableColumnController<T,String>(FACTION,"Faction",String.class,factionCell); // I18n
+      DefaultTableColumnController<T,String> factionColumn=new DefaultTableColumnController<T,String>(FACTION,Labels.getLabel("common.reputation.column.faction"),String.class,factionCell);
       factionColumn.setWidthSpecs(200,-1,200);
       table.addColumnController(factionColumn);
     }
@@ -96,7 +97,7 @@ public abstract class ReputationTableController<T extends FactionStats> extends 
           return amount;
         }
       };
-      DefaultTableColumnController<T,Integer> amountColumn=new DefaultTableColumnController<T,Integer>(AMOUNT,"Points",Integer.class,amountCell); // I18n
+      DefaultTableColumnController<T,Integer> amountColumn=new DefaultTableColumnController<T,Integer>(AMOUNT,Labels.getLabel("common.reputation.column.points"),Integer.class,amountCell);
       amountColumn.setWidthSpecs(60,60,60);
       table.addColumnController(amountColumn);
     }

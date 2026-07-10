@@ -8,6 +8,7 @@ import delta.games.lotro.common.Repeatability;
 import delta.games.lotro.common.Size;
 import delta.games.lotro.common.enums.QuestCategory;
 import delta.games.lotro.gui.utils.SharedUiUtils;
+import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
  * Utility methods for quest-related UIs.
@@ -43,7 +44,7 @@ public class QuestsUiUtils
     List<String> questArcs=QuestsUtils.getQuestArcs();
     for(String questArc : questArcs)
     {
-      String label=(questArc.isEmpty())?"(none)":questArc; // I18n
+      String label=(questArc.isEmpty())?Labels.getLabel("lore.quests.filter.questArc.none"):questArc;
       ctrl.addItem(questArc,label);
     }
     ctrl.selectItem(null);

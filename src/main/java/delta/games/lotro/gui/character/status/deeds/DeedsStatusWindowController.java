@@ -45,6 +45,7 @@ import delta.games.lotro.gui.character.status.deeds.table.DeedStatusTableControl
 import delta.games.lotro.gui.character.status.quests.BlacklistController;
 import delta.games.lotro.gui.lore.deeds.filter.DeedFilterController;
 import delta.games.lotro.gui.main.GlobalPreferences;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.deeds.DeedDescription;
 import delta.games.lotro.lore.quests.AchievablesUtils;
 import delta.games.lotro.stats.deeds.SyncDeedsStatusAndReputationStatus;
@@ -88,7 +89,7 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
   {
     JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
-    dialog.setTitle("Deeds status edition"); // I18n
+    dialog.setTitle(Labels.getLabel("character.status.deeds.window.title"));
     dialog.pack();
     Dimension size=dialog.getSize();
     if (size.height>MAX_HEIGHT)
@@ -112,18 +113,18 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
     Blacklist blacklist=BlackListIO.load(_toon,false);
     initTable(blacklist);
     _panelController=new GenericTablePanelController<AchievableStatus>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Status of deeds"); // I18n
-    _panelController.getCountsDisplay().setText("Deed(s)"); // I18n
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("character.status.deeds.border.status"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("character.status.deeds.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Deed filter
     _filterController=new DeedFilterController(this,_filter.getDeedFilter(),this,false);
     JPanel deedFilterPanel=_filterController.getPanel();
-    TitledBorder deedFilterBorder=GuiFactory.buildTitledBorder("Deed Filter"); // I18n
+    TitledBorder deedFilterBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.status.deeds.border.deedFilter"));
     deedFilterPanel.setBorder(deedFilterBorder);
     // Deed status filter
     _statusFilterController=new AchievableStatusFilterController(_filter,this);
     JPanel statusFilterPanel=_statusFilterController.getPanel();
-    TitledBorder statusFilterBorder=GuiFactory.buildTitledBorder("Status Filter"); // I18n
+    TitledBorder statusFilterBorder=GuiFactory.buildTitledBorder(Labels.getLabel("character.status.deeds.border.statusFilter"));
     statusFilterPanel.setBorder(statusFilterBorder);
     // Blacklist
     _filter.setBlacklist(blacklist);
@@ -153,7 +154,7 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
     JPanel ret=GuiFactory.buildPanel(new FlowLayout());
     // Stats button
     {
-      JButton statsButton=GuiFactory.buildButton("Stats"); // I18n
+      JButton statsButton=GuiFactory.buildButton(Labels.getLabel("character.status.deeds.button.stats"));
       ActionListener alStats=new ActionListener()
       {
         @Override
@@ -167,7 +168,7 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
     }
     // Maps button
     {
-      JButton mapsButton=GuiFactory.buildButton("Maps"); // I18n
+      JButton mapsButton=GuiFactory.buildButton(Labels.getLabel("character.status.deeds.button.maps"));
       ActionListener alMaps=new ActionListener()
       {
         @Override
@@ -184,7 +185,7 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
 
   private void initTable(Blacklist blacklist)
   {
-    TypedProperties prefs=GlobalPreferences.getGlobalProperties("DeedsStatus"); // I18n
+    TypedProperties prefs=GlobalPreferences.getGlobalProperties("DeedsStatus");
     _tableController=new DeedStatusTableController(this,_data,prefs,_filter,_deeds,this,blacklist);
     GenericTableController<AchievableStatus> tableController=_tableController.getTableController();
     JTable table=tableController.getTable();

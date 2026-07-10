@@ -26,6 +26,7 @@ import delta.games.lotro.common.comparators.NamedComparator;
 import delta.games.lotro.gui.common.navigation.ReferenceConstants;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils;
 import delta.games.lotro.gui.lore.titles.TitleUiUtils.TitleRenderingFormat;
+import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.billingGroups.BillingGroupDescription;
 import delta.games.lotro.lore.titles.TitleDescription;
 import delta.games.lotro.utils.html.HtmlUtils;
@@ -63,7 +64,7 @@ public class BillingGroupDisplayPanelController implements NavigablePanelControl
   @Override
   public String getTitle()
   {
-    return "Account feature: "+_billingGroup.getName(); // 18n
+    return Labels.getLabel("billingGroup.display.title",new Object[]{_billingGroup.getName()});
   }
 
   @Override
@@ -102,7 +103,7 @@ public class BillingGroupDisplayPanelController implements NavigablePanelControl
     {
       panel=GuiFactory.buildPanel(new BorderLayout());
       panel.add(references,BorderLayout.CENTER);
-      panel.setBorder(GuiFactory.buildTitledBorder("References")); // 18n
+      panel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("billingGroup.display.references")));
     }
     return panel;
   }
@@ -126,7 +127,7 @@ public class BillingGroupDisplayPanelController implements NavigablePanelControl
     // Details
     _details=buildDetailsPane();
     JScrollPane detailsPane=GuiFactory.buildScrollPane(_details);
-    detailsPane.setBorder(GuiFactory.buildTitledBorder("Titles")); // 18n
+    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("billingGroup.display.titles")));
     c.fill=GridBagConstraints.BOTH;
     c.weightx=1.0;
     c.weighty=1.0;
@@ -177,7 +178,7 @@ public class BillingGroupDisplayPanelController implements NavigablePanelControl
 
   private void buildHtmlForTitleReference(StringBuilder sb, TitleDescription title)
   {
-    sb.append("<p>Gives title: "); // 18n
+    sb.append(Labels.getLabel("billingGroup.display.givesTitle"));
     sb.append("<b>");
     int titleID=title.getIdentifier();
     PageIdentifier to=ReferenceConstants.getTitleReference(titleID);
