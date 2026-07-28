@@ -63,7 +63,7 @@ public class KinshipWindowController extends DefaultWindowController
     JFrame frame=super.build();
     // Title
     String name=_kinship.getName();
-    String title=Labels.getLabel("kinship.window.title",new Object[]{name});
+    String title=Labels.getLabel("kinship.window.title",new Object[] {name});
     frame.setTitle(title);
     frame.setMinimumSize(new Dimension(650,350));
     frame.setSize(850,600);

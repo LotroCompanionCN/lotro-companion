@@ -95,7 +95,8 @@ public class DeedsTableController extends AbstractAreaController
           return Integer.valueOf(deed.getIdentifier());
         }
       };
-      DefaultTableColumnController<DeedDescription,Integer> idColumn=new DefaultTableColumnController<DeedDescription,Integer>(DeedColumnIds.ID.name(),Labels.getLabel("deeds.table.column.id"),Integer.class,idCell);
+      String columnName=Labels.getLabel("deeds.table.column.id");
+      DefaultTableColumnController<DeedDescription,Integer> idColumn=new DefaultTableColumnController<DeedDescription,Integer>(DeedColumnIds.ID.name(),columnName,Integer.class,idCell);
       idColumn.setWidthSpecs(100,100,100);
       ret.add(idColumn);
     }
@@ -109,7 +110,8 @@ public class DeedsTableController extends AbstractAreaController
           return deed.getName();
         }
       };
-      DefaultTableColumnController<DeedDescription,String> nameColumn=new DefaultTableColumnController<DeedDescription,String>(DeedColumnIds.NAME.name(),Labels.getLabel("deeds.table.column.name"),String.class,nameCell);
+      String columnName=Labels.getLabel("deeds.table.column.name");
+      DefaultTableColumnController<DeedDescription,String> nameColumn=new DefaultTableColumnController<DeedDescription,String>(DeedColumnIds.NAME.name(),columnName,String.class,nameCell);
       nameColumn.setWidthSpecs(100,-1,200);
       ret.add(nameColumn);
     }
@@ -123,7 +125,8 @@ public class DeedsTableController extends AbstractAreaController
           return deed.getType();
         }
       };
-      DefaultTableColumnController<DeedDescription,DeedType> typeColumn=new DefaultTableColumnController<DeedDescription,DeedType>(DeedColumnIds.TYPE.name(),Labels.getLabel("deeds.table.column.type"),DeedType.class,typeCell);
+      String columnName=Labels.getLabel("deeds.table.column.type");
+      DefaultTableColumnController<DeedDescription,DeedType> typeColumn=new DefaultTableColumnController<DeedDescription,DeedType>(DeedColumnIds.TYPE.name(),columnName,DeedType.class,typeCell);
       typeColumn.setWidthSpecs(80,100,80);
       ret.add(typeColumn);
     }
@@ -137,7 +140,8 @@ public class DeedsTableController extends AbstractAreaController
           return deed.getCategory();
         }
       };
-      DefaultTableColumnController<DeedDescription,DeedCategory> categoryColumn=new DefaultTableColumnController<DeedDescription,DeedCategory>(DeedColumnIds.CATEGORY.name(),Labels.getLabel("deeds.table.column.category"),DeedCategory.class,categoryCell);
+      String columnName=Labels.getLabel("deeds.table.column.category");
+      DefaultTableColumnController<DeedDescription,DeedCategory> categoryColumn=new DefaultTableColumnController<DeedDescription,DeedCategory>(DeedColumnIds.CATEGORY.name(),columnName,DeedCategory.class,categoryCell);
       categoryColumn.setWidthSpecs(80,350,80);
       ret.add(categoryColumn);
     }
@@ -151,7 +155,8 @@ public class DeedsTableController extends AbstractAreaController
           return deed.getChallengeLevel();
         }
       };
-      DefaultTableColumnController<DeedDescription,ChallengeLevel> levelColumn=new DefaultTableColumnController<DeedDescription,ChallengeLevel>(DeedColumnIds.LEVEL.name(),Labels.getLabel("deeds.table.column.level"),ChallengeLevel.class,levelCell);
+      String columnName=Labels.getLabel("deeds.table.column.level");
+      DefaultTableColumnController<DeedDescription,ChallengeLevel> levelColumn=new DefaultTableColumnController<DeedDescription,ChallengeLevel>(DeedColumnIds.LEVEL.name(),columnName,ChallengeLevel.class,levelCell);
       levelColumn.setWidthSpecs(100,100,100);
       levelColumn.setComparator(new ChallengeLevelComparator());
       ret.add(levelColumn);
@@ -166,7 +171,8 @@ public class DeedsTableController extends AbstractAreaController
           return Boolean.valueOf(deed.isHidden());
         }
       };
-      DefaultTableColumnController<DeedDescription,Boolean> hiddenColumn=new DefaultTableColumnController<DeedDescription,Boolean>(DeedColumnIds.OBSOLETE.name(),Labels.getLabel("deeds.table.column.hidden"),Boolean.class,hiddenCell);
+      String columnName=Labels.getLabel("deeds.table.column.hidden");
+      DefaultTableColumnController<DeedDescription,Boolean> hiddenColumn=new DefaultTableColumnController<DeedDescription,Boolean>(DeedColumnIds.OBSOLETE.name(),columnName,Boolean.class,hiddenCell);
       hiddenColumn.setWidthSpecs(100,100,100);
       ret.add(hiddenColumn);
     }
@@ -180,7 +186,8 @@ public class DeedsTableController extends AbstractAreaController
           return Boolean.valueOf(deed.isMonsterPlay());
         }
       };
-      DefaultTableColumnController<DeedDescription,Boolean> monsterPlayColumn=new DefaultTableColumnController<DeedDescription,Boolean>(DeedColumnIds.MONSTER_PLAY.name(),Labels.getLabel("deeds.table.column.monsterPlay"),Boolean.class,monsterPlayCell);
+      String columnName=Labels.getLabel("deeds.table.column.monsterPlay");
+      DefaultTableColumnController<DeedDescription,Boolean> monsterPlayColumn=new DefaultTableColumnController<DeedDescription,Boolean>(DeedColumnIds.MONSTER_PLAY.name(),columnName,Boolean.class,monsterPlayCell);
       monsterPlayColumn.setWidthSpecs(100,100,100);
       ret.add(monsterPlayColumn);
     }

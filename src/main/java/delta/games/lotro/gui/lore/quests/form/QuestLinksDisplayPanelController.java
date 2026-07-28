@@ -94,7 +94,7 @@ public class QuestLinksDisplayPanelController
 
   private void buildLinks()
   {
-    buildController(Labels.getLabel("lore.quests.display.next"),_quest.getNextQuest());
+    buildController(Labels.getFieldLabel("quest.window.nextQuest"),_quest.getNextQuest());
   }
 
   private void buildController(String label, Proxy<Achievable> proxy)

@@ -95,7 +95,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
   @Override
   public String getTitle()
   {
-    return Labels.getLabel("deed.display.title",new Object[]{_deed.getName()});
+    return Labels.getLabel("deed.window.title",new Object[] {_deed.getName() });
   }
 
   private JPanel build()
@@ -113,7 +113,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
     _rewards=new RewardsPanelController(getParent(),_deed.getRewards(),monsterPlay);
     JPanel rewardsPanel=_rewards.getPanel();
     JComponent rewards=LayoutUtils.configureMaxHeightWithScrollPane(rewardsPanel,400,40);
-    TitledBorder rewardsBorder=GuiFactory.buildTitledBorder(Labels.getLabel("deed.display.rewards"));
+    TitledBorder rewardsBorder=GuiFactory.buildTitledBorder(Labels.getLabel("deed.window.rewards.border"));
     rewards.setBorder(rewardsBorder);
     c=new GridBagConstraints(1,1,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(rewards,c);
@@ -121,7 +121,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
     // Details
     _details=buildDetailsPane();
     JScrollPane detailsPane=GuiFactory.buildScrollPane(_details);
-    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("deed.display.details")));
+    detailsPane.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("deed.window.details.border")));
     LayoutUtils.configureScrollPane(_details,detailsPane,500,40,400);
     c=new GridBagConstraints(0,1,1,1,0.0,0.0,GridBagConstraints.NORTHWEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(detailsPane,c);
@@ -173,11 +173,11 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
       panel.add(panelLine,c);
       c.gridy++;
       // Category
-      panelLine.add(GuiFactory.buildLabel(Labels.getLabel("deed.display.category")+": "));
+      panelLine.add(GuiFactory.buildLabel(Labels.getFieldLabel("deed.window.category")));
       _category=GuiFactory.buildLabel("");
       panelLine.add(_category);
       // Type
-      panelLine.add(GuiFactory.buildLabel(Labels.getLabel("deed.display.type")+": "));
+      panelLine.add(GuiFactory.buildLabel(Labels.getFieldLabel("deed.window.type")));
       _type=GuiFactory.buildLabel("");
       panelLine.add(_type);
     }
@@ -187,7 +187,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
       panel.add(panelLine,c);
       c.gridy++;
       // Challenge level
-      panelLine.add(GuiFactory.buildLabel(Labels.getLabel("deed.display.level")+": "));
+      panelLine.add(GuiFactory.buildLabel(Labels.getFieldLabel("deed.window.level")));
       _challengeLevel=GuiFactory.buildLabel("");
       panelLine.add(_challengeLevel);
     }
@@ -197,7 +197,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
       panel.add(panelLine,c);
       c.gridy++;
       // Requirements
-      panelLine.add(GuiFactory.buildLabel(Labels.getLabel("deed.display.requirements")+": "));
+      panelLine.add(GuiFactory.buildLabel(Labels.getFieldLabel("deed.window.requirements")));
       _requirements=GuiFactory.buildLabel("");
       panelLine.add(_requirements);
     }
@@ -216,7 +216,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
       panel.add(panelLine,c);
       c.gridy++;
       // Quest pack
-      panelLine.add(GuiFactory.buildLabel(Labels.getLabel("deed.display.contentsPack")+": "));
+      panelLine.add(GuiFactory.buildLabel(Labels.getFieldLabel("deed.window.contentsPack")));
       _questPack=GuiFactory.buildLabel("");
       panelLine.add(_questPack);
     }
@@ -229,7 +229,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
       JPanel achievablesRequirementsPanel=_achievablesRequirements.getPanel();
       c=new GridBagConstraints(0,c.gridy,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
       panel.add(achievablesRequirementsPanel,c);
-      achievablesRequirementsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("deed.display.questsDeedsRequirements")));
+      achievablesRequirementsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("deed.window.requirements.border")));
       c.gridy++;
     }
     // World events conditions
@@ -243,7 +243,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
         JPanel worldEventConditionsPanel=_worldEventConditions.getPanel();
         c=new GridBagConstraints(0,c.gridy,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
         panel.add(worldEventConditionsPanel,c);
-        worldEventConditionsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("deed.display.context")));
+        worldEventConditionsPanel.setBorder(GuiFactory.buildTitledBorder(Labels.getLabel("deed.window.context.border")));
         c.gridy++;
       }
     }
@@ -259,7 +259,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
       AchievableStatus status=new AchievableStatus(_deed);
       AchievableGeoStatusManager geoStatusManager=new AchievableGeoStatusManager(status,null);
       _geoController=new AchievableGeoStatusEditionController(parent,geoStatusManager,false);
-      toggleMap=GuiFactory.buildButton(Labels.getLabel("deed.display.map"));
+      toggleMap=GuiFactory.buildButton(Labels.getLabel("deed.window.map.button"));
       ActionListener mapActionListener=new ActionListener()
       {
         @Override
@@ -300,7 +300,7 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
   {
     StringBuilder sb=new StringBuilder();
     sb.append("<html><body>");
-    sb.append(Labels.getLabel("deed.display.descriptionTitle"));
+    sb.append("<b>").append(Labels.getLabel("deed.window.description.chapter")).append("</b><p>");
     String description=_deed.getDescription();
     description=ContextRendering.render(this,description);
     sb.append(HtmlUtils.toHtml(description));
@@ -376,14 +376,14 @@ public class DeedDisplayPanelController extends AbstractNavigablePanelController
     if (isMonsterPlay)
     {
       if (sb.length()>0) sb.append(", ");
-      sb.append(Labels.getLabel("deed.display.monsterPlay"));
+      sb.append(Labels.getLabel("deed.window.attributes.monsterPlay"));
     }
     // Hidden
     boolean hidden=_deed.isHidden();
     if (hidden)
     {
       if (sb.length()>0) sb.append(", ");
-      sb.append(Labels.getLabel("deed.display.hidden"));
+      sb.append(Labels.getLabel("deed.window.attributes.hidden"));
     }
     String ret=sb.toString();
     return ret;

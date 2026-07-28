@@ -27,7 +27,8 @@ public class QuestsColumnsBuilder
         return quest.getName();
       }
     };
-    DefaultTableColumnController<QuestDescription,String> nameColumn=new DefaultTableColumnController<QuestDescription,String>(QuestColumnIds.NAME.name(),Labels.getLabel("lore.quests.table.column.name"),String.class,nameCell);
+    String columnName=Labels.getLabel("quests.table.column.name");
+    DefaultTableColumnController<QuestDescription,String> nameColumn=new DefaultTableColumnController<QuestDescription,String>(QuestColumnIds.NAME.name(),columnName,String.class,nameCell);
     nameColumn.setWidthSpecs(100,300,200);
     return nameColumn;
   }
@@ -46,7 +47,8 @@ public class QuestsColumnsBuilder
         return quest.getChallengeLevel();
       }
     };
-    DefaultTableColumnController<QuestDescription,ChallengeLevel> levelColumn=new DefaultTableColumnController<QuestDescription,ChallengeLevel>(QuestColumnIds.LEVEL.name(),Labels.getLabel("lore.quests.table.column.level"),ChallengeLevel.class,levelCell);
+    String columnName=Labels.getLabel("quests.table.column.level");
+    DefaultTableColumnController<QuestDescription,ChallengeLevel> levelColumn=new DefaultTableColumnController<QuestDescription,ChallengeLevel>(QuestColumnIds.LEVEL.name(),columnName,ChallengeLevel.class,levelCell);
     levelColumn.setWidthSpecs(100,100,100);
     levelColumn.setComparator(new ChallengeLevelComparator());
     return levelColumn;

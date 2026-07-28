@@ -163,7 +163,7 @@ public class MobsFilterController implements ActionListener
     int y=0;
     // Mob attributes
     JPanel mobPanel=buildMobPanel();
-    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("mobs.filter.mob.border"));
+    Border border=GuiFactory.buildTitledBorder(Labels.getLabel("mobs.filter.border"));
     mobPanel.setBorder(border);
     GridBagConstraints c=new GridBagConstraints(0,y,1,1,0.0,0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
     panel.add(mobPanel,c);
@@ -249,7 +249,7 @@ public class MobsFilterController implements ActionListener
     }
     // SubSpecies
     {
-      line2Panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("mobs.filter.subspecies")));
+      line2Panel.add(GuiFactory.buildLabel(Labels.getFieldLabel("mobs.filter.subSpecies")));
       _subSpecies=buildAlignmentCombo(MobsUiUtils.getSubspecies(_mobs),_filter.getSubSpeciesFilter());
       line2Panel.add(_subSpecies.getComboBox());
     }

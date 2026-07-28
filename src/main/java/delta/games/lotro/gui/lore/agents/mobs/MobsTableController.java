@@ -82,7 +82,8 @@ public class MobsTableController
           return Integer.valueOf(mob.getIdentifier());
         }
       };
-      DefaultTableColumnController<MobDescription,Integer> idColumn=new DefaultTableColumnController<MobDescription,Integer>(MobColumnIds.ID.name(),Labels.getLabel("mobs.table.column.id"),Integer.class,idCell);
+      String columnName=Labels.getLabel("mobs.table.column.id");
+      DefaultTableColumnController<MobDescription,Integer> idColumn=new DefaultTableColumnController<MobDescription,Integer>(MobColumnIds.ID.name(),columnName,Integer.class,idCell);
       idColumn.setWidthSpecs(80,80,80);
       ret.add(idColumn);
     }
@@ -96,7 +97,8 @@ public class MobsTableController
           return mob.getName();
         }
       };
-      DefaultTableColumnController<MobDescription,String> nameColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.NAME.name(),Labels.getLabel("mobs.table.column.name"),String.class,nameCell);
+      String columnName=Labels.getLabel("mobs.table.column.name");
+      DefaultTableColumnController<MobDescription,String> nameColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.NAME.name(),columnName,String.class,nameCell);
       nameColumn.setWidthSpecs(100,-1,200);
       ret.add(nameColumn);
     }
@@ -111,7 +113,8 @@ public class MobsTableController
           return (alignment!=null)?alignment.getLabel():null;
         }
       };
-      DefaultTableColumnController<MobDescription,String> alignementColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.ALIGNMENT.name(),Labels.getLabel("mobs.table.column.alignment"),String.class,alignmentCell);
+      String columnName=Labels.getLabel("mobs.table.column.alignment");
+      DefaultTableColumnController<MobDescription,String> alignementColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.ALIGNMENT.name(),columnName,String.class,alignmentCell);
       alignementColumn.setWidthSpecs(60,60,60);
       ret.add(alignementColumn);
     }
@@ -126,7 +129,8 @@ public class MobsTableController
           return (agentClass!=null)?agentClass.getLabel():null;
         }
       };
-      DefaultTableColumnController<MobDescription,String> agentClassColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.CLASS.name(),Labels.getLabel("mobs.table.column.class"),String.class,agentClassCell);
+      String columnName=Labels.getLabel("mobs.table.column.class");
+      DefaultTableColumnController<MobDescription,String> agentClassColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.CLASS.name(),columnName,String.class,agentClassCell);
       agentClassColumn.setWidthSpecs(80,90,90);
       ret.add(agentClassColumn);
     }
@@ -141,7 +145,8 @@ public class MobsTableController
           return (classification!=null)?classification.getLabel():null;
         }
       };
-      DefaultTableColumnController<MobDescription,String> classFilterColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.CLASS_FILTER.name(),Labels.getLabel("mobs.table.column.classification"),String.class,classFilterCell);
+      String columnName=Labels.getLabel("mobs.table.column.classification");
+      DefaultTableColumnController<MobDescription,String> classFilterColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.CLASS_FILTER.name(),columnName,String.class,classFilterCell);
       classFilterColumn.setWidthSpecs(60,60,60);
       ret.add(classFilterColumn);
     }
@@ -155,7 +160,8 @@ public class MobsTableController
           return mob.getClassification().getEntityClassification().getGenusLabel();
         }
       };
-      DefaultTableColumnController<MobDescription,String> genusColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.GENUS.name(),Labels.getLabel("mobs.table.column.genus"),String.class,genusCell);
+      String columnName=Labels.getLabel("mobs.table.column.genus");
+      DefaultTableColumnController<MobDescription,String> genusColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.GENUS.name(),columnName,String.class,genusCell);
       genusColumn.setWidthSpecs(80,120,120);
       ret.add(genusColumn);
     }
@@ -169,7 +175,8 @@ public class MobsTableController
           return mob.getClassification().getEntityClassification().getSpeciesLabel();
         }
       };
-      DefaultTableColumnController<MobDescription,String> speciesColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.SPECIES.name(),Labels.getLabel("mobs.table.column.species"),String.class,speciesCell);
+      String columnName=Labels.getLabel("mobs.table.column.species");
+      DefaultTableColumnController<MobDescription,String> speciesColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.SPECIES.name(),columnName,String.class,speciesCell);
       speciesColumn.setWidthSpecs(80,120,120);
       ret.add(speciesColumn);
     }
@@ -183,7 +190,8 @@ public class MobsTableController
           return mob.getClassification().getEntityClassification().getSubSpeciesLabel();
         }
       };
-      DefaultTableColumnController<MobDescription,String> subSpeciesColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.SUBSPECIES.name(),Labels.getLabel("mobs.table.column.subspecies"),String.class,subSpeciesCell);
+      String columnName=Labels.getLabel("mobs.table.column.subSpecies");
+      DefaultTableColumnController<MobDescription,String> subSpeciesColumn=new DefaultTableColumnController<MobDescription,String>(MobColumnIds.SUBSPECIES.name(),columnName,String.class,subSpeciesCell);
       subSpeciesColumn.setWidthSpecs(80,180,180);
       ret.add(subSpeciesColumn);
     }
