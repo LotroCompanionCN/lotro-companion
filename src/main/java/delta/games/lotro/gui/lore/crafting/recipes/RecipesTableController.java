@@ -87,7 +87,8 @@ public class RecipesTableController
           return Integer.valueOf(recipe.getIdentifier());
         }
       };
-      DefaultTableColumnController<Recipe,Integer> idColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.ID.name(),Labels.getLabel("recipes.table.column.id"),Integer.class,idCell);
+      String columnName=Labels.getLabel("recipes.table.column.id");
+      DefaultTableColumnController<Recipe,Integer> idColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.ID.name(),columnName,Integer.class,idCell);
       idColumn.setWidthSpecs(80,80,80);
       ret.add(idColumn);
     }
@@ -101,7 +102,8 @@ public class RecipesTableController
           return recipe.getName();
         }
       };
-      DefaultTableColumnController<Recipe,String> nameColumn=new DefaultTableColumnController<Recipe,String>(RecipeColumnIds.NAME.name(),Labels.getLabel("recipes.table.column.name"),String.class,nameCell);
+      String columnName=Labels.getLabel("recipes.table.column.name");
+      DefaultTableColumnController<Recipe,String> nameColumn=new DefaultTableColumnController<Recipe,String>(RecipeColumnIds.NAME.name(),columnName,String.class,nameCell);
       nameColumn.setWidthSpecs(100,300,200);
       ret.add(nameColumn);
     }
@@ -115,7 +117,8 @@ public class RecipesTableController
           return recipe.getProfession();
         }
       };
-      DefaultTableColumnController<Recipe,Profession> professionColumn=new DefaultTableColumnController<Recipe,Profession>(RecipeColumnIds.PROFESSION.name(),Labels.getLabel("recipes.table.column.profession"),Profession.class,professionCell);
+      String columnName=Labels.getLabel("recipes.table.column.profession");
+      DefaultTableColumnController<Recipe,Profession> professionColumn=new DefaultTableColumnController<Recipe,Profession>(RecipeColumnIds.PROFESSION.name(),columnName,Profession.class,professionCell);
       professionColumn.setWidthSpecs(100,100,100);
       ret.add(professionColumn);
     }
@@ -129,7 +132,8 @@ public class RecipesTableController
           return Integer.valueOf(recipe.getTier());
         }
       };
-      DefaultTableColumnController<Recipe,Integer> tierColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.TIER.name(),Labels.getLabel("recipes.table.column.tier"),Integer.class,tierCell);
+      String columnName=Labels.getLabel("recipes.table.column.tier");
+      DefaultTableColumnController<Recipe,Integer> tierColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.TIER.name(),columnName,Integer.class,tierCell);
       tierColumn.setWidthSpecs(50,50,50);
       ret.add(tierColumn);
     }
@@ -143,7 +147,8 @@ public class RecipesTableController
           return recipe.getCategory();
         }
       };
-      DefaultTableColumnController<Recipe,CraftingUICategory> categoryColumn=new DefaultTableColumnController<Recipe,CraftingUICategory>(RecipeColumnIds.CATEGORY.name(),Labels.getLabel("recipes.table.column.category"),CraftingUICategory.class,categoryCell);
+      String columnName=Labels.getLabel("recipes.table.column.category");
+      DefaultTableColumnController<Recipe,CraftingUICategory> categoryColumn=new DefaultTableColumnController<Recipe,CraftingUICategory>(RecipeColumnIds.CATEGORY.name(),columnName,CraftingUICategory.class,categoryCell);
       categoryColumn.setWidthSpecs(80,270,80);
       ret.add(categoryColumn);
     }
@@ -157,7 +162,8 @@ public class RecipesTableController
           return Integer.valueOf(recipe.getXP());
         }
       };
-      DefaultTableColumnController<Recipe,Integer> xpColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.XP.name(),Labels.getLabel("recipes.table.column.xp"),Integer.class,xpCell);
+      String columnName=Labels.getLabel("recipes.table.column.xp");
+      DefaultTableColumnController<Recipe,Integer> xpColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.XP.name(),columnName,Integer.class,xpCell);
       xpColumn.setWidthSpecs(30,30,30);
       ret.add(xpColumn);
     }
@@ -172,7 +178,8 @@ public class RecipesTableController
           return (cooldown!=-1)?Integer.valueOf(cooldown):null;
         }
       };
-      DefaultTableColumnController<Recipe,Integer> cooldownColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.COOLDOWN.name(),Labels.getLabel("recipes.table.column.cooldown"),Integer.class,cooldownCell);
+      String columnName=Labels.getLabel("recipes.table.column.cooldown");
+      DefaultTableColumnController<Recipe,Integer> cooldownColumn=new DefaultTableColumnController<Recipe,Integer>(RecipeColumnIds.COOLDOWN.name(),columnName,Integer.class,cooldownCell);
       cooldownColumn.setWidthSpecs(60,60,60);
       cooldownColumn.setCellRenderer(new DurationCellRenderer());
       ret.add(cooldownColumn);
@@ -188,7 +195,8 @@ public class RecipesTableController
           return Boolean.valueOf(oneTimeUse);
         }
       };
-      DefaultTableColumnController<Recipe,Boolean> cooldownColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.ONE_TIME_USE.name(),Labels.getLabel("recipes.table.column.singleUse"),Boolean.class,cooldownCell);
+      String columnName=Labels.getLabel("recipes.table.column.oneTimeUse");
+      DefaultTableColumnController<Recipe,Boolean> cooldownColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.ONE_TIME_USE.name(),columnName,Boolean.class,cooldownCell);
       cooldownColumn.setWidthSpecs(30,30,30);
       ret.add(cooldownColumn);
     }
@@ -203,7 +211,8 @@ public class RecipesTableController
           return Boolean.valueOf(guildRequired);
         }
       };
-      DefaultTableColumnController<Recipe,Boolean> guildColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.GUILD.name(),Labels.getLabel("recipes.table.column.guild"),Boolean.class,guildCell);
+      String columnName=Labels.getLabel("recipes.table.column.guild");
+      DefaultTableColumnController<Recipe,Boolean> guildColumn=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.GUILD.name(),columnName,Boolean.class,guildCell);
       guildColumn.setWidthSpecs(30,30,30);
       ret.add(guildColumn);
     }
@@ -219,7 +228,8 @@ public class RecipesTableController
           return RecipeUiUtils.getIngredientItems(recipe);
         }
       };
-      DefaultTableColumnController<Recipe,List> ingredientsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.INGREDIENTS.name(),Labels.getLabel("recipes.table.column.ingredients"),List.class,ingredientsCell);
+      String columnName=Labels.getLabel("recipes.table.column.ingredients");
+      DefaultTableColumnController<Recipe,List> ingredientsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.INGREDIENTS.name(),columnName,List.class,ingredientsCell);
       ingredientsColumn.setWidthSpecs(150,230,150);
       ItemsSummaryPanelController panelController=new ItemsSummaryPanelController();
       TableCellRenderer renderer=panelController.buildRenderer();
@@ -236,7 +246,8 @@ public class RecipesTableController
           return RecipeUiUtils.getResultItems(recipe);
         }
       };
-      DefaultTableColumnController<Recipe,List> resultsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.RESULT.name(),Labels.getLabel("recipes.table.column.result"),List.class,resultsCell);
+      String columnName=Labels.getLabel("recipes.table.column.result");
+      DefaultTableColumnController<Recipe,List> resultsColumn=new DefaultTableColumnController<Recipe,List>(RecipeColumnIds.RESULT.name(),columnName,List.class,resultsCell);
       resultsColumn.setWidthSpecs(80,80,80);
       ItemsSummaryPanelController panelController=new ItemsSummaryPanelController();
       TableCellRenderer renderer=panelController.buildRenderer();
@@ -256,7 +267,8 @@ public class RecipesTableController
         return Boolean.valueOf(recipe.getIngredientPack()!=null);
       }
     };
-    DefaultTableColumnController<Recipe,Boolean> column=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.USE_INGREDIENT_PACK.name(),Labels.getLabel("recipes.table.column.useIngredientPack"),Boolean.class,cell);
+    String columnName=Labels.getLabel("recipes.table.column.useIngredientPack");
+    DefaultTableColumnController<Recipe,Boolean> column=new DefaultTableColumnController<Recipe,Boolean>(RecipeColumnIds.USE_INGREDIENT_PACK.name(),columnName,Boolean.class,cell);
     column.setWidthSpecs(30,30,30);
     return column;
   }

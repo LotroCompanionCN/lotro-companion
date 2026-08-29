@@ -84,8 +84,8 @@ public class RecipesExplorerWindowController extends DefaultWindowController
     // Table
     initRecipesTable();
     _panelController=new GenericTablePanelController<Recipe>(this,_tableController.getTableController());
-    _panelController.getConfiguration().setBorderTitle("Items");
-    _panelController.getCountsDisplay().setText("Recipe(s)");
+    _panelController.getConfiguration().setBorderTitle(Labels.getLabel("recipes.explorer.table.border.title"));
+    _panelController.getCountsDisplay().setText(Labels.getLabel("recipes.explorer.count.label"));
     JPanel tablePanel=_panelController.getPanel();
     // Filter
     List<Recipe> recipes=RecipesManager.getInstance().getAll();
