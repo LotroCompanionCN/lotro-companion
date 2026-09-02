@@ -1,5 +1,7 @@
 package delta.games.lotro.gui.maps.resources;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -37,8 +39,8 @@ public class ResourcesMapsExplorerWindowController extends DefaultWindowControll
   {
     JFrame frame=super.build();
     frame.setTitle(Labels.getLabel("maps.resources.explorer.title"));
-    frame.setResizable(false);
     frame.pack();
+    frame.setMinimumSize(new Dimension(400,300));
     return frame;
   }
 

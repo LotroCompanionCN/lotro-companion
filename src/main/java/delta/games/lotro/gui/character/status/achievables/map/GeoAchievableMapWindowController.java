@@ -1,6 +1,7 @@
 package delta.games.lotro.gui.character.status.achievables.map;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -74,7 +75,7 @@ public class GeoAchievableMapWindowController extends DefaultDialogController
     for(AchievableGeoPointsMapPanelController mapPanelCtrl : _maps)
     {
       JPanel panel=GuiFactory.buildBackgroundPanel(new GridBagLayout());
-      GridBagConstraints c=new GridBagConstraints(1,1,1,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+      GridBagConstraints c=new GridBagConstraints(1,1,1,1,1.0,1.0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
       panel.add(mapPanelCtrl.getMapComponent(),c);
       String title=mapPanelCtrl.getMapTitle();
       tabbedPane.add(title,panel);
@@ -109,7 +110,7 @@ public class GeoAchievableMapWindowController extends DefaultDialogController
     // Title
     dialog.setTitle(Labels.getLabel("character.status.achievables.geoMap.window.title"));
     dialog.pack();
-    dialog.setResizable(false);
+    dialog.setMinimumSize(new Dimension(400,300));
     return dialog;
   }
 

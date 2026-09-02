@@ -1,6 +1,7 @@
 package delta.games.lotro.gui.character.status.housing.map;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -44,7 +45,7 @@ public class HouseMapWindowController extends DefaultWindowController
     JFrame frame=super.build();
     frame.setTitle("House Map");
     frame.pack();
-    frame.setResizable(false);
+    frame.setMinimumSize(new Dimension(400,300));
     return frame;
   }
 

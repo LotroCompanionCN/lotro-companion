@@ -2,6 +2,7 @@ package delta.games.lotro.gui.maps.global;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.util.List;
 
 import javax.swing.JComponent;
@@ -203,7 +204,7 @@ public class MapWindowController extends DefaultWindowController implements Navi
     // Size & position
     frame.setLocation(100,100);
     frame.pack();
-    frame.setResizable(false);
+    frame.setMinimumSize(new Dimension(400,300));
     frame.getContentPane().setBackground(GuiFactory.getBackgroundColor());
     return frame;
   }

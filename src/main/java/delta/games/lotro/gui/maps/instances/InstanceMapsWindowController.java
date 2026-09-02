@@ -1,5 +1,6 @@
 package delta.games.lotro.gui.maps.instances;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -74,7 +75,7 @@ public class InstanceMapsWindowController extends DefaultWindowController
       SelectionManager selectionMgr=panelCtrl.getSelectionManager();
       selectionMgr.addListener(new MarkerSelectionListener(this));
       JPanel panel=GuiFactory.buildBackgroundPanel(new GridBagLayout());
-      GridBagConstraints c=new GridBagConstraints(1,1,1,1,0.0,0.0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+      GridBagConstraints c=new GridBagConstraints(1,1,1,1,1.0,1.0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
       JLayeredPane mapPanel=panelCtrl.getLayers();
       panel.add(mapPanel,c);
       // Compute the title of the tab
@@ -103,7 +104,7 @@ public class InstanceMapsWindowController extends DefaultWindowController
     String title=Labels.getLabel("maps.instance.title",new Object[]{_pe.getName()});
     frame.setTitle(title);
     frame.pack();
-    frame.setResizable(false);
+    frame.setMinimumSize(new Dimension(400,300));
     return frame;
   }
 
