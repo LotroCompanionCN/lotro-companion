@@ -29,6 +29,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.LocalizedFormats;
 import delta.games.lotro.character.status.crafting.ProfessionStatus;
+import delta.games.lotro.gui.charts.JFreeChartFonts;
 import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.crafting.CraftingLevel;
 import delta.games.lotro.lore.crafting.Profession;
@@ -180,6 +181,7 @@ public class CraftingHistoryChartController
     legend.setItemPaint(foregroundColor);
     legend.setBackgroundPaint(backgroundPaint);
 
+    JFreeChartFonts.applyCjkFonts(jfreechart);
     return jfreechart;
   }
 

@@ -25,9 +25,21 @@ public final class FontsManager
       "/resources/gui/fonts/NotoSansCJKsc-Regular.otf",
       "/resources/gui/fonts/NotoSansCJKsc-Bold.otf");
 
+  /**
+   * Preferred CJK font families, best match first.
+   */
+  private static final String[] PREFERRED_FONT_FAMILIES = new String[] {
+    "Microsoft YaHei UI",
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Noto Sans CJK SC",
+    "Noto Sans SC"
+  };
+
   private static FontsManager _instance=new FontsManager();
 
   private String _fontFamily;
+  private String _preferredFamily;
 
   /**
    * Get the sole instance of this class.
@@ -87,5 +99,44 @@ public final class FontsManager
   public String getFontFamily()
   {
     return _fontFamily;
+  }
+
+  /**
+   * Get the family name of a CJK-capable font to use for rendering Chinese text.
+   * <p>Prefer an installed system font (e.g. Microsoft YaHei on Windows),
+   * and fall back to the bundled Noto Sans CJK font.
+   * @return A font family name, or <code>null</code> if none is available.
+   */
+  public String getPreferredCjkFontFamily()
+  {
+    if (_preferredFamily==null)
+    {
+      _preferredFamily=findPreferredFamily();
+      if (_preferredFamily==null)
+      {
+        _preferredFamily=_fontFamily;
+      }
+    }
+    return _preferredFamily;
+  }
+
+  /**
+   * Find the first preferred CJK font family that is installed on this machine.
+   * @return A font family name, or <code>null</code> if none is available.
+   */
+  private String findPreferredFamily()
+  {
+    String[] installed=GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+    for(String preferred : PREFERRED_FONT_FAMILIES)
+    {
+      for(String name : installed)
+      {
+        if (preferred.equalsIgnoreCase(name))
+        {
+          return preferred;
+        }
+      }
+    }
+    return null;
   }
 }

@@ -16,6 +16,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.LocalizedFormats;
 import delta.games.lotro.character.stats.contribs.ContribsByStat;
 import delta.games.lotro.character.stats.contribs.StatContribution;
+import delta.games.lotro.gui.charts.JFreeChartFonts;
 
 /**
  * Controller for a chart that show stat contributions.
@@ -44,6 +45,7 @@ public class StatContribsChartPanelController
     NumberFormat statFormat=LocalizedFormats.getRealNumberFormat(0,2);
     NumberFormat percentageFormat=LocalizedFormats.getRealNumberFormat(0,2,true);
     plot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0}={1} ({2})",statFormat,percentageFormat));
+    JFreeChartFonts.applyCjkFonts(_pieChart);
     _panel = new ChartPanel(_pieChart);
     _panel.setOpaque(false);
   }

@@ -1,7 +1,6 @@
 package delta.games.lotro;
 
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.util.Enumeration;
 import java.util.Locale;
 
@@ -56,23 +55,12 @@ public class Main
   }
 
   /**
-   * Preferred CJK font families, best match first.
-   */
-  private static final String[] PREFERRED_FONT_FAMILIES = new String[] {
-    "Microsoft YaHei UI",
-    "Microsoft YaHei",
-    "PingFang SC",
-    "Noto Sans CJK SC",
-    "Noto Sans SC"
-  };
-
-  /**
    * Replace the default UI font (UIManager) by a CJK-capable one, if available.
    * Preserves the style and size of each UI default.
    */
   private static void setDefaultUiFont()
   {
-    String family=findAvailableCjkFontFamily();
+    String family=FontsManager.getInstance().getPreferredCjkFontFamily();
     if (family==null)
     {
       return;
@@ -92,26 +80,5 @@ public class Main
         }
       }
     }
-  }
-
-  /**
-   * Find the first preferred CJK font family that is installed on this machine.
-   * @return A font family name, or <code>null</code> if none is available.
-   */
-  private static String findAvailableCjkFontFamily()
-  {
-    GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
-    String[] installed=ge.getAvailableFontFamilyNames();
-    for(String preferred : PREFERRED_FONT_FAMILIES)
-    {
-      for(String name : installed)
-      {
-        if (preferred.equalsIgnoreCase(name))
-        {
-          return preferred;
-        }
-      }
-    }
-    return null;
   }
 }

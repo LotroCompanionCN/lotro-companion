@@ -26,6 +26,7 @@ import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.stats.BasicStatsSet;
 import delta.games.lotro.character.stats.ratings.RatingCurve;
 import delta.games.lotro.common.stats.StatDescription;
+import delta.games.lotro.gui.charts.JFreeChartFonts;
 import delta.games.lotro.gui.utils.l10n.Labels;
 
 /**
@@ -209,6 +210,7 @@ public class StatCurveChartPanelController
         shapeRenderer.setSeriesVisibleInLegend(pointsSeriesIndex,Boolean.FALSE);
       }
     }
+    JFreeChartFonts.applyCjkFonts(jfreechart);
     return jfreechart;
   }
 

@@ -31,6 +31,7 @@ import delta.common.ui.swing.panels.AbstractPanelController;
 import delta.common.utils.l10n.LocalizedFormats;
 import delta.games.lotro.character.status.reputation.FactionLevelStatus;
 import delta.games.lotro.character.status.reputation.FactionStatus;
+import delta.games.lotro.gui.charts.JFreeChartFonts;
 import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.lore.reputation.Faction;
 import delta.games.lotro.lore.reputation.FactionLevel;
@@ -178,6 +179,7 @@ public class FactionHistoryChartController extends AbstractPanelController
     legend.setItemPaint(foregroundColor);
     legend.setBackgroundPaint(backgroundPaint);
 
+    JFreeChartFonts.applyCjkFonts(jfreechart);
     return jfreechart;
   }
 

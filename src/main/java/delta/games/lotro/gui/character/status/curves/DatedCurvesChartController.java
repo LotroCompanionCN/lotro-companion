@@ -38,6 +38,7 @@ import org.slf4j.LoggerFactory;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.LocalizedFormats;
+import delta.games.lotro.gui.charts.JFreeChartFonts;
 import delta.games.lotro.utils.Formats;
 import delta.games.lotro.utils.charts.DatedCurve;
 import delta.games.lotro.utils.charts.DatedCurveItem;
@@ -152,6 +153,7 @@ public class DatedCurvesChartController
     legend.setPosition(RectangleEdge.BOTTOM);
     legend.setItemPaint(foregroundColor);
     legend.setBackgroundPaint(backgroundPaint);
+    JFreeChartFonts.applyCjkFonts(jfreechart);
     return jfreechart;
   }
 
