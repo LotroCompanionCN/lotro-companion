@@ -1,8 +1,13 @@
 package delta.games.lotro;
 
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.util.Enumeration;
 import java.util.Locale;
 
 import javax.swing.JFrame;
+import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.utils.exceptions.UIExceptionsLogger;
@@ -13,6 +18,7 @@ import delta.games.lotro.dat.misc.Context;
 import delta.games.lotro.gui.LotroIconsManager;
 import delta.games.lotro.gui.main.MainFrameController;
 import delta.games.lotro.utils.cfg.ApplicationConfiguration;
+import delta.games.lotro.utils.gui.FontsManager;
 
 /**
  * Main for LOTRO companion.
@@ -29,6 +35,10 @@ public class Main
     // Init UI
     UIExceptionsLogger.init();
     GuiFactory.init();
+    // Register the bundled CJK font
+    FontsManager.getInstance();
+    // Prefer a CJK-capable UI font so that Chinese text does not fall back to SimSun
+    setDefaultUiFont();
     // Init preferences
     GuiFactory.setPreferences(Config.getInstance().getPreferences());
     // Init l10n
@@ -43,5 +53,65 @@ public class Main
     MainFrameController controller=new MainFrameController();
     JFrame frame=controller.getFrame();
     frame.setVisible(true);
+  }
+
+  /**
+   * Preferred CJK font families, best match first.
+   */
+  private static final String[] PREFERRED_FONT_FAMILIES = new String[] {
+    "Microsoft YaHei UI",
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Noto Sans CJK SC",
+    "Noto Sans SC"
+  };
+
+  /**
+   * Replace the default UI font (UIManager) by a CJK-capable one, if available.
+   * Preserves the style and size of each UI default.
+   */
+  private static void setDefaultUiFont()
+  {
+    String family=findAvailableCjkFontFamily();
+    if (family==null)
+    {
+      return;
+    }
+    UIDefaults defs=UIManager.getDefaults();
+    Enumeration<Object> keys=defs.keys();
+    while (keys.hasMoreElements())
+    {
+      Object key=keys.nextElement();
+      if ((key instanceof String) && ((String)key).endsWith(".font"))
+      {
+        Object value=defs.get(key);
+        if (value instanceof Font)
+        {
+          Font font=(Font)value;
+          defs.put(key,new Font(family,font.getStyle(),font.getSize()));
+        }
+      }
+    }
+  }
+
+  /**
+   * Find the first preferred CJK font family that is installed on this machine.
+   * @return A font family name, or <code>null</code> if none is available.
+   */
+  private static String findAvailableCjkFontFamily()
+  {
+    GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
+    String[] installed=ge.getAvailableFontFamilyNames();
+    for(String preferred : PREFERRED_FONT_FAMILIES)
+    {
+      for(String name : installed)
+      {
+        if (preferred.equalsIgnoreCase(name))
+        {
+          return preferred;
+        }
+      }
+    }
+    return null;
   }
 }

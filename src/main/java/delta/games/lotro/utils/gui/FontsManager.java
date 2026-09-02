@@ -5,23 +5,29 @@ import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Arrays;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Custom fonts manager.
+ * <p>Registers the bundled CJK fonts so that Chinese text can be rendered
+ * with a consistent font across all platforms.
  * @author DAM
  */
 public final class FontsManager
 {
   private static final Logger LOGGER=LoggerFactory.getLogger(FontsManager.class);
 
-  private static final String FONT = "/resources/gui/fonts/firstv2.ttf";
+  private static final List<String> FONTS = Arrays.asList(
+      "/resources/gui/fonts/NotoSansCJKsc-Regular.otf",
+      "/resources/gui/fonts/NotoSansCJKsc-Bold.otf");
 
   private static FontsManager _instance=new FontsManager();
 
-  private Font _font;
+  private String _fontFamily;
 
   /**
    * Get the sole instance of this class.
@@ -34,34 +40,52 @@ public final class FontsManager
 
   private FontsManager()
   {
-    loadFont();
+    loadFonts();
   }
 
-  private void loadFont()
+  private void loadFonts()
   {
-    try {
-      URL ufont=FontsManager.class.getResource(FONT);
-      URLConnection con=ufont.openConnection();
-      con.connect();
-      InputStream is=con.getInputStream();
-      Font f=Font.createFont(Font.TRUETYPE_FONT,is);
-      GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
-      ge.registerFont(f);
-      String s=f.getFamily();
-      _font=new Font(s,Font.PLAIN,12);
-    }
-    catch(Exception e)
+    GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
+    for(String fontResource : FONTS)
     {
-      LOGGER.warn("Could not load font "+FONT,e);
+      try
+      {
+        URL ufont=FontsManager.class.getResource(fontResource);
+        if (ufont==null)
+        {
+          LOGGER.warn("Could not find bundled font resource: "+fontResource);
+          continue;
+        }
+        URLConnection con=ufont.openConnection();
+        con.connect();
+        InputStream is=con.getInputStream();
+        try
+        {
+          Font f=Font.createFont(Font.TRUETYPE_FONT,is);
+          ge.registerFont(f);
+          if (_fontFamily==null)
+          {
+            _fontFamily=f.getFamily();
+          }
+        }
+        finally
+        {
+          is.close();
+        }
+      }
+      catch(Exception e)
+      {
+        LOGGER.warn("Could not load bundled font "+fontResource,e);
+      }
     }
   }
 
   /**
-   * Get the custom font.
-   * @return a font.
+   * Get the family name of the bundled CJK font, if loaded.
+   * @return a font family name, or <code>null</code> if the font could not be loaded.
    */
-  public Font getFont()
+  public String getFontFamily()
   {
-    return _font;
+    return _fontFamily;
   }
 }
