@@ -148,7 +148,8 @@ public class MapWindowController extends DefaultWindowController implements Navi
     }
     // Setup map
     _mapPanel.setMap(mapViewDefinition);
-    pack();
+    // Keep the current window size and fit the new map content to it.
+    _mapPanel.getMapPanelController().fitToCurrentSize();
     // Radar map
     ParchmentMapsManager parchmentMapsMgr=ParchmentMapsManager.getInstance();
     ParchmentMap parchmentMap=parchmentMapsMgr.getMapById(mapId);
