@@ -39,8 +39,14 @@
     <dependency>
       <groupId>com.dam.delta4j</groupId>
       <artifactId>delta-lotro-memory</artifactId>
-      <version>6.7.1-cn</version>
+      <version>6.7.1</version>
     </dependency>
+    <!--
+      Runtime override for the delta-lotro-memory client offsets is shipped by
+      lotro-core-overrides (app/lib/patches), which shadows the 64bits.properties
+      resource bundled in the upstream jar above. Keep this at the upstream
+      version; never fork into a ...-cn artifact.
+    -->
     <dependency>
       <groupId>com.dam.delta4j</groupId>
       <artifactId>delta-lotro-maps</artifactId>
